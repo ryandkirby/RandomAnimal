@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AnimalRosterTableViewController.h"
+#import "AppShared.h"
 
 @interface RandomAnimalViewController : UIViewController
 

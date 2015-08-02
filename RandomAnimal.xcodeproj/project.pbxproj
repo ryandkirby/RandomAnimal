@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */; };
 		945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */; };
+		945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C301B6DBF1600C8F7F2 /* AppShared.m */; };
+		945F9C341B6DC01900C8F7F2 /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C331B6DC01900C8F7F2 /* Animal.m */; };
+		945F9C381B6DC11500C8F7F2 /* AnimalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C371B6DC11500C8F7F2 /* AnimalStorage.m */; };
 		94F37B241B6D9FE00089A4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B231B6D9FE00089A4D5 /* main.m */; };
 		94F37B271B6D9FE00089A4D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B261B6D9FE00089A4D5 /* AppDelegate.m */; };
 		94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B291B6D9FE00089A4D5 /* ViewController.m */; };
@@ -34,6 +37,12 @@
 		945F9C291B6DB97200C8F7F2 /* RandomAnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomAnimalViewController.h; path = RandomAnimalViewController/RandomAnimalViewController.h; sourceTree = "<group>"; };
 		945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomAnimalViewController.m; path = RandomAnimalViewController/RandomAnimalViewController.m; sourceTree = "<group>"; };
 		945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RandomAnimalViewController.xib; path = RandomAnimalViewController/RandomAnimalViewController.xib; sourceTree = "<group>"; };
+		945F9C2F1B6DBF1600C8F7F2 /* AppShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppShared.h; sourceTree = "<group>"; };
+		945F9C301B6DBF1600C8F7F2 /* AppShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppShared.m; sourceTree = "<group>"; };
+		945F9C321B6DC01900C8F7F2 /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animal.h; path = Animal/Animal.h; sourceTree = "<group>"; };
+		945F9C331B6DC01900C8F7F2 /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animal.m; path = Animal/Animal.m; sourceTree = "<group>"; };
+		945F9C361B6DC11500C8F7F2 /* AnimalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimalStorage.h; path = Animal/AnimalStorage.h; sourceTree = "<group>"; };
+		945F9C371B6DC11500C8F7F2 /* AnimalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimalStorage.m; path = Animal/AnimalStorage.m; sourceTree = "<group>"; };
 		94F37B1E1B6D9FDF0089A4D5 /* RandomAnimal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomAnimal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F37B221B6D9FE00089A4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94F37B231B6D9FE00089A4D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,9 +89,21 @@
 			name = RandomAnimalViewController;
 			sourceTree = "<group>";
 		};
+		945F9C351B6DC01F00C8F7F2 /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				945F9C321B6DC01900C8F7F2 /* Animal.h */,
+				945F9C331B6DC01900C8F7F2 /* Animal.m */,
+				945F9C361B6DC11500C8F7F2 /* AnimalStorage.h */,
+				945F9C371B6DC11500C8F7F2 /* AnimalStorage.m */,
+			);
+			name = Animal;
+			sourceTree = "<group>";
+		};
 		94F37B151B6D9FDF0089A4D5 = {
 			isa = PBXGroup;
 			children = (
+				945F9C351B6DC01F00C8F7F2 /* Animal */,
 				945F9C2E1B6DB97A00C8F7F2 /* RandomAnimalViewController */,
 				94F37B4C1B6DA6A90089A4D5 /* AnimalRoster */,
 				94F37B201B6D9FDF0089A4D5 /* RandomAnimal */,
@@ -103,6 +124,8 @@
 		94F37B201B6D9FDF0089A4D5 /* RandomAnimal */ = {
 			isa = PBXGroup;
 			children = (
+				945F9C2F1B6DBF1600C8F7F2 /* AppShared.h */,
+				945F9C301B6DBF1600C8F7F2 /* AppShared.m */,
 				94F37B251B6D9FE00089A4D5 /* AppDelegate.h */,
 				94F37B261B6D9FE00089A4D5 /* AppDelegate.m */,
 				94F37B281B6D9FE00089A4D5 /* ViewController.h */,
@@ -253,9 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */,
+				945F9C381B6DC11500C8F7F2 /* AnimalStorage.m in Sources */,
 				94F37B4A1B6DA69C0089A4D5 /* AnimalRosterTableViewController.m in Sources */,
 				945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */,
 				94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */,
+				945F9C341B6DC01900C8F7F2 /* Animal.m in Sources */,
 				94F37B271B6D9FE00089A4D5 /* AppDelegate.m in Sources */,
 				94F37B241B6D9FE00089A4D5 /* main.m in Sources */,
 			);

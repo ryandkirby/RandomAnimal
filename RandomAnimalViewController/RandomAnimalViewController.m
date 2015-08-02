@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Random Animal Generator";
+    self.title = APP_NAME_STR;
 }
 
 - (void)didReceiveMemoryWarning {
