@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RandomAnimalViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    RandomAnimalViewController *randomAnimalVC = [[RandomAnimalViewController alloc] init];
+    UINavigationController *randomAnimalNavController = [[UINavigationController alloc] initWithRootViewController:randomAnimalVC];
+    
+    [[self window] setRootViewController:randomAnimalNavController];
+    
+    [self.window makeKeyAndVisible];
     return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

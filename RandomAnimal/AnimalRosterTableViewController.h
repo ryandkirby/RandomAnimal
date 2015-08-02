@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AnimalRosterTableViewController.h
 //  RandomAnimal
 //
 //  Created by Ryan Kirby on 8/1/15.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnimalRosterTableViewController.h"
 
-@interface ViewController : UIViewController
+@interface AnimalRosterTableViewController : UITableViewController
 
 @end
-
