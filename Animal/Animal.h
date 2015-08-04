@@ -10,8 +10,12 @@
 
 @interface Animal : NSObject
 
-@property (nonatomic) NSUInteger AnimalStatusInt;
+@property (nonatomic) NSInteger AnimalStatusInt;
 @property (nonatomic, copy) NSString* AnimalImageNameStr;
-@property (nonatomic, copy) NSString* AnimalNmaeStr;
+@property (nonatomic, copy) NSString* AnimalNameStr;
+
+- (id)initWithItemName:(NSInteger)status
+              animalImage:(NSString *)imageStr
+             animalName:(NSString *)name;
 
 @end

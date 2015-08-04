@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RandomAnimalViewController.h"
+#import "AnimalStorage.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,17 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    
+    Animal *a = [[AnimalStorage sharedStorage] createItem];
+    [a setAnimalImageNameStr:@"Pinko"];
+    [a setAnimalStatusInt:1];
+    
+    Animal *b = [[AnimalStorage sharedStorage] createItem];
+    [b setAnimalImageNameStr:@"Blacko"];
+    [b setAnimalStatusInt:1];
+    
     RandomAnimalViewController *randomAnimalVC = [[RandomAnimalViewController alloc] init];
     UINavigationController *randomAnimalNavController = [[UINavigationController alloc] initWithRootViewController:randomAnimalVC];
     

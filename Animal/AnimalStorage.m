@@ -26,4 +26,29 @@
     return [self sharedStorage];
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        allItems = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
+}
+
+-(NSArray *)allItems
+{
+    return allItems;
+}
+
+- (Animal *)createItem
+{
+    Animal *a = [[Animal alloc] init];
+    
+    [allItems addObject:a];
+    
+    return a;
+}
+
 @end

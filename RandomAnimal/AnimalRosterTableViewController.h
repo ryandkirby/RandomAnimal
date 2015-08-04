@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppShared.h"
+#import "AnimalStorage.h"
 
 @interface AnimalRosterTableViewController : UITableViewController
 
