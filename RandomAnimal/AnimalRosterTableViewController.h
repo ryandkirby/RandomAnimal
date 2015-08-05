@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppShared.h"
 #import "AnimalStorage.h"
+#import "AnimalRosterTableViewCell.h"
 
 @interface AnimalRosterTableViewController : UITableViewController
 

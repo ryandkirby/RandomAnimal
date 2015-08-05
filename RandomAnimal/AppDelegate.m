@@ -21,12 +21,16 @@
 {
     
     Animal *a = [[AnimalStorage sharedStorage] createItem];
-    [a setAnimalImageNameStr:@"Pinko"];
+    [a setAnimalNameStr:@"Pinko"];
     [a setAnimalStatusInt:1];
     
     Animal *b = [[AnimalStorage sharedStorage] createItem];
-    [b setAnimalImageNameStr:@"Blacko"];
+    [b setAnimalNameStr:@"Blacko"];
     [b setAnimalStatusInt:1];
+    
+    Animal *c = [[AnimalStorage sharedStorage] createItem];
+    [c setAnimalNameStr:@"Puffy"];
+    [c setAnimalStatusInt:1];
     
     RandomAnimalViewController *randomAnimalVC = [[RandomAnimalViewController alloc] init];
     UINavigationController *randomAnimalNavController = [[UINavigationController alloc] initWithRootViewController:randomAnimalVC];

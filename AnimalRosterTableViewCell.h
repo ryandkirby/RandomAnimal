@@ -10,4 +10,7 @@
 
 @interface AnimalRosterTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *animalName;
+@property (nonatomic, weak) IBOutlet UIImageView *animalImageImage;
+
 @end

@@ -10,6 +10,8 @@
 
 @implementation AnimalRosterTableViewCell
 
+@synthesize animalImageImage, animalName;
+
 - (void)awakeFromNib {
     // Initialization code
 }

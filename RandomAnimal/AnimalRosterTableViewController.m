@@ -32,7 +32,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -41,23 +41,53 @@
     return count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    
+    AnimalRosterTableViewCell *cell = (AnimalRosterTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"AnimalRosterTableViewCell"];
+    
+    
+    // If there is no cell queued offscreen, make a new one
+    if (!cell)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AnimalRosterTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    
+    if (cell)
+    {
+        NSArray* animalRoster = [[AnimalStorage sharedStorage] allItems];
+        if (animalRoster.count > 0)
+        {
+            Animal *a = [animalRoster objectAtIndex:indexPath.row];
+            [[cell animalName] setText:a.AnimalNameStr];
+            if ([cell animalImageImage] != nil)
+            {
+                //Load the image
+                //[[cell animalImageImage] setImage:a.a];
+            }
+            
+        }
+        
+    }
+    
     
     return cell;
 }
-*/
 
-/*
+
+
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+
 
 /*
 // Override to support editing the table view.
