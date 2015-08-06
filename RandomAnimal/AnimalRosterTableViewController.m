@@ -82,12 +82,12 @@
 
 
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
+*/
 
 /*
 // Override to support editing the table view.
@@ -115,21 +115,26 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    AnimalViewController *animalViewController = [[AnimalViewController alloc] init];
     
     // Pass the selected object to the new view controller.
-    
+    NSArray* animalRoster = [[AnimalStorage sharedStorage] allItems];
+    if (animalRoster.count > 0)
+    {
+        Animal *a = [animalRoster objectAtIndex:indexPath.row];
+        animalViewController.animal = a;
+    }
+
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:animalViewController animated:YES];
 }
-*/
 
 /*
 #pragma mark - Navigation

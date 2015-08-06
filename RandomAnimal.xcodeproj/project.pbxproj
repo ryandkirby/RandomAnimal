@@ -14,6 +14,8 @@
 		945F9C381B6DC11500C8F7F2 /* AnimalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C371B6DC11500C8F7F2 /* AnimalStorage.m */; };
 		945F9C3C1B705BC300C8F7F2 /* AnimalRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C3A1B705BC300C8F7F2 /* AnimalRosterTableViewCell.m */; };
 		945F9C3D1B705BC300C8F7F2 /* AnimalRosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C3B1B705BC300C8F7F2 /* AnimalRosterTableViewCell.xib */; };
+		945F9C411B72D17400C8F7F2 /* AnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C3F1B72D17400C8F7F2 /* AnimalViewController.m */; };
+		945F9C421B72D17400C8F7F2 /* AnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C401B72D17400C8F7F2 /* AnimalViewController.xib */; };
 		94F37B241B6D9FE00089A4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B231B6D9FE00089A4D5 /* main.m */; };
 		94F37B271B6D9FE00089A4D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B261B6D9FE00089A4D5 /* AppDelegate.m */; };
 		94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B291B6D9FE00089A4D5 /* ViewController.m */; };
@@ -48,6 +50,9 @@
 		945F9C391B705BC300C8F7F2 /* AnimalRosterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalRosterTableViewCell.h; sourceTree = "<group>"; };
 		945F9C3A1B705BC300C8F7F2 /* AnimalRosterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalRosterTableViewCell.m; sourceTree = "<group>"; };
 		945F9C3B1B705BC300C8F7F2 /* AnimalRosterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalRosterTableViewCell.xib; sourceTree = "<group>"; };
+		945F9C3E1B72D17400C8F7F2 /* AnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalViewController.h; sourceTree = "<group>"; };
+		945F9C3F1B72D17400C8F7F2 /* AnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewController.m; sourceTree = "<group>"; };
+		945F9C401B72D17400C8F7F2 /* AnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalViewController.xib; sourceTree = "<group>"; };
 		94F37B1E1B6D9FDF0089A4D5 /* RandomAnimal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomAnimal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F37B221B6D9FE00089A4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94F37B231B6D9FE00089A4D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -178,6 +183,9 @@
 				94F37B471B6DA69C0089A4D5 /* AnimalRosterTableViewController.h */,
 				94F37B481B6DA69C0089A4D5 /* AnimalRosterTableViewController.m */,
 				94F37B491B6DA69C0089A4D5 /* AnimalRosterTableViewController.xib */,
+				945F9C3E1B72D17400C8F7F2 /* AnimalViewController.h */,
+				945F9C3F1B72D17400C8F7F2 /* AnimalViewController.m */,
+				945F9C401B72D17400C8F7F2 /* AnimalViewController.xib */,
 			);
 			name = AnimalRoster;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 				945F9C3D1B705BC300C8F7F2 /* AnimalRosterTableViewCell.xib in Resources */,
 				945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */,
 				94F37B4B1B6DA69C0089A4D5 /* AnimalRosterTableViewController.xib in Resources */,
+				945F9C421B72D17400C8F7F2 /* AnimalViewController.xib in Resources */,
 				94F37B2D1B6D9FE00089A4D5 /* Main.storyboard in Resources */,
 				94F37B321B6D9FE00089A4D5 /* LaunchScreen.xib in Resources */,
 				94F37B2F1B6D9FE00089A4D5 /* Images.xcassets in Resources */,
@@ -287,6 +296,7 @@
 			files = (
 				945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */,
 				945F9C381B6DC11500C8F7F2 /* AnimalStorage.m in Sources */,
+				945F9C411B72D17400C8F7F2 /* AnimalViewController.m in Sources */,
 				94F37B4A1B6DA69C0089A4D5 /* AnimalRosterTableViewController.m in Sources */,
 				945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */,
 				94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */,

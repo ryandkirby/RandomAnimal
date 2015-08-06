@@ -10,6 +10,7 @@
 #import "AppShared.h"
 #import "AnimalStorage.h"
 #import "AnimalRosterTableViewCell.h"
+#import "AnimalViewController.h"
 
 @interface AnimalRosterTableViewController : UITableViewController
 
