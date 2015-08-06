@@ -34,7 +34,15 @@
 
 -(IBAction)findRandomAnimal:(id)sender
 {
-    NSInteger test = 1;
+    NSArray* animalRoster = [[AnimalStorage sharedStorage] allItems];
+    
+    if (animalRoster.count > 0)
+    {
+        NSUInteger randomVal = arc4random() % animalRoster.count;
+        
+        Animal *randomA =  [animalRoster objectAtIndex:randomVal];
+        animalName.text = randomA.AnimalNameStr;
+    }
 }
 
 /*

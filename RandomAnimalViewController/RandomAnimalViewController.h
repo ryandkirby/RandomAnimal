@@ -12,6 +12,9 @@
 #import "AnimalStorage.h"
 
 @interface RandomAnimalViewController : UIViewController
+{
+    __weak IBOutlet UILabel *animalName;
+}
 
 @property (nonatomic) AnimalRosterTableViewController *animalRosterTableViewontroller;
 
