@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Animal.h"
 
-@interface AnimalViewController : UIViewController
+@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *animalName;
-@property (nonatomic, weak) IBOutlet UIImageView *animalImageImage;
+@property (nonatomic, weak) IBOutlet UIImageView *animalImage;
 @property (nonatomic, weak)  Animal *animal;
+
+- (IBAction)takePicture:(id)sender;
 
 @end

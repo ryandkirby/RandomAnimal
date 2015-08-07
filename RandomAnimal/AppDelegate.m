@@ -24,13 +24,29 @@
     [a setAnimalNameStr:@"Pinko"];
     [a setAnimalStatusInt:1];
     
-    Animal *b = [[AnimalStorage sharedStorage] createItem];
-    [b setAnimalNameStr:@"Blacko"];
-    [b setAnimalStatusInt:1];
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"Blacko"];
+    [a setAnimalStatusInt:1];
+
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"Orango"];
+    [a setAnimalStatusInt:1];
     
-    Animal *c = [[AnimalStorage sharedStorage] createItem];
-    [c setAnimalNameStr:@"Puffy"];
-    [c setAnimalStatusInt:1];
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"Ozzie"];
+    [a setAnimalStatusInt:1];
+    
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"Shawn"];
+    [a setAnimalStatusInt:1];
+    
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"Gromit"];
+    [a setAnimalStatusInt:1];
+
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"José"];
+    [a setAnimalStatusInt:1];
     
     RandomAnimalViewController *randomAnimalVC = [[RandomAnimalViewController alloc] init];
     UINavigationController *randomAnimalNavController = [[UINavigationController alloc] initWithRootViewController:randomAnimalVC];

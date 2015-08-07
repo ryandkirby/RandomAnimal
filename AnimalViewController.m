@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImageImage, animalName, animal;
+@synthesize animalImage, animalName, animal;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +23,11 @@
     if (animal != nil)
     {
         self.title = animal.AnimalNameStr;
+        
+        if (animal.AnimalNameStr != nil)
+        {
+            animalName.text = animal.AnimalNameStr;
+        }
     }
 }
 
@@ -31,14 +36,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
 }
-*/
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [animalImage setImage:image];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

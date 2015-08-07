@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimalViewController">
             <connections>
+                <outlet property="animalImage" destination="V5s-Cp-3wr" id="C08-gM-FKZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,12 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-Qi-YBW">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="10" y="441" width="57" height="21"/>
+                    </variation>
+                </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXI-Uo-vUZ">
                     <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="73" y="74" width="289" height="30"/>
+                        <rect key="frame" x="68" y="437" width="278" height="30"/>
                     </variation>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbJ-15-I9w">
@@ -28,40 +38,35 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="8" y="128" width="354" height="30"/>
+                        <rect key="frame" x="19" y="72" width="354" height="30"/>
                     </variation>
+                    <connections>
+                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="nOf-hZ-6RB"/>
+                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="8" y="173" width="354" height="313"/>
+                        <rect key="frame" x="46" y="110" width="300" height="300"/>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-Qi-YBW">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="8" y="77" width="57" height="21"/>
-                    </variation>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <variation key="default">
                 <mask key="subviews">
+                    <exclude reference="Mac-Qi-YBW"/>
                     <exclude reference="sXI-Uo-vUZ"/>
                     <exclude reference="BbJ-15-I9w"/>
                     <exclude reference="V5s-Cp-3wr"/>
-                    <exclude reference="Mac-Qi-YBW"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
+                    <include reference="Mac-Qi-YBW"/>
                     <include reference="sXI-Uo-vUZ"/>
                     <include reference="BbJ-15-I9w"/>
                     <include reference="V5s-Cp-3wr"/>
-                    <include reference="Mac-Qi-YBW"/>
                 </mask>
             </variation>
         </view>
