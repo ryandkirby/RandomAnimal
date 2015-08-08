@@ -14,35 +14,13 @@
 
 @implementation AnimalRosterTableViewController
 
--(id)init
-{
-    self = [super initWithStyle:UITableViewStyleGrouped];
-    
-    if (self)
-    {
-
-        // Create an bar button item that will sit in the header.  This create a button callback
-        // that calls the addNewItem action when pressed.  The SystemButtonItem will create a button
-        // with a pre-defined image.  In this case, a '+' button.
-        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
-        
-        [[self navigationItem] setRightBarButtonItem:bbi];
-    }
-    return self;
-}
-
--(id)initWithStyle:(UITableViewStyle)style
-{
-    return [self init];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = ANIMAL_ROSTER_PAGE_NAME;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAnimal:)];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,6 +79,10 @@
     return cell;
 }
 
+-(IBAction)addAnimal:(id)sender
+{
+    
+}
 
 
 // Override to support conditional editing of the table view.

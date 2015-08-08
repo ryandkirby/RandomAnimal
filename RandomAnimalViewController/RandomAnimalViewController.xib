@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RandomAnimalViewController">
@@ -24,7 +25,7 @@
                         <action selector="findRandomAnimal:" destination="-1" eventType="touchUpInside" id="nd4-ss-c1C"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-xg-YtU">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-xg-YtU">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="fpG-ui-ccZ"/>
@@ -41,7 +42,7 @@
                     </variation>
                     <variation key="widthClass=compact">
                         <mask key="constraints">
-                            <include reference="fpG-ui-ccZ"/>
+                            <exclude reference="fpG-ui-ccZ"/>
                             <include reference="jpF-cQ-hCd"/>
                         </mask>
                     </variation>
@@ -58,12 +59,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="B2e-xg-YtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="5oi-cP-uXb"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="top" secondItem="G9G-u4-EMo" secondAttribute="bottom" constant="22" id="8M1-23-aYK"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="tPu-B7-3cC" secondAttribute="bottom" constant="15" id="DjG-Ad-xVI"/>
                 <constraint firstAttribute="trailing" secondItem="tPu-B7-3cC" secondAttribute="trailing" constant="19" id="HCx-sw-Pwm"/>
+                <constraint firstItem="B2e-xg-YtU" firstAttribute="centerX" secondItem="G9G-u4-EMo" secondAttribute="centerX" id="Mdw-lM-HN5"/>
                 <constraint firstAttribute="centerX" secondItem="G9G-u4-EMo" secondAttribute="centerX" id="Sag-bg-lhV"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="aw6-he-Otp"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="111" id="kw6-Gc-PaU"/>
+                <constraint firstAttribute="centerX" secondItem="B2e-xg-YtU" secondAttribute="centerX" id="qNe-6G-YvX"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="74" id="xyu-un-LQ3"/>
             </constraints>
             <variation key="default">
@@ -75,8 +79,11 @@
                     <exclude reference="Sag-bg-lhV"/>
                     <exclude reference="kw6-Gc-PaU"/>
                     <exclude reference="xyu-un-LQ3"/>
+                    <exclude reference="5oi-cP-uXb"/>
                     <exclude reference="8M1-23-aYK"/>
+                    <exclude reference="Mdw-lM-HN5"/>
                     <exclude reference="aw6-he-Otp"/>
+                    <exclude reference="qNe-6G-YvX"/>
                     <exclude reference="HCx-sw-Pwm"/>
                 </mask>
             </variation>
@@ -89,8 +96,11 @@
                     <include reference="Sag-bg-lhV"/>
                     <include reference="kw6-Gc-PaU"/>
                     <include reference="xyu-un-LQ3"/>
+                    <include reference="5oi-cP-uXb"/>
                     <include reference="8M1-23-aYK"/>
-                    <include reference="aw6-he-Otp"/>
+                    <include reference="Mdw-lM-HN5"/>
+                    <exclude reference="aw6-he-Otp"/>
+                    <exclude reference="qNe-6G-YvX"/>
                     <include reference="HCx-sw-Pwm"/>
                 </mask>
             </variation>

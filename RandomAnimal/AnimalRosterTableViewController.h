@@ -14,4 +14,6 @@
 
 @interface AnimalRosterTableViewController : UITableViewController
 
+-(IBAction)addAnimal:(id)sender;
+
 @end

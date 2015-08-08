@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal;
+@synthesize animalImage, animalName, animal, item;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +29,7 @@
             animalName.text = animal.AnimalNameStr;
         }
     }
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,29 +39,95 @@
 
 - (IBAction)takePicture:(id)sender
 {
+    // If the popup is already displayed, close it.
+    if ([imagePickerPopover isPopoverVisible])
+    {
+        // Close the popup here
+        [imagePickerPopover dismissPopoverAnimated:YES];
+        imagePickerPopover = nil;
+        return;
+    }
+    
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
+    [imagePicker allowsEditing];
+    
+    // If our device supports a camera, use it
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else
     {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     }
     
     [imagePicker setDelegate:self];
     
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    // Below the code will make a popup use this if the device is an iPad.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        // Create the popup controller
+        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        
+        // Set the delgate of the popover to be this class
+        [imagePickerPopover setDelegate:self];
+        
+        // Set the content
+        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+    }
+    else
+    {
+        // This is the display for the iPhone.
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
     
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    // Clean out any old images
+    NSString *oldKey = [item imageKey];
+    
+    if (oldKey)
+    {
+        [[AnimalStorageImage sharedStore] deleteImageForKey:oldKey];
+    }
+    
+    //Get the selected image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [item setThumbnailDataFromImage:image];
+    
+    // Put that image into the screen
     [animalImage setImage:image];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //Store this image in our BNRItem by creating a GUID for it
+    CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
+    
+    CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
+    
+    //Now store the image and key into the dictionary
+    NSString *key = (__bridge NSString *)newGUIDIDString;
+    [item setImageKey:key];
+    
+    [[AnimalStorageImage sharedStore] setImage:image forKey:[item imageKey]];
+    
+    // Clear up the memory from the strings above!
+    CFRelease(newGUID);
+    CFRelease(newGUIDIDString);
+    
+    // Take the imagepicker off the screen.  Control this behavior depending on the device type
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [imagePickerPopover dismissPopoverAnimated:YES];
+        imagePickerPopover = nil;
+    }
 }
 
 @end

@@ -7,15 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 @interface Animal : NSObject
 
 @property (nonatomic) NSInteger AnimalStatusInt;
 @property (nonatomic, copy) NSString* AnimalImageNameStr;
 @property (nonatomic, copy) NSString* AnimalNameStr;
+@property (nonatomic, retain) NSData * thumbnailData;
+@property (nonatomic, retain) UIImage *thumbnail;
+@property (nonatomic, retain) NSString * imageKey;
 
 - (id)initWithItemName:(NSInteger)status
               animalImage:(NSString *)imageStr
              animalName:(NSString *)name;
+
+- (void)setThumbnailDataFromImage:(UIImage *)image;
 
 @end

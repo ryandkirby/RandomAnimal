@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Animal.h"
+#import "AnimalStorageImage.h"
 
-@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
+{
+    UIPopoverController *imagePickerPopover;
+}
 
+@property (nonatomic, strong) Animal *item;
 @property (nonatomic, weak) IBOutlet UILabel *animalName;
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
 @property (nonatomic, weak)  Animal *animal;
