@@ -20,20 +20,30 @@
                     <state key="normal" title="Get Random Animal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="74" y="111" width="252" height="30"/>
-                    </variation>
                     <connections>
                         <action selector="findRandomAnimal:" destination="-1" eventType="touchUpInside" id="nd4-ss-c1C"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-xg-YtU">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="fpG-ui-ccZ"/>
+                        <constraint firstAttribute="height" constant="40" id="jpF-cQ-hCd"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="23" y="163" width="180" height="40"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fpG-ui-ccZ"/>
+                            <exclude reference="jpF-cQ-hCd"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="fpG-ui-ccZ"/>
+                            <include reference="jpF-cQ-hCd"/>
+                        </mask>
                     </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPu-B7-3cC">
@@ -41,23 +51,47 @@
                     <state key="normal" title="Animal Roster">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="250" y="66" width="131" height="30"/>
-                    </variation>
                     <connections>
                         <action selector="launchAnimalRoster:" destination="-1" eventType="touchUpInside" id="3eD-1j-uRr"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="B2e-xg-YtU" firstAttribute="top" secondItem="G9G-u4-EMo" secondAttribute="bottom" constant="22" id="8M1-23-aYK"/>
+                <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="tPu-B7-3cC" secondAttribute="bottom" constant="15" id="DjG-Ad-xVI"/>
+                <constraint firstAttribute="trailing" secondItem="tPu-B7-3cC" secondAttribute="trailing" constant="19" id="HCx-sw-Pwm"/>
+                <constraint firstAttribute="centerX" secondItem="G9G-u4-EMo" secondAttribute="centerX" id="Sag-bg-lhV"/>
+                <constraint firstItem="B2e-xg-YtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="aw6-he-Otp"/>
+                <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="111" id="kw6-Gc-PaU"/>
+                <constraint firstItem="G9G-u4-EMo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="74" id="xyu-un-LQ3"/>
+            </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="B2e-xg-YtU"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="DjG-Ad-xVI"/>
+                    <exclude reference="Sag-bg-lhV"/>
+                    <exclude reference="kw6-Gc-PaU"/>
+                    <exclude reference="xyu-un-LQ3"/>
+                    <exclude reference="8M1-23-aYK"/>
+                    <exclude reference="aw6-he-Otp"/>
+                    <exclude reference="HCx-sw-Pwm"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="B2e-xg-YtU"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="DjG-Ad-xVI"/>
+                    <include reference="Sag-bg-lhV"/>
+                    <include reference="kw6-Gc-PaU"/>
+                    <include reference="xyu-un-LQ3"/>
+                    <include reference="8M1-23-aYK"/>
+                    <include reference="aw6-he-Otp"/>
+                    <include reference="HCx-sw-Pwm"/>
                 </mask>
             </variation>
         </view>

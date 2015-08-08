@@ -21,6 +21,13 @@
     self.title = APP_NAME_STR;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    animalName.text = @"";
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -28,6 +35,7 @@
 
 -(IBAction)launchAnimalRoster:(id)sender
 {
+    animalName.text = @"";
     AnimalRosterTableViewController *animalRosterTableVC = [[AnimalRosterTableViewController alloc] init];
     [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
 }

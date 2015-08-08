@@ -37,7 +37,7 @@
     [a setAnimalStatusInt:1];
     
     a = [[AnimalStorage sharedStorage] createItem];
-    [a  setAnimalNameStr:@"Shawn"];
+    [a  setAnimalNameStr:@"Shaun"];
     [a setAnimalStatusInt:1];
     
     a = [[AnimalStorage sharedStorage] createItem];
@@ -47,6 +47,23 @@
     a = [[AnimalStorage sharedStorage] createItem];
     [a  setAnimalNameStr:@"José"];
     [a setAnimalStatusInt:1];
+    
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"The Alley Cats"];
+    [a setAnimalStatusInt:1];
+    
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"The Aardman Crew"];
+    [a setAnimalStatusInt:1];
+    
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"The Dream Team"];
+    [a setAnimalStatusInt:1];
+    
+    a = [[AnimalStorage sharedStorage] createItem];
+    [a  setAnimalNameStr:@"Los Mexicanos"];
+    [a setAnimalStatusInt:1];
+    
     
     RandomAnimalViewController *randomAnimalVC = [[RandomAnimalViewController alloc] init];
     UINavigationController *randomAnimalNavController = [[UINavigationController alloc] initWithRootViewController:randomAnimalVC];
