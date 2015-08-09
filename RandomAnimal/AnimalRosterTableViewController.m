@@ -63,7 +63,6 @@
         cell = [nib objectAtIndex:0];
     }
     
-    
     if (cell)
     {
         NSArray* animalRoster = [[AnimalStorage sharedStorage] allItems];
@@ -71,6 +70,7 @@
         {
             Animal *a = [animalRoster objectAtIndex:indexPath.row];
             [[cell animalName] setText:a.AnimalNameStr];
+            cell.animalName.textColor = a.AnimalStatusInt ? [UIColor blackColor] : [UIColor lightGrayColor];
             
             // Load the image if it exists
             UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[a imageKey]];

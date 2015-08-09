@@ -148,6 +148,7 @@
 {
     BOOL state = [sender isOn];
     availablityText.text = state ? @"Available" : @"Unavailable";
+    animal.AnimalStatusInt = state;
 }
 
 @end
