@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimalViewController">
             <connections>
+                <outlet property="animalAvailableSwitch" destination="NUz-st-YLX" id="rQo-AH-p7e"/>
                 <outlet property="animalImage" destination="V5s-Cp-3wr" id="C08-gM-FKZ"/>
+                <outlet property="availablityText" destination="LgH-uB-47p" id="RAX-20-3qH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -52,6 +54,21 @@
                         </mask>
                     </variation>
                 </imageView>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUz-st-YLX">
+                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="297" y="493" width="51" height="31"/>
+                    </variation>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-uB-47p">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="19" y="493" width="257" height="21"/>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -75,6 +92,8 @@
                     <exclude reference="sXI-Uo-vUZ"/>
                     <exclude reference="BbJ-15-I9w"/>
                     <exclude reference="V5s-Cp-3wr"/>
+                    <exclude reference="NUz-st-YLX"/>
+                    <exclude reference="LgH-uB-47p"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="QGE-a8-2HR"/>
@@ -98,6 +117,8 @@
                     <include reference="sXI-Uo-vUZ"/>
                     <include reference="BbJ-15-I9w"/>
                     <include reference="V5s-Cp-3wr"/>
+                    <include reference="NUz-st-YLX"/>
+                    <include reference="LgH-uB-47p"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="QGE-a8-2HR"/>

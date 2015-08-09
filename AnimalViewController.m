@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal;
+@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,11 +24,25 @@
     {
         self.title = animal.AnimalNameStr;
         
+        // Set the title of the screen
         if (animal.AnimalNameStr != nil)
         {
             animalName.text = animal.AnimalNameStr;
         }
+        // Set the switch state
+        if (animal.AnimalStatusInt){
+            animalAvailableSwitch.on = true;
+            availablityText.text = @"Available";
+            
+        }
+        else
+        {
+            animalAvailableSwitch.on = false;
+            availablityText.text = @"Unavailable";
+        }
+        [animalAvailableSwitch addTarget:self action:@selector(setSwitchState:) forControlEvents:UIControlEventValueChanged];
     }
+    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -128,6 +142,12 @@
         [imagePickerPopover dismissPopoverAnimated:YES];
         imagePickerPopover = nil;
     }
+}
+
+- (void)setSwitchState:(id)sender
+{
+    BOOL state = [sender isOn];
+    availablityText.text = state ? @"Available" : @"Unavailable";
 }
 
 @end
