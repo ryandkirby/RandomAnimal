@@ -30,16 +30,15 @@
             animalName.text = animal.AnimalNameStr;
         }
         // Set the switch state
-        if (animal.AnimalStatusInt){
+        if (animal.AnimalStatusInt)
+        {
             animalAvailableSwitch.on = true;
-            availablityText.text = @"Available";
-            
         }
         else
         {
             animalAvailableSwitch.on = false;
-            availablityText.text = @"Unavailable";
         }
+        
         [animalAvailableSwitch addTarget:self action:@selector(setSwitchState:) forControlEvents:UIControlEventValueChanged];
     }
     
@@ -147,7 +146,6 @@
 - (void)setSwitchState:(id)sender
 {
     BOOL state = [sender isOn];
-    availablityText.text = state ? @"Available" : @"Unavailable";
     animal.AnimalStatusInt = state;
 }
 
