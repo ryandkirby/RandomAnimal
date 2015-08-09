@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal, item;
+@synthesize animalImage, animalName, animal;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,7 +88,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // Clean out any old images
-    NSString *oldKey = [item imageKey];
+    NSString *oldKey = [animal imageKey];
     
     if (oldKey)
     {
@@ -98,21 +98,21 @@
     //Get the selected image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    [item setThumbnailDataFromImage:image];
+    [animal setThumbnailDataFromImage:image];
     
     // Put that image into the screen
     [animalImage setImage:image];
     
-    //Store this image in our BNRItem by creating a GUID for it
+    //Store this image in our Animal by creating a GUID for it
     CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
     
     CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
     
     //Now store the image and key into the dictionary
     NSString *key = (__bridge NSString *)newGUIDIDString;
-    [item setImageKey:key];
+    [animal setImageKey:key];
     
-    [[AnimalStorageImage sharedStore] setImage:image forKey:[item imageKey]];
+    [[AnimalStorageImage sharedStore] setImage:image forKey:[animal imageKey]];
     
     // Clear up the memory from the strings above!
     CFRelease(newGUID);

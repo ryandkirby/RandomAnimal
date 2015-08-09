@@ -15,6 +15,8 @@
 
 @implementation RandomAnimalViewController
 
+@synthesize animalImage;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -50,6 +52,15 @@
         
         Animal *randomA =  [animalRoster objectAtIndex:randomVal];
         animalName.text = randomA.AnimalNameStr;
+        
+        // Load the image if it exists
+        UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[randomA imageKey]];
+        
+        if (img !=nil)
+        {
+            [animalImage setImage:img];
+        }
+        
     }
 }
 

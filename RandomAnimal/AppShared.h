@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString* const APP_NAME_STR = @"Random Animal Generator";
+static NSString* const APP_NAME_STR = @"Random Animal";
 static NSString* const ANIMAL_ROSTER_PAGE_NAME = @"Animal Roster";
 
 @interface AppShared : NSObject

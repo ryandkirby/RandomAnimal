@@ -10,7 +10,7 @@
 
 @implementation Animal
 
-@synthesize AnimalImageNameStr, AnimalNameStr, AnimalStatusInt;
+@synthesize AnimalImageNameStr, AnimalNameStr, AnimalStatusInt, imageKey, thumbnail, thumbnailData;
 
 - (id)initWithItemName:(NSInteger)status
            animalImage:(NSString *)imageStr

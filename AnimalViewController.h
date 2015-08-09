@@ -15,7 +15,7 @@
     UIPopoverController *imagePickerPopover;
 }
 
-@property (nonatomic, strong) Animal *item;
+//@property (nonatomic, strong) Animal *item;
 @property (nonatomic, weak) IBOutlet UILabel *animalName;
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
 @property (nonatomic, weak)  Animal *animal;

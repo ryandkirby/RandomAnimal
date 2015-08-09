@@ -23,6 +23,12 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -65,16 +71,16 @@
         {
             Animal *a = [animalRoster objectAtIndex:indexPath.row];
             [[cell animalName] setText:a.AnimalNameStr];
-            if ([cell animalImageImage] != nil)
-            {
-                //Load the image
-                //[[cell animalImageImage] setImage:a.a];
-            }
             
+            // Load the image if it exists
+            UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[a imageKey]];
+            
+            if (img !=nil)
+            {
+                [[cell animalImageImage] setImage:img];
+            }
         }
-        
     }
-    
     
     return cell;
 }

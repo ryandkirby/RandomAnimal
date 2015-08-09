@@ -11,6 +11,7 @@
 #import "AnimalStorage.h"
 #import "AnimalRosterTableViewCell.h"
 #import "AnimalViewController.h"
+#import "AnimalStorageImage.h"
 
 @interface AnimalRosterTableViewController : UITableViewController
 
