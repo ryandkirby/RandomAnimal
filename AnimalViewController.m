@@ -77,6 +77,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+
         /*
         //Create camera overlay
         CGRect f = imagePicker.view.bounds;
