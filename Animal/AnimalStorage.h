@@ -18,8 +18,7 @@
 
 
 + (AnimalStorage *)sharedStorage;
-
--(UIImage *)imageForKey:(NSString *)s;
+ 
 -(NSArray *)allItems;
 -(Animal *)createItem;
 

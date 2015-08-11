@@ -3,7 +3,7 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "RA_Icon-60x60@2x.png",
+      "filename" : "RA_Icon-58x58@2x.png",
       "scale" : "2x"
     },
     {
@@ -14,7 +14,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "RA_Icon-60x60@2x-4.png",
+      "filename" : "RA_Icon-80x80@2x.png",
       "scale" : "2x"
     },
     {
@@ -39,8 +39,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "RA_Icon-58x58@2x-1.png",
       "scale" : "2x"
     },
     {

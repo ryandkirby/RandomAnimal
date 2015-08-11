@@ -54,24 +54,20 @@
                         </mask>
                     </variation>
                 </imageView>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUz-st-YLX">
-                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="297" y="493" width="51" height="31"/>
-                    </variation>
-                </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-uB-47p">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="19" y="493" width="257" height="21"/>
-                    </variation>
                 </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUz-st-YLX">
+                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                </switch>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="LgH-uB-47p" firstAttribute="leading" secondItem="Mac-Qi-YBW" secondAttribute="leading" id="3na-h7-gsC"/>
+                <constraint firstItem="NUz-st-YLX" firstAttribute="trailing" secondItem="sXI-Uo-vUZ" secondAttribute="trailing" id="3wh-UU-KCv"/>
                 <constraint firstItem="sXI-Uo-vUZ" firstAttribute="leading" secondItem="Mac-Qi-YBW" secondAttribute="trailing" constant="1" id="9Vq-7U-r4P"/>
                 <constraint firstItem="sXI-Uo-vUZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="ElS-PK-j8g"/>
                 <constraint firstItem="Mac-Qi-YBW" firstAttribute="top" secondItem="V5s-Cp-3wr" secondAttribute="bottom" constant="31" id="GY8-rq-S60"/>
@@ -81,9 +77,12 @@
                 <constraint firstAttribute="centerX" secondItem="BbJ-15-I9w" secondAttribute="centerX" constant="4" id="cfY-0W-JLW"/>
                 <constraint firstItem="BbJ-15-I9w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="fxB-Z6-8k0"/>
                 <constraint firstItem="V5s-Cp-3wr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="46" id="kAL-rg-2rc"/>
+                <constraint firstItem="NUz-st-YLX" firstAttribute="top" secondItem="sXI-Uo-vUZ" secondAttribute="bottom" constant="21" id="lqL-BS-GPE"/>
                 <constraint firstItem="V5s-Cp-3wr" firstAttribute="top" secondItem="BbJ-15-I9w" secondAttribute="bottom" constant="8" symbolic="YES" id="nMa-DQ-yEd"/>
                 <constraint firstItem="sXI-Uo-vUZ" firstAttribute="top" secondItem="V5s-Cp-3wr" secondAttribute="bottom" constant="27" id="nxQ-p6-2Uj"/>
                 <constraint firstItem="BbJ-15-I9w" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="oWo-83-Phu"/>
+                <constraint firstItem="NUz-st-YLX" firstAttribute="leading" secondItem="LgH-uB-47p" secondAttribute="trailing" constant="30" id="tQq-NI-gST"/>
+                <constraint firstItem="LgH-uB-47p" firstAttribute="centerY" secondItem="NUz-st-YLX" secondAttribute="centerY" id="vQQ-q3-kvY"/>
                 <constraint firstAttribute="centerX" secondItem="V5s-Cp-3wr" secondAttribute="centerX" constant="4" id="z5E-MH-AaD"/>
             </constraints>
             <variation key="default">
@@ -92,8 +91,8 @@
                     <exclude reference="sXI-Uo-vUZ"/>
                     <exclude reference="BbJ-15-I9w"/>
                     <exclude reference="V5s-Cp-3wr"/>
-                    <exclude reference="NUz-st-YLX"/>
                     <exclude reference="LgH-uB-47p"/>
+                    <exclude reference="NUz-st-YLX"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="QGE-a8-2HR"/>
@@ -109,6 +108,11 @@
                     <exclude reference="9Vq-7U-r4P"/>
                     <exclude reference="ElS-PK-j8g"/>
                     <exclude reference="nxQ-p6-2Uj"/>
+                    <exclude reference="3na-h7-gsC"/>
+                    <exclude reference="vQQ-q3-kvY"/>
+                    <exclude reference="3wh-UU-KCv"/>
+                    <exclude reference="lqL-BS-GPE"/>
+                    <exclude reference="tQq-NI-gST"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -117,8 +121,8 @@
                     <include reference="sXI-Uo-vUZ"/>
                     <include reference="BbJ-15-I9w"/>
                     <include reference="V5s-Cp-3wr"/>
-                    <include reference="NUz-st-YLX"/>
                     <include reference="LgH-uB-47p"/>
+                    <include reference="NUz-st-YLX"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="QGE-a8-2HR"/>
@@ -134,6 +138,11 @@
                     <include reference="9Vq-7U-r4P"/>
                     <include reference="ElS-PK-j8g"/>
                     <include reference="nxQ-p6-2Uj"/>
+                    <include reference="3na-h7-gsC"/>
+                    <include reference="vQQ-q3-kvY"/>
+                    <include reference="3wh-UU-KCv"/>
+                    <include reference="lqL-BS-GPE"/>
+                    <include reference="tQq-NI-gST"/>
                 </mask>
             </variation>
         </view>

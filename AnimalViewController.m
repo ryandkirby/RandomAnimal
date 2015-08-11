@@ -29,6 +29,14 @@
         {
             animalName.text = animal.AnimalNameStr;
         }
+        
+        // Set the image
+        UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[animal imageKey]];
+        if (img)
+        {
+            [animalImage setImage:img];
+        }
+        
         // Set the switch state
         if (animal.AnimalStatusInt)
         {
@@ -69,6 +77,22 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        /*
+        //Create camera overlay
+        CGRect f = imagePicker.view.bounds;
+        f.size.height -= imagePicker.navigationBar.bounds.size.height;
+        CGFloat barHeight = (f.size.height - f.size.width) / 2;
+        UIGraphicsBeginImageContext(f.size);
+        [[UIColor colorWithWhite:0 alpha:.5] set];
+        UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
+        UIRectFillUsingBlendMode(CGRectMake(0, f.size.height - barHeight, f.size.width, barHeight), kCGBlendModeNormal);
+        UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        UIImageView *overlayIV = [[UIImageView alloc] initWithFrame:f];
+        overlayIV.image = overlayImage;
+        [imagePicker.cameraOverlayView addSubview:overlayIV];
+        */
     }
     else
     {
@@ -110,7 +134,24 @@
     
     //Get the selected image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
+    /*
+    // Set the cropped size
+    CGSize imageSize = image.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    if (width != height)
+    {
+        CGFloat newDimension = MIN(width, height);
+        CGFloat widthOffset = (width - newDimension) / 2;
+        CGFloat heightOffset = (height - newDimension) / 2;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
+        [image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+                 blendMode:kCGBlendModeCopy
+                     alpha:1.];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+       */
     [animal setThumbnailDataFromImage:image];
     
     // Put that image into the screen
