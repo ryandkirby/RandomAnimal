@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText;
+@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameEdit, actualNameReadOnly, takePhotoButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,11 +23,16 @@
     if (animal != nil)
     {
         self.title = animal.AnimalNameStr;
+
+        // Set the control states depending on the edit state
+        [self setEditControlState];
         
         // Set the title of the screen
         if (animal.AnimalNameStr != nil)
         {
             animalName.text = animal.AnimalNameStr;
+            // Set the animal name if it's available
+            [actualNameReadOnly setText:animal.AnimalNameStr];
         }
         
         // Set the image
@@ -185,10 +190,34 @@
     }
 }
 
+-(void)setEditControlState
+{
+    if (self.editing)
+    {
+        // Set the state of the dialog Edit vs. Readonly
+        [actualNameEdit setHidden:FALSE];
+        [actualNameReadOnly setHidden:TRUE];
+        [takePhotoButton setHidden:FALSE];
+        
+    }
+    else
+    {
+        [actualNameEdit setHidden:TRUE];
+        [actualNameReadOnly setHidden:FALSE];
+        [takePhotoButton setHidden:TRUE];
+    }
+}
+
 - (void)setSwitchState:(id)sender
 {
     BOOL state = [sender isOn];
     animal.AnimalStatusInt = state;
+}
+
+ - (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [self setEditControlState];
 }
 
 @end
