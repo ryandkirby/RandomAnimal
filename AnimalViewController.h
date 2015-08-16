@@ -10,7 +10,7 @@
 #import "Animal.h"
 #import "AnimalStorageImage.h"
 
-@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
+@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 {
     UIPopoverController *imagePickerPopover;
 }

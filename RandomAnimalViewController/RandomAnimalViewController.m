@@ -47,21 +47,33 @@
 {
     NSArray* animalRoster = [[AnimalStorage sharedStorage] allItems];
     [animalImage setImage:nil];
+    BOOL activeAnimalFound = FALSE;
     
     if (animalRoster.count > 0)
     {
-        NSUInteger randomVal = arc4random() % animalRoster.count;
+        NSUInteger randomVal = 0;
         
-        Animal *randomA =  [animalRoster objectAtIndex:randomVal];
-        animalName.text = randomA.AnimalNameStr;
-        
-        // Load the image if it exists
-        UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[randomA imageKey]];
-        
-        if (img !=nil)
+        // Loop until an active animal is found
+        do
         {
-            [animalImage setImage:img];
-        }
+            randomVal = arc4random() % animalRoster.count;
+        
+            Animal *randomA =  [animalRoster objectAtIndex:randomVal];
+            
+            if (randomA.AnimalStatusInt == 1)
+            {
+                activeAnimalFound= TRUE;
+                animalName.text = randomA.AnimalNameStr;
+        
+                // Load the image if it exists
+                UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[randomA imageKey]];
+        
+                if (img !=nil)
+                {
+                    [animalImage setImage:img];
+                }
+            }
+        } while (activeAnimalFound == FALSE);
     }
 }
 

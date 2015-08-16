@@ -31,7 +31,13 @@
     self = [super init];
     if (self)
     {
-        allItems = [[NSMutableArray alloc] init];
+        NSString *path = [self itemArchivePath];
+        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        if (!allItems)
+        {
+            allItems = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;
@@ -49,6 +55,23 @@
     [allItems addObject:a];
     
     return a;
+}
+
+- (NSString *)itemArchivePath
+{
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+    // Find the one document from this list
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    
+    return [documentDirectory stringByAppendingPathComponent:@"animals.archive"];
+}
+
+-(BOOL)saveChanges
+{
+    NSString *path = [self itemArchivePath];
+    
+    return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
 }
 
 @end

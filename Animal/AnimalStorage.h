@@ -21,5 +21,7 @@
  
 -(NSArray *)allItems;
 -(Animal *)createItem;
+-(NSString *)itemArchivePath;
+-(BOOL)saveChanges;
 
 @end

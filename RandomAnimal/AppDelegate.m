@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    /*
     Animal *a = [[AnimalStorage sharedStorage] createItem];
     [a setAnimalNameStr:@"Pinko"];
     [a setAnimalStatusInt:1];
@@ -63,8 +63,8 @@
     a = [[AnimalStorage sharedStorage] createItem];
     [a  setAnimalNameStr:@"Los Mexicanos"];
     [a setAnimalStatusInt:1];
-    
-    
+    */
+     
     RandomAnimalViewController *randomAnimalVC = [[RandomAnimalViewController alloc] init];
     UINavigationController *randomAnimalNavController = [[UINavigationController alloc] initWithRootViewController:randomAnimalVC];
     
@@ -80,9 +80,18 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    BOOL success = [[AnimalStorage sharedStorage] saveChanges];
+    
+    if (success)
+    {
+        NSLog(@"All animals in Roster saved");
+    }
+    else
+    {
+        NSLog(@"Could not save animal Roster");
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

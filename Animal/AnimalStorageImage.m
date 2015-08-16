@@ -56,10 +56,10 @@
     NSString *imagePath = [self imagePathForKey:s];
     
     // Turn the image into JPEG data
-    //NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
     // Turn the image into a PNG
-    NSData *imageData = UIImagePNGRepresentation(image);
+    //NSData *imageData = UIImagePNGRepresentation(image);
     
     // Now write the data to the path
     [imageData writeToFile:imagePath atomically:YES];
@@ -78,6 +78,8 @@
     {
         //Create an UIImage from the object
         result = [UIImage imageWithContentsOfFile:[self imagePathForKey:s]];
+        
+        //UIImage *fixedResult = [[UIImage alloc] initWithCGImage:result.CGImage scale:1.0 orientation:UIImageOrientationUp];
         
         if (result)
         {

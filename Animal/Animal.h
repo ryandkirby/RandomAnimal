@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@interface Animal : NSObject
+@interface Animal : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger AnimalStatusInt;
 @property (nonatomic, copy) NSString* AnimalImageNameStr;

@@ -74,5 +74,26 @@
     
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        [self setAnimalStatusInt:[aDecoder decodeIntegerForKey:@"status"]];
+        [self setAnimalNameStr:[aDecoder decodeObjectForKey:@"name"]];
+        [self setImageKey:[aDecoder decodeObjectForKey:@"imageKey"]];
+    }
+    return self;
+}
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    
+    [aCoder encodeInteger:AnimalStatusInt forKey:@"status"];
+    [aCoder encodeObject:AnimalNameStr forKey:@"name"];
+    [aCoder encodeObject:imageKey forKey:@"imageKey"];
+    
+}
+
 @end
 

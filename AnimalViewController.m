@@ -82,23 +82,6 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        
-        /*
-        //Create camera overlay
-        CGRect f = imagePicker.view.bounds;
-        f.size.height -= imagePicker.navigationBar.bounds.size.height;
-        CGFloat barHeight = (f.size.height - f.size.width) / 2;
-        UIGraphicsBeginImageContext(f.size);
-        [[UIColor colorWithWhite:0 alpha:.5] set];
-        UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
-        UIRectFillUsingBlendMode(CGRectMake(0, f.size.height - (barHeight *1.5), f.size.width, barHeight), kCGBlendModeNormal);
-        UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        UIImageView *overlayIV = [[UIImageView alloc] initWithFrame:f];
-        overlayIV.image = overlayImage;
-        [imagePicker.cameraOverlayView addSubview:overlayIV];
-         */
     }
     else
     {
@@ -201,6 +184,12 @@
 {
     [super setEditing:editing animated:animated];
     [self setEditControlState];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
