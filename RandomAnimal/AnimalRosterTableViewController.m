@@ -87,7 +87,12 @@
 
 -(IBAction)addAnimal:(id)sender
 {
+    Animal *newAnimal = [[AnimalStorage sharedStorage] createItem];
+    AnimalViewController *animalViewController = [[AnimalViewController alloc] init];
+    animalViewController.animal = newAnimal;
     
+    // Push the view controller.
+    [self.navigationController pushViewController:animalViewController animated:YES];
 }
 
 

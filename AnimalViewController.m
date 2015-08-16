@@ -23,8 +23,14 @@
     if (animal != nil)
     {
         self.title = animal.AnimalNameStr;
+        actualNameEdit.delegate = self;
 
         // Set the control states depending on the edit state
+        if (animal.AnimalNameStr.length == 0)
+        {
+            [self setEditing:YES];
+        }
+        
         [self setEditControlState];
         
         // Set the title of the screen
@@ -164,7 +170,8 @@
         [actualNameEdit setHidden:FALSE];
         [actualNameReadOnly setHidden:TRUE];
         [takePhotoButton setHidden:FALSE];
-        
+        [actualNameEdit setReturnKeyType:UIReturnKeyDone];
+        actualNameEdit.text = animal.AnimalNameStr;
     }
     else
     {
@@ -189,6 +196,11 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    NSString *newName = textField.text;
+    animal.AnimalNameStr = newName;
+    actualNameReadOnly.text= newName;
+    self.title = newName;
+    
     return YES;
 }
 
