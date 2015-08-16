@@ -28,6 +28,7 @@
     [super viewWillAppear:animated];
     
     animalName.text = @"";
+    [animalImage setImage:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +46,7 @@
 -(IBAction)findRandomAnimal:(id)sender
 {
     NSArray* animalRoster = [[AnimalStorage sharedStorage] allItems];
+    [animalImage setImage:nil];
     
     if (animalRoster.count > 0)
     {
@@ -60,7 +62,6 @@
         {
             [animalImage setImage:img];
         }
-        
     }
 }
 

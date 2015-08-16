@@ -26,7 +26,7 @@
     
     a = [[AnimalStorage sharedStorage] createItem];
     [a  setAnimalNameStr:@"Blacko"];
-    [a setAnimalStatusInt:0];
+    [a setAnimalStatusInt:1];
 
     a = [[AnimalStorage sharedStorage] createItem];
     [a  setAnimalNameStr:@"Orango"];

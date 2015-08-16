@@ -14,25 +14,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIM-9A-en8">
+                        <rect key="frame" x="0.0" y="4" width="40" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="iku-8I-bcx"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syt-8d-IHL">
-                        <rect key="frame" x="74" y="8" width="246" height="43"/>
+                        <rect key="frame" x="53" y="8" width="246" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIM-9A-en8">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="iku-8I-bcx"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zIM-9A-en8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="1Sa-Cb-JoN"/>
-                    <constraint firstItem="zIM-9A-en8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="20g-9g-jTR"/>
-                    <constraint firstAttribute="trailing" secondItem="Syt-8d-IHL" secondAttribute="trailing" id="GWV-Dn-0Zu"/>
+                    <constraint firstItem="zIM-9A-en8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="20g-9g-jTR"/>
+                    <constraint firstAttribute="trailing" secondItem="Syt-8d-IHL" secondAttribute="trailing" constant="21" id="GWV-Dn-0Zu"/>
                     <constraint firstItem="Syt-8d-IHL" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="JNJ-h2-gSq"/>
-                    <constraint firstItem="Syt-8d-IHL" firstAttribute="leading" secondItem="zIM-9A-en8" secondAttribute="trailing" constant="14" id="PCW-Cl-W1A"/>
+                    <constraint firstItem="Syt-8d-IHL" firstAttribute="leading" secondItem="zIM-9A-en8" secondAttribute="trailing" constant="13" id="PCW-Cl-W1A"/>
                     <constraint firstAttribute="centerY" secondItem="zIM-9A-en8" secondAttribute="centerY" constant="-0.5" id="lwG-Oy-Fy8"/>
                     <constraint firstItem="Syt-8d-IHL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="odJ-GF-xdH"/>
                 </constraints>
