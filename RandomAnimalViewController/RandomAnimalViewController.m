@@ -16,6 +16,7 @@
 @implementation RandomAnimalViewController
 
 @synthesize animalImage;
+@synthesize randomAnimalButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +30,15 @@
     
     animalName.text = @"";
     [animalImage setImage:nil];
+    
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    NSArray *colors = [NSArray arrayWithObjects:
+                       (id)[UIColor blueColor].CGColor,
+                       (id)[UIColor redColor].CGColor,
+                       nil];
+    [layer setColors:colors];
+    [layer setFrame:randomAnimalButton.bounds];
+    [randomAnimalButton.layer insertSublayer:layer atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {

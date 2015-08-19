@@ -19,6 +19,7 @@
 
 @property (nonatomic) AnimalRosterTableViewController *animalRosterTableViewontroller;
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
+@property (nonatomic, weak) IBOutlet UIButton *randomAnimalButton;
 
 - (IBAction)launchAnimalRoster:(id)sender;
 - (IBAction)findRandomAnimal:(id)sender;

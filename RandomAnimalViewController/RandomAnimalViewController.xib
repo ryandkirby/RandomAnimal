@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -9,6 +10,7 @@
             <connections>
                 <outlet property="animalImage" destination="y77-pU-rkM" id="vS0-OS-qba"/>
                 <outlet property="animalName" destination="B2e-xg-YtU" id="3Rg-1W-iKC"/>
+                <outlet property="randomAnimalButton" destination="G9G-u4-EMo" id="Saz-d3-VKz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPu-B7-3cC">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPu-B7-3cC">
                     <rect key="frame" x="143" y="94" width="315" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Animal Roster">
@@ -27,14 +29,14 @@
                         <action selector="launchAnimalRoster:" destination="-1" eventType="touchUpInside" id="3eD-1j-uRr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9G-u4-EMo">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9G-u4-EMo">
                     <rect key="frame" x="174" y="166" width="252" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Get Random Animal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="findRandomAnimal:" destination="-1" eventType="touchUpInside" id="nd4-ss-c1C"/>
+                        <action selector="findRandomAnimal:" destination="-1" eventType="touchUpInside" id="1Zl-zr-rmO"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-xg-YtU">
@@ -96,10 +98,6 @@
                     <exclude reference="y77-pU-rkM"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="DjG-Ad-xVI"/>
-                    <exclude reference="Sag-bg-lhV"/>
-                    <exclude reference="kw6-Gc-PaU"/>
-                    <exclude reference="xyu-un-LQ3"/>
                     <exclude reference="5oi-cP-uXb"/>
                     <exclude reference="8M1-23-aYK"/>
                     <exclude reference="Mdw-lM-HN5"/>
@@ -112,6 +110,10 @@
                     <exclude reference="eu1-zc-6IM"/>
                     <exclude reference="gfS-bb-cir"/>
                     <exclude reference="HCx-sw-Pwm"/>
+                    <exclude reference="DjG-Ad-xVI"/>
+                    <exclude reference="Sag-bg-lhV"/>
+                    <exclude reference="kw6-Gc-PaU"/>
+                    <exclude reference="xyu-un-LQ3"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -120,10 +122,6 @@
                     <include reference="y77-pU-rkM"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="DjG-Ad-xVI"/>
-                    <include reference="Sag-bg-lhV"/>
-                    <include reference="kw6-Gc-PaU"/>
-                    <include reference="xyu-un-LQ3"/>
                     <include reference="5oi-cP-uXb"/>
                     <include reference="8M1-23-aYK"/>
                     <include reference="Mdw-lM-HN5"/>
@@ -136,6 +134,10 @@
                     <include reference="eu1-zc-6IM"/>
                     <include reference="gfS-bb-cir"/>
                     <include reference="HCx-sw-Pwm"/>
+                    <include reference="DjG-Ad-xVI"/>
+                    <include reference="Sag-bg-lhV"/>
+                    <include reference="kw6-Gc-PaU"/>
+                    <include reference="xyu-un-LQ3"/>
                 </mask>
             </variation>
         </view>
