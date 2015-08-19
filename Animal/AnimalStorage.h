@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Animal.h"
+#import "AnimalStorageImage.h"
 
 @class Animal;
 
@@ -23,5 +24,6 @@
 -(Animal *)createItem;
 -(NSString *)itemArchivePath;
 -(BOOL)saveChanges;
+- (void)removeItem:(Animal *)p;
 
 @end

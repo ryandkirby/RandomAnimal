@@ -74,4 +74,13 @@
     return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
 }
 
+-(void)removeItem:(Animal *)p
+{
+    // Remove the image from the filesystem
+    NSString *key = [p imageKey];
+    [[AnimalStorageImage sharedStore] deleteImageForKey:key];
+    
+    [allItems removeObjectIdenticalTo:p];
+}
+
 @end

@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameEdit, actualNameReadOnly, takePhotoButton;
+@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameEdit, actualNameReadOnly, takePhotoButton, deleteButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,6 +67,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)deleteAnimal:(id)sender
+{
+    [[AnimalStorage sharedStorage] removeItem:animal];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)takePicture:(id)sender

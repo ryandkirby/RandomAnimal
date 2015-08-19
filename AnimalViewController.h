@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Animal.h"
 #import "AnimalStorageImage.h"
+#import "AnimalRosterTableViewController.h"
 
 @interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 {
@@ -23,8 +24,11 @@
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
 @property (nonatomic, weak) IBOutlet UISwitch *animalAvailableSwitch;
 @property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
+@property (nonatomic, weak) IBOutlet UIButton *deleteButton;
 @property (nonatomic, weak)  Animal *animal;
+//@property (nonatomic) AnimalRosterTableViewController *masterController;
 
 - (IBAction)takePicture:(id)sender;
+- (IBAction)deleteAnimal:(id)sender;
 
 @end
