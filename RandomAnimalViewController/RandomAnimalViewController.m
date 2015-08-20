@@ -26,7 +26,7 @@
     // Set up the navigation bar setting icon
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
 
-    UIFont *customFont = [UIFont fontWithName:@"Helvetica" size:28.0];
+    UIFont *customFont = [UIFont fontWithName:@"Helvetica" size:30.0];
     NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
     [settingsButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = settingsButton;
@@ -35,6 +35,13 @@
     //self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
     //self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //self.navigationController.navigationBar.translucent = YES;
+    
+    // Add drop shadow
+    animalImage.layer.shadowColor = [UIColor blackColor].CGColor;
+    animalImage.layer.shadowOffset = CGSizeMake(4, 4);
+    animalImage.layer.shadowOpacity = 0.5;
+    animalImage.layer.shadowRadius = 2.0;
+    animalImage.clipsToBounds = NO;
     
 }
 
