@@ -23,6 +23,12 @@
     // Do any additional setup after loading the view from its nib.
     self.title = APP_NAME_STR;
     
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
+    
+    UIFont *customFont = [UIFont fontWithName:@"Helvetica" size:24.0];
+    NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
+    [settingsButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = settingsButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
