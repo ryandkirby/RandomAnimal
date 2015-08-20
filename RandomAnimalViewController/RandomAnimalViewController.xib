@@ -17,16 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPu-B7-3cC">
-                    <rect key="frame" x="143" y="94" width="315" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Animal Roster">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="launchAnimalRoster:" destination="-1" eventType="touchUpInside" id="3eD-1j-uRr"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-xg-YtU">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
@@ -48,6 +38,19 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y77-pU-rkM">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="417" id="3fH-hY-z7a"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="3fH-hY-z7a"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="3fH-hY-z7a"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9G-u4-EMo">
                     <rect key="frame" x="174" y="166" width="252" height="30"/>
@@ -77,17 +80,14 @@
             <constraints>
                 <constraint firstItem="y77-pU-rkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="6bU-jn-f0d"/>
                 <constraint firstAttribute="trailing" secondItem="G9G-u4-EMo" secondAttribute="trailing" id="7By-kU-tDF"/>
-                <constraint firstItem="B2e-xg-YtU" firstAttribute="centerX" secondItem="tPu-B7-3cC" secondAttribute="centerX" id="AnZ-zr-PsG"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" id="CEY-75-Y6R"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="centerX" secondItem="y77-pU-rkM" secondAttribute="centerX" id="FsQ-6S-I6Y"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="1" id="HoK-7R-bHN"/>
-                <constraint firstItem="B2e-xg-YtU" firstAttribute="top" secondItem="tPu-B7-3cC" secondAttribute="bottom" constant="8" symbolic="YES" id="Q0B-pR-zSQ"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="8" symbolic="YES" id="ax2-zo-rhH"/>
-                <constraint firstItem="tPu-B7-3cC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="cRq-IR-QPt"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ifB-H9-kfb"/>
                 <constraint firstAttribute="bottom" secondItem="G9G-u4-EMo" secondAttribute="bottom" id="j4N-Hu-0Ud"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="leading" secondItem="B2e-xg-YtU" secondAttribute="leading" id="miZ-Pa-GZt"/>
-                <constraint firstItem="y77-pU-rkM" firstAttribute="top" secondItem="tPu-B7-3cC" secondAttribute="bottom" constant="46" id="nCs-e7-df4"/>
+                <constraint firstItem="B2e-xg-YtU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="qWl-bX-M2z"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="trailing" secondItem="G9G-u4-EMo" secondAttribute="trailing" id="tjf-me-Ywh"/>
             </constraints>
             <variation key="default">
@@ -96,13 +96,10 @@
                     <exclude reference="y77-pU-rkM"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="AnZ-zr-PsG"/>
                     <exclude reference="FsQ-6S-I6Y"/>
-                    <exclude reference="Q0B-pR-zSQ"/>
+                    <exclude reference="qWl-bX-M2z"/>
                     <exclude reference="tjf-me-Ywh"/>
                     <exclude reference="6bU-jn-f0d"/>
-                    <exclude reference="nCs-e7-df4"/>
-                    <exclude reference="cRq-IR-QPt"/>
                     <exclude reference="7By-kU-tDF"/>
                     <exclude reference="CEY-75-Y6R"/>
                     <exclude reference="HoK-7R-bHN"/>
@@ -118,13 +115,10 @@
                     <include reference="y77-pU-rkM"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="AnZ-zr-PsG"/>
                     <include reference="FsQ-6S-I6Y"/>
-                    <include reference="Q0B-pR-zSQ"/>
+                    <include reference="qWl-bX-M2z"/>
                     <include reference="tjf-me-Ywh"/>
                     <include reference="6bU-jn-f0d"/>
-                    <include reference="nCs-e7-df4"/>
-                    <include reference="cRq-IR-QPt"/>
                     <include reference="7By-kU-tDF"/>
                     <exclude reference="CEY-75-Y6R"/>
                     <include reference="HoK-7R-bHN"/>

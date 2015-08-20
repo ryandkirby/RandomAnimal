@@ -178,12 +178,14 @@
         [takePhotoButton setHidden:FALSE];
         [actualNameEdit setReturnKeyType:UIReturnKeyDone];
         actualNameEdit.text = animal.AnimalNameStr;
+        [deleteButton setHidden:FALSE];
     }
     else
     {
         [actualNameEdit setHidden:TRUE];
         [actualNameReadOnly setHidden:FALSE];
         [takePhotoButton setHidden:TRUE];
+        [deleteButton setHidden:TRUE];
     }
 }
 
