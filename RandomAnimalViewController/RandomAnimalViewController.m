@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = APP_NAME_STR;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -33,8 +34,8 @@
     
     CAGradientLayer *layer = [CAGradientLayer layer];
     NSArray *colors = [NSArray arrayWithObjects:
-                       (id)[UIColor blueColor].CGColor,
-                       (id)[UIColor redColor].CGColor,
+                       (id)[UIColor colorWithRed:(108/255.0) green:(163/255.0) blue:(216/255.0) alpha:1].CGColor,
+                       (id)[UIColor colorWithRed:(25/255.0) green:(126/255.0) blue:(242/255.0) alpha:1].CGColor,
                        nil];
     [layer setColors:colors];
     [layer setFrame:randomAnimalButton.bounds];
