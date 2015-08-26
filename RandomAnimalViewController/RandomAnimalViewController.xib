@@ -58,7 +58,7 @@
                         <constraint firstAttribute="height" constant="40" id="o3g-Fi-EYT"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Get Random Animal">
+                    <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">

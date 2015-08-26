@@ -43,6 +43,10 @@
     animalImage.layer.shadowRadius = 2.0;
     animalImage.clipsToBounds = NO;
     
+    // Background Color
+    UIColor *bgColor = [[UIColor alloc]initWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
+    self.view.backgroundColor = bgColor;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,11 +55,17 @@
     
     animalName.text = @"";
     [animalImage setImage:nil];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
     
+    // Add Gradient to button
     CAGradientLayer *layer = [CAGradientLayer layer];
     NSArray *colors = [NSArray arrayWithObjects:
-                       (id)[UIColor colorWithRed:(108/255.0) green:(163/255.0) blue:(216/255.0) alpha:1].CGColor,
-                       (id)[UIColor colorWithRed:(25/255.0) green:(126/255.0) blue:(242/255.0) alpha:1].CGColor,
+                       (id)[UIColor colorWithRed:(7/255.0) green:(183/255.0) blue:(247/255.0) alpha:1].CGColor,
+                       (id)[UIColor colorWithRed:(22/255.0) green:(145/255.0) blue:(226/255.0) alpha:1].CGColor,
                        nil];
     [layer setColors:colors];
     [layer setFrame:randomAnimalButton.bounds];
