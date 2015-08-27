@@ -32,8 +32,11 @@
     self.navigationItem.rightBarButtonItem = settingsButton;
  
     // Set up the navigation bar color
-    //self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
-    //self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIColor *headerColor = [[UIColor alloc] initWithRed:(7/255.0) green:(183/255.0) blue:(247/255.0) alpha:1];
+    
+    self.navigationController.navigationBar.barTintColor = headerColor;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //self.navigationController.navigationBar.translucent = YES;
     //self.navigationController.navigationBar.translucent = YES;
     
     // Image background color
