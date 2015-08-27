@@ -36,22 +36,6 @@
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y77-pU-rkM">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="417" id="DIf-AO-UyU"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="DIf-AO-UyU"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="DIf-AO-UyU"/>
-                        </mask>
-                    </variation>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9G-u4-EMo">
                     <rect key="frame" x="174" y="166" width="252" height="30"/>
                     <constraints>
@@ -75,20 +59,42 @@
                         <action selector="findRandomAnimal:" destination="-1" eventType="touchUpInside" id="1Zl-zr-rmO"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y77-pU-rkM">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="DIf-AO-UyU">
+                            <variation key="widthClass=compact" constant="350"/>
+                        </constraint>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DIf-AO-UyU"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="DIf-AO-UyU"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Mk-zD-5Zb"/>
-                <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" id="CEY-75-Y6R"/>
+                <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="20" id="CEY-75-Y6R"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="ETn-Ii-LI1"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="centerX" secondItem="y77-pU-rkM" secondAttribute="centerX" id="IPR-oI-Cgb"/>
                 <constraint firstAttribute="trailing" secondItem="B2e-xg-YtU" secondAttribute="trailing" id="IlX-cj-c6E"/>
                 <constraint firstAttribute="bottom" secondItem="G9G-u4-EMo" secondAttribute="bottom" constant="-1" id="JE8-LT-kbP"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="trailing" secondItem="B2e-xg-YtU" secondAttribute="trailing" id="Qm3-sj-ol5"/>
-                <constraint firstItem="y77-pU-rkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ZhR-dD-cDW"/>
+                <constraint firstItem="y77-pU-rkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ZhR-dD-cDW">
+                    <variation key="widthClass=compact" constant="25"/>
+                </constraint>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="leading" secondItem="G9G-u4-EMo" secondAttribute="leading" id="aJW-4g-QFy"/>
                 <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="8" symbolic="YES" id="ax2-zo-rhH"/>
-                <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="1" id="kMJ-AQ-PQ8"/>
+                <constraint firstItem="G9G-u4-EMo" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="1" id="kMJ-AQ-PQ8">
+                    <variation key="widthClass=compact" constant="25"/>
+                </constraint>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
