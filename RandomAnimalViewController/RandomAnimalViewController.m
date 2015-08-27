@@ -36,12 +36,9 @@
     //self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //self.navigationController.navigationBar.translucent = YES;
     
-    // Add drop shadow
-    animalImage.layer.shadowColor = [UIColor blackColor].CGColor;
-    animalImage.layer.shadowOffset = CGSizeMake(4, 4);
-    animalImage.layer.shadowOpacity = 0.5;
-    animalImage.layer.shadowRadius = 2.0;
-    animalImage.clipsToBounds = NO;
+    // Image background color
+    UIColor *imageBgColor = [[UIColor alloc]initWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0];
+    animalImage.backgroundColor = imageBgColor;
     
     // Background Color
     UIColor *bgColor = [[UIColor alloc]initWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
@@ -111,6 +108,13 @@
         
                 if (img !=nil)
                 {
+                    // Add drop shadow
+                    animalImage.layer.shadowColor = [UIColor blackColor].CGColor;
+                    animalImage.layer.shadowOffset = CGSizeMake(4, 4);
+                    animalImage.layer.shadowOpacity = 0.5;
+                    animalImage.layer.shadowRadius = 2.0;
+                    animalImage.clipsToBounds = NO;
+                    
                     [animalImage setImage:img];
                 }
             }
