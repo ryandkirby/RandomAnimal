@@ -18,7 +18,8 @@
 @synthesize animalImage;
 @synthesize randomAnimalButton;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = APP_NAME_STR;
@@ -37,11 +38,6 @@
     self.navigationController.navigationBar.barTintColor = headerColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //self.navigationController.navigationBar.translucent = YES;
-    //self.navigationController.navigationBar.translucent = YES;
-    
-    // Image background color
-    UIColor *imageBgColor = [[UIColor alloc]initWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0];
-    animalImage.backgroundColor = imageBgColor;
     
     // Background Color
     UIColor *bgColor = [[UIColor alloc]initWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
@@ -68,8 +64,19 @@
                        (id)[UIColor colorWithRed:(22/255.0) green:(145/255.0) blue:(226/255.0) alpha:1].CGColor,
                        nil];
     [layer setColors:colors];
-    [layer setFrame:randomAnimalButton.bounds];
-    [randomAnimalButton.layer insertSublayer:layer atIndex:0];
+    CGRect layerRect = self.view.bounds;
+    layerRect.origin.y = layerRect.size.height - 70;
+    layerRect.size.height = 70;
+    [layer setFrame:layerRect];
+    [self.view.layer insertSublayer:layer atIndex:0];
+    
+    randomAnimalButton.layer.cornerRadius = 10.0f;
+    randomAnimalButton.layer.borderWidth = 1.0f;
+    randomAnimalButton.clipsToBounds = YES;
+    [randomAnimalButton.layer setMasksToBounds:YES];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,7 +116,7 @@
                 // Load the image if it exists
                 UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[randomA imageKey]];
         
-                if (img !=nil)
+                if (img != nil)
                 {
                     // Add drop shadow
                     animalImage.layer.shadowColor = [UIColor blackColor].CGColor;
