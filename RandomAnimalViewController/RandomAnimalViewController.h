@@ -16,12 +16,12 @@
 @interface RandomAnimalViewController : UIViewController
 {
     __weak IBOutlet UILabel *animalName;
+    UIButton *randomAnimalButton;
     
 }
 
 @property (nonatomic) AnimalRosterTableViewController *animalRosterTableViewontroller;
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
-@property (nonatomic, weak) IBOutlet UIButton *randomAnimalButton;
 
 - (IBAction)launchAnimalRoster:(id)sender;
 - (IBAction)findRandomAnimal:(id)sender;
