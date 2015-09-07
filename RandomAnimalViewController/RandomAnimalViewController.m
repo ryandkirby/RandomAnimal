@@ -92,6 +92,9 @@
     randomAnimalButton.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);
     
     [self.view addSubview:randomAnimalButton];
+    
+    // Set gray background on image
+    [animalImage setBackgroundColor:[UIColor lightGrayColor]];
 
 }
 
