@@ -23,6 +23,9 @@
     // Do any additional setup after loading the view from its nib.
     self.title = APP_NAME_STR;
 
+    // Set the Navigation Bar Color
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
     // Set up the navigation bar setting icon
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
 
@@ -78,9 +81,9 @@
     [randomAnimalButton addTarget:self action:@selector(findRandomAnimal:) forControlEvents:UIControlEventTouchUpInside];
     
     //width and height should be same value
-    randomAnimalButton.frame = CGRectMake((layerRect.size.width/2)-25, layerRect.origin.y+10, 50.0, 50.0);
+    randomAnimalButton.frame = CGRectMake((layerRect.size.width/2)-(RANDOM_BUTTON_RADIUS/2), layerRect.origin.y+5, RANDOM_BUTTON_RADIUS, RANDOM_BUTTON_RADIUS);
     randomAnimalButton.clipsToBounds = YES;
-    randomAnimalButton.layer.cornerRadius = 25;//half of the width
+    randomAnimalButton.layer.cornerRadius = RANDOM_BUTTON_RADIUS/2;//half of the width
     //randomAnimalButton.layer.borderColor=[UIColor redColor].CGColor;
     randomAnimalButton.layer.borderWidth=0.0f;
     randomAnimalButton.layer.backgroundColor = [UIColor whiteColor].CGColor;
@@ -88,13 +91,19 @@
     // Drop Shadow
     randomAnimalButton.layer.shadowColor = [UIColor blackColor].CGColor;
     randomAnimalButton.layer.shadowOpacity = 0.3;
-    randomAnimalButton.layer.shadowRadius = 25;
+    randomAnimalButton.layer.shadowRadius = RANDOM_BUTTON_RADIUS/2;
     randomAnimalButton.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);
     
     [self.view addSubview:randomAnimalButton];
     
-    // Set gray background on image
-    [animalImage setBackgroundColor:[UIColor lightGrayColor]];
+
+    // Image border
+    UIColor *imageBorderColor = [[UIColor alloc]initWithRed:222.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
+    [animalImage.layer setBorderColor: [imageBorderColor CGColor]];
+    [animalImage.layer setBorderWidth: 1.0];
+    
+    //222,222,222 /border
+    
 
 }
 
@@ -137,9 +146,12 @@
         
                 if (img != nil)
                 {
-                    [self ImageDropShadowEnabled:TRUE];
-                    
+                    [self ImageDropShadowEnabled:TRUE];                    
                     [animalImage setImage:img];
+                }
+                else
+                {
+                    [self ImageDropShadowEnabled:FALSE];
                 }
             }
         } while (activeAnimalFound == FALSE);
@@ -156,6 +168,17 @@
         animalImage.layer.shadowOpacity = 0.5;
         animalImage.layer.shadowRadius = 2.0;
         animalImage.clipsToBounds = NO;
+        [animalImage.layer setBorderWidth: 0.0];
+    }
+    else
+    {
+        // Remove drop shadow
+        animalImage.layer.shadowColor = [UIColor blackColor].CGColor;
+        animalImage.layer.shadowOffset = CGSizeMake(0, 0);
+        animalImage.layer.shadowOpacity = 0.0;
+        animalImage.layer.shadowRadius = 0.0;
+        animalImage.clipsToBounds = NO;
+        [animalImage.layer setBorderWidth: 1.0];
     }
 }
 
