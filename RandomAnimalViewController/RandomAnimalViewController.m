@@ -29,13 +29,13 @@
     // Set up the navigation bar setting icon
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
 
-    UIFont *customFont = [UIFont fontWithName:@"Helvetica" size:30.0];
+    UIFont *customFont = [UIFont fontWithName:@"MarkerFelt-Thin" size:30.0];
     NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
     [settingsButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = settingsButton;
- 
+    
     // Set up the navigation bar color
-    UIColor *headerColor = [[UIColor alloc] initWithRed:(7/255.0) green:(183/255.0) blue:(247/255.0) alpha:1];
+    UIColor *headerColor = [[UIColor alloc] initWithRed:(22/255.0) green:(145/255.0) blue:(226/255.0) alpha:1];
     
     self.navigationController.navigationBar.barTintColor = headerColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -53,7 +53,28 @@
     
     animalName.text = @"";
     [animalImage setImage:nil];
+    
+    // Set the title bar font
+    CGRect layerRect = self.view.bounds;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, layerRect.size.width/2, 44)];
+    label.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:25.0];
+    label.shadowColor = [UIColor clearColor];
+    label.textColor =[UIColor whiteColor];
+    label.text = self.title;
+    self.navigationItem.titleView = label;
 }
+
+/*
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self viewDidLayoutSubviews];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        //Do any cleanup, if necessary
+    }];
+}
+*/
 
 - (void)viewDidLayoutSubviews
 {
