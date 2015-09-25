@@ -54,14 +54,6 @@
     animalName.text = @"";
     [animalImage setImage:nil];
     
-    // Set the title bar font
-    CGRect layerRect = self.view.bounds;
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, layerRect.size.width/2, 44)];
-    label.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:25.0];
-    label.shadowColor = [UIColor clearColor];
-    label.textColor =[UIColor whiteColor];
-    label.text = self.title;
-    self.navigationItem.titleView = label;
 }
 
 /*
@@ -80,6 +72,15 @@
 {
     [super viewDidLayoutSubviews];
     
+    // Set the title bar font
+    CGRect layerRect = self.view.bounds;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (layerRect.size.width/2)-44, 44)];
+    label.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:21.0];
+    label.shadowColor = [UIColor clearColor];
+    label.textColor =[UIColor whiteColor];
+    label.text = self.title;
+    self.navigationItem.titleView = label;
+    
     // Add Gradient to button
     CAGradientLayer *layer = [CAGradientLayer layer];
     NSArray *colors = [NSArray arrayWithObjects:
@@ -87,7 +88,6 @@
                        (id)[UIColor colorWithRed:(22/255.0) green:(145/255.0) blue:(226/255.0) alpha:1].CGColor,
                        nil];
     [layer setColors:colors];
-    CGRect layerRect = self.view.bounds;
     layerRect.origin.y = layerRect.size.height - 70;
     layerRect.size.height = 70;
     [layer setFrame:layerRect];

@@ -22,7 +22,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="a0F-nN-Qf7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -63,7 +63,9 @@
             <constraints>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1JQ-QG-pIx"/>
                 <constraint firstItem="y77-pU-rkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="QRb-h0-COj"/>
-                <constraint firstAttribute="bottom" secondItem="B2e-xg-YtU" secondAttribute="bottom" constant="75" id="Z70-or-KnW"/>
+                <constraint firstAttribute="bottom" secondItem="B2e-xg-YtU" secondAttribute="bottom" constant="75" id="Z70-or-KnW">
+                    <variation key="widthClass=compact" constant="82"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="B2e-xg-YtU" secondAttribute="trailing" id="bwZ-4s-Gju"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="centerX" secondItem="y77-pU-rkM" secondAttribute="centerX" id="i1S-VD-khU"/>
                 <constraint firstItem="B2e-xg-YtU" firstAttribute="top" secondItem="y77-pU-rkM" secondAttribute="bottom" constant="20" id="xCc-nh-UnO">
