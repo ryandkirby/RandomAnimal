@@ -53,6 +53,10 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+    
+    // Setting the status bar to White
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,7 +65,6 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     
     animalName.text = @"";
     [animalImage setImage:nil];
-    
 }
 
 /*
