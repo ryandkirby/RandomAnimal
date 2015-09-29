@@ -10,6 +10,7 @@
 
 static NSString* const APP_NAME_STR = @"Who's in Bed?";
 static NSString* const ANIMAL_ROSTER_PAGE_NAME = @"Animal Roster";
+static NSString* const BACK_BUTTON_TEXT = @"Back";
 
 @interface AppShared : NSObject
 

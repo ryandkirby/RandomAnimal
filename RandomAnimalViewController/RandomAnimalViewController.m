@@ -17,6 +17,8 @@
 
 @synthesize animalImage;
 
+const float RANDOM_BUTTON_RADIUS = 60.0;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,6 +47,12 @@
     UIColor *bgColor = [[UIColor alloc]initWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
     self.view.backgroundColor = bgColor;
     
+    // Set the back button of the next navigation controller 'Animal Roster'
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

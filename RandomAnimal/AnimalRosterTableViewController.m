@@ -20,7 +20,13 @@
     self.title = ANIMAL_ROSTER_PAGE_NAME;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAnimal:)];
-
+    
+    // Set the back button of the next navigation controller 'Animal View'
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

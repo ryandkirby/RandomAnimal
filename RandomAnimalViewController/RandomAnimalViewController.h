@@ -13,9 +13,6 @@
 
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
-const float RANDOM_BUTTON_RADIUS = 60.0;
-
-
 @interface RandomAnimalViewController : UIViewController
 {
     __weak IBOutlet UILabel *animalName;
