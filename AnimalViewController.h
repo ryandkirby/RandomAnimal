@@ -26,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
 @property (nonatomic, weak)  Animal *animal;
+@property CGPoint originalCenter;
 //@property (nonatomic) AnimalRosterTableViewController *masterController;
 
 - (IBAction)takePicture:(id)sender;

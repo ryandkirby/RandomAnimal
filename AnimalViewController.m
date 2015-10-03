@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameEdit, actualNameReadOnly, takePhotoButton, deleteButton;
+@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameEdit, actualNameReadOnly, takePhotoButton, deleteButton, originalCenter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,6 +62,34 @@
     }
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Set up the default state of the page if this is a new item
+    if ((animalName.text.length == 0) && (animalImage.image == nil))
+    {
+        self.navigationItem.rightBarButtonItem.enabled = false;
+        [deleteButton setHidden:TRUE];
+    }
+    
+    // Register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
+}
+
+-(void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    // Record the original center for the keyboard popup
+    self.originalCenter = self.view.center;
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound)
+    {
+        //[[AnimalStorage sharedStorage] removeItem:animal];
+    }
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -179,6 +207,12 @@
         [actualNameEdit setReturnKeyType:UIReturnKeyDone];
         actualNameEdit.text = animal.AnimalNameStr;
         [deleteButton setHidden:FALSE];
+        
+        // If no content has been added, update states
+        if ((animalName.text.length == 0) && (animalImage.image == nil))
+        {
+            self.navigationItem.rightBarButtonItem.enabled = false;
+        }
     }
     else
     {
@@ -187,6 +221,7 @@
         [takePhotoButton setHidden:TRUE];
         [deleteButton setHidden:TRUE];
     }
+    
 }
 
 - (void)setSwitchState:(id)sender
@@ -201,13 +236,38 @@
     [self setEditControlState];
 }
 
+- (void)keyboardDidShow:(NSNotification *)note
+{
+    NSDictionary *info  = note.userInfo;
+    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect rawFrame      = [value CGRectValue];
+    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
+    
+    NSLog(@"keyboardFrame: %@", NSStringFromCGRect(keyboardFrame));
+    
+    CGFloat keyboardHeight = keyboardFrame.size.height;
+    
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
+}
+
+- (void)keyboardDidHide:(NSNotification *)note
+{
+    self.view.center = self.originalCenter;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     NSString *newName = textField.text;
-    animal.AnimalNameStr = newName;
-    actualNameReadOnly.text= newName;
-    self.title = newName;
+    
+    if (newName.length > 0)
+    {
+        animal.AnimalNameStr = newName;
+        actualNameReadOnly.text= newName;
+        self.title = newName;
+        self.navigationItem.rightBarButtonItem.enabled = TRUE;
+    }
     
     return YES;
 }

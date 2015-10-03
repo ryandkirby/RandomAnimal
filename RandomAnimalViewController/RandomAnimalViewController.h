@@ -25,5 +25,6 @@
 
 - (IBAction)launchAnimalRoster:(id)sender;
 - (IBAction)findRandomAnimal:(id)sender;
+@property CGRect previousScreenSize;
 
 @end

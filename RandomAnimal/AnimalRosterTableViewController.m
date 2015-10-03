@@ -14,19 +14,14 @@
 
 @implementation AnimalRosterTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.title = ANIMAL_ROSTER_PAGE_NAME;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAnimal:)];
-    
-    // Set the back button of the next navigation controller 'Animal View'
-    self.navigationItem.backBarButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT
-                                     style:UIBarButtonItemStylePlain
-                                    target:nil
-                                    action:nil];
+        
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -97,6 +92,13 @@
     AnimalViewController *animalViewController = [[AnimalViewController alloc] init];
     animalViewController.animal = newAnimal;
     
+    // Set the back button of the next navigation controller 'Animal View'
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    
     // Push the view controller.
     [self.navigationController pushViewController:animalViewController animated:YES];
 }
@@ -153,6 +155,13 @@
         animalViewController.animal = a;
     }
 
+    // Set the back button of the next navigation controller 'Animal View'
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    
     // Push the view controller.
     [self.navigationController pushViewController:animalViewController animated:YES];
 }
