@@ -68,6 +68,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     
     animalName.text = @"";
     [animalImage setImage:nil];
+    [self ImageDropShadowEnabled:FALSE];
 }
 
 /*
