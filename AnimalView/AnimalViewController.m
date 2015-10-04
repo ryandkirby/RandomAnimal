@@ -15,24 +15,19 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameEdit, actualNameReadOnly, takePhotoButton, deleteButton, originalCenter;
+@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameReadOnly, takePhotoButton, originalCenter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     if (animal != nil)
     {
-        self.title = animal.AnimalNameStr;
-        actualNameEdit.delegate = self;
-
         // Set the control states depending on the edit state
         if (animal.AnimalNameStr.length == 0)
         {
             [self setEditing:YES];
         }
-        
-        [self setEditControlState];
-        
+                
         // Set the title of the screen
         if (animal.AnimalNameStr != nil)
         {
@@ -62,18 +57,7 @@
     }
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    // Set up the default state of the page if this is a new item
-    if ((animalName.text.length == 0) && (animalImage.image == nil))
-    {
-        self.navigationItem.rightBarButtonItem.enabled = false;
-        [deleteButton setHidden:TRUE];
-    }
-    
-    // Register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
-    
+        
 }
 
 -(void) viewDidLayoutSubviews
@@ -97,133 +81,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)deleteAnimal:(id)sender
-{
-    [[AnimalStorage sharedStorage] removeItem:animal];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)takePicture:(id)sender
-{
-    // If the popup is already displayed, close it.
-    if ([imagePickerPopover isPopoverVisible])
-    {
-        // Close the popup here
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
-        return;
-    }
-    
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
-    [imagePicker allowsEditing];
-    
-    // If our device supports a camera, use it
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    }
-    else
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-    }
-    
-    [imagePicker setDelegate:self];
-    
-    // Below the code will make a popup use this if the device is an iPad.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-    {
-        // Create the popup controller
-        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
-        
-        // Set the delgate of the popover to be this class
-        [imagePickerPopover setDelegate:self];
-        
-        // Set the content
-        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
-    }
-    else
-    {
-        // This is the display for the iPhone.
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
-    
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    // Clean out any old images
-    NSString *oldKey = [animal imageKey];
-    
-    if (oldKey)
-    {
-        [[AnimalStorageImage sharedStore] deleteImageForKey:oldKey];
-    }
-    
-    //Get the selected image
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-
-    [animal setThumbnailDataFromImage:image];
-    
-    // Put that image into the screen
-    [animalImage setImage:image];
-    
-    //Store this image in our Animal by creating a GUID for it
-    CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
-    
-    CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
-    
-    //Now store the image and key into the dictionary
-    NSString *key = (__bridge NSString *)newGUIDIDString;
-    [animal setImageKey:key];
-    
-    [[AnimalStorageImage sharedStore] setImage:image forKey:[animal imageKey]];
-    
-    // Clear up the memory from the strings above!
-    CFRelease(newGUID);
-    CFRelease(newGUIDIDString);
-    
-    // Take the imagepicker off the screen.  Control this behavior depending on the device type
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    else
-    {
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
-    }
-}
-
--(void)setEditControlState
-{
-    if (self.editing)
-    {
-        // Set the state of the dialog Edit vs. Readonly
-        [actualNameEdit setHidden:FALSE];
-        [actualNameReadOnly setHidden:TRUE];
-        [takePhotoButton setHidden:FALSE];
-        [actualNameEdit setReturnKeyType:UIReturnKeyDone];
-        actualNameEdit.text = animal.AnimalNameStr;
-        [deleteButton setHidden:FALSE];
-        
-        // If no content has been added, update states
-        if ((animalName.text.length == 0) && (animalImage.image == nil))
-        {
-            self.navigationItem.rightBarButtonItem.enabled = false;
-        }
-    }
-    else
-    {
-        [actualNameEdit setHidden:TRUE];
-        [actualNameReadOnly setHidden:FALSE];
-        [takePhotoButton setHidden:TRUE];
-        [deleteButton setHidden:TRUE];
-    }
-    
-}
-
 - (void)setSwitchState:(id)sender
 {
     BOOL state = [sender isOn];
@@ -233,43 +90,19 @@
  - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
-    [self setEditControlState];
-}
-
-- (void)keyboardDidShow:(NSNotification *)note
-{
-    NSDictionary *info  = note.userInfo;
-    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
     
-    CGRect rawFrame      = [value CGRectValue];
-    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
+    AnimalEditViewController *animalEditViewController = [[AnimalEditViewController alloc] init];
+    animalEditViewController.animal = animal;
     
-    NSLog(@"keyboardFrame: %@", NSStringFromCGRect(keyboardFrame));
+     // Set the back button of the next navigation controller 'Animal View'
+     animalEditViewController.navigationItem.leftBarButtonItem =
+     [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT
+     style:UIBarButtonItemStylePlain
+     target:nil
+     action:nil];
     
-    CGFloat keyboardHeight = keyboardFrame.size.height;
-    
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
-}
-
-- (void)keyboardDidHide:(NSNotification *)note
-{
-    self.view.center = self.originalCenter;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    NSString *newName = textField.text;
-    
-    if (newName.length > 0)
-    {
-        animal.AnimalNameStr = newName;
-        actualNameReadOnly.text= newName;
-        self.title = newName;
-        self.navigationItem.rightBarButtonItem.enabled = TRUE;
-    }
-    
-    return YES;
+    // Push the view controller.
+    [self.navigationController pushViewController:animalEditViewController animated:NO];
 }
 
 @end

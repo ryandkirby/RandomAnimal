@@ -89,18 +89,11 @@
 -(IBAction)addAnimal:(id)sender
 {
     Animal *newAnimal = [[AnimalStorage sharedStorage] createItem];
-    AnimalViewController *animalViewController = [[AnimalViewController alloc] init];
-    animalViewController.animal = newAnimal;
-    
-    // Set the back button of the next navigation controller 'Animal View'
-    self.navigationItem.backBarButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT
-                                     style:UIBarButtonItemStylePlain
-                                    target:nil
-                                    action:nil];
+    AnimalEditViewController *animalEditViewController = [[AnimalEditViewController alloc] init];
+    animalEditViewController.animal = newAnimal;
     
     // Push the view controller.
-    [self.navigationController pushViewController:animalViewController animated:YES];
+    [self.navigationController pushViewController:animalEditViewController animated:YES];
 }
 
 
