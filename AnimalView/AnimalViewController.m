@@ -22,6 +22,11 @@
     
     if (animal != nil)
     {
+        if (animal != nil)
+        {
+            self.title = animal.AnimalNameStr;
+        }
+        
         // Set the control states depending on the edit state
         if (animal.AnimalNameStr.length == 0)
         {
@@ -60,23 +65,8 @@
         
 }
 
--(void) viewDidLayoutSubviews
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidLayoutSubviews];
-    // Record the original center for the keyboard popup
-    self.originalCenter = self.view.center;
-}
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound)
-    {
-        //[[AnimalStorage sharedStorage] removeItem:animal];
-    }
-    [super viewWillDisappear:animated];
-}
-
-- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

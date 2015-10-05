@@ -37,12 +37,22 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
+    // Set default state of Done Button
+    self.navigationItem.rightBarButtonItem.enabled = FALSE;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    // Record the original center for the keyboard popup
+    self.originalCenter = self.view.center;
 }
 
 - (IBAction)takePicture:(id)sender

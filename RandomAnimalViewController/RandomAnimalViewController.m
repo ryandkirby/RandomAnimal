@@ -139,9 +139,9 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         [self.view addSubview:randomAnimalButton];
     
         // Image border
-        //UIColor *imageBorderColor = [[UIColor alloc]initWithRed:222.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
-        //[animalImage.layer setBorderColor: [imageBorderColor CGColor]];
-        //[animalImage.layer setBorderWidth: 1.0];
+        UIColor *imageBorderColor = [[UIColor alloc]initWithRed:222.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
+        [animalImage.layer setBorderColor: [imageBorderColor CGColor]];
+        [animalImage.layer setBorderWidth: 1.0];
     }
 
 }
