@@ -21,6 +21,12 @@
     self.title = ANIMAL_ROSTER_PAGE_NAME;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAnimal:)];
+    
+    // Set the title bar font and color
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont
+                                                                           fontWithName:ANIMAL_APP_FONT size:21], NSFontAttributeName,
+                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
         
 }
 

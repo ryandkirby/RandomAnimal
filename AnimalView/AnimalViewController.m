@@ -61,11 +61,13 @@
         [animalAvailableSwitch addTarget:self action:@selector(setSwitchState:) forControlEvents:UIControlEventValueChanged];
     }
     
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIFont fontWithName:ANIMAL_APP_FONT size:21],
-      NSFontAttributeName, nil]];
+    // Set the title bar font and color
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont
+                                                                           fontWithName:ANIMAL_APP_FONT size:21], NSFontAttributeName,
+                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     
+
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
         
 }
