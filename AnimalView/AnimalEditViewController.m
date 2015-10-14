@@ -29,6 +29,14 @@
     // Set up the left and right buttons on the view
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:DONE_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
+
+    // Set button font and color
+    [cancelButton setTitleTextAttributes:@
+     { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
+     } forState:UIControlStateNormal];
+    [doneButton setTitleTextAttributes:@
+     { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
+     } forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = doneButton;
     self.navigationItem.leftBarButtonItem = cancelButton;
