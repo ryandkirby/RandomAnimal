@@ -27,7 +27,17 @@
                                                                            fontWithName:ANIMAL_APP_FONT size:21], NSFontAttributeName,
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
-        
+    
+    // Set the back button font and color for the next navigation item
+    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    [backbutton setTitleTextAttributes:@{
+                                          NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0],
+                                          NSForegroundColorAttributeName: [UIColor whiteColor]
+                                          } forState:UIControlStateNormal];
+    
+    self.navigationItem.backBarButtonItem = backbutton;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -155,12 +165,15 @@
     }
 
     // Set the back button of the next navigation controller 'Animal View'
-    self.navigationItem.backBarButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT
-                                     style:UIBarButtonItemStylePlain
-                                    target:nil
-                                    action:nil];
+    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:nil];
     
+    [backbutton setTitleTextAttributes:@{
+                                         NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0],
+                                         NSForegroundColorAttributeName: [UIColor whiteColor]
+                                         } forState:UIControlStateNormal];
+    
+    self.navigationItem.backBarButtonItem = backbutton;
+        
     // Push the view controller.
     [self.navigationController pushViewController:animalViewController animated:YES];
 }

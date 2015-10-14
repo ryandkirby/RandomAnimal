@@ -48,13 +48,15 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     self.view.backgroundColor = bgColor;
     
     // Set the back button of the next navigation controller 'Animal Roster'
-    self.navigationItem.backBarButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT
-                                     style:UIBarButtonItemStylePlain
-                                    target:nil
-                                    action:nil];
+    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:nil];
     
+    [backbutton setTitleTextAttributes:@{
+                                         NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0],
+                                         NSForegroundColorAttributeName: [UIColor whiteColor]
+                                         } forState:UIControlStateNormal];
     
+    self.navigationItem.backBarButtonItem = backbutton;
+        
     // Setting the status bar to White
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
