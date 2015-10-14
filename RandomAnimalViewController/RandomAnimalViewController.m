@@ -31,7 +31,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     // Set up the navigation bar setting icon
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
 
-    UIFont *customFont = [UIFont fontWithName:@"MarkerFelt-Thin" size:30.0];
+    UIFont *customFont = [UIFont fontWithName:ANIMAL_APP_FONT size:30.0];
     NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
     [settingsButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = settingsButton;
@@ -96,7 +96,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         previousScreenSize = layerRect;
     
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (layerRect.size.width/2)-44, 44)];
-        label.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:21.0];
+        label.font = [UIFont fontWithName:ANIMAL_APP_FONT size:21.0];
         label.shadowColor = [UIColor clearColor];
         label.textColor =[UIColor whiteColor];
         label.text = self.title;
