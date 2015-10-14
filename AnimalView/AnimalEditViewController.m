@@ -28,7 +28,7 @@
     
     // Set up the left and right buttons on the view
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:DONE_BUTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:DONE_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
     self.navigationItem.leftBarButtonItem = cancelButton;

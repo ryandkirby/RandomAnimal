@@ -27,12 +27,6 @@
             self.title = animal.AnimalNameStr;
         }
         
-        // Set the control states depending on the edit state
-        if (animal.AnimalNameStr.length == 0)
-        {
-            [self setEditing:YES];
-        }
-                
         // Set the title of the screen
         if (animal.AnimalNameStr != nil)
         {
@@ -67,9 +61,13 @@
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     
-
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-        
+    // Set Right button action, text, and color
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:EDIT_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(EditAnimal:)];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{
+                                                                    NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0],
+                                                                    NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                                    } forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,10 +82,8 @@
     animal.AnimalStatusInt = state;
 }
 
- - (void)setEditing:(BOOL)editing animated:(BOOL)animated
+-(IBAction)EditAnimal:(id)sender
 {
-    [super setEditing:editing animated:animated];
-    
     AnimalEditViewController *animalEditViewController = [[AnimalEditViewController alloc] init];
     animalEditViewController.animal = animal;
     

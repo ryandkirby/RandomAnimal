@@ -25,7 +25,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     // Do any additional setup after loading the view from its nib.
     self.title = APP_NAME_STR;
 
-    // Set the Navigation Bar Color
+    // Set the System Bar Color
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     // Set up the navigation bar setting icon
@@ -53,6 +53,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
                                      style:UIBarButtonItemStylePlain
                                     target:nil
                                     action:nil];
+    
     
     // Setting the status bar to White
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
