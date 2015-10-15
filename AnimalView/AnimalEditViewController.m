@@ -45,9 +45,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
-    // Set default state of Done Button
-    self.navigationItem.rightBarButtonItem.enabled = FALSE;
+    // Setting done button on keyboard
+    [actualNameEdit setReturnKeyType:UIReturnKeyDone];
     
+    // Set the image
+    UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[animal imageKey]];
+    if (img)
+    {
+        [animalImage setImage:img];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,7 +66,11 @@
 {
     [super viewDidLayoutSubviews];
     // Record the original center for the keyboard popup
-    self.originalCenter = self.view.center;
+    if (self.originalCenter.x == 0 && self.originalCenter.y == 0)
+    {
+        self.originalCenter = self.view.center;
+        NSLog(@"Center X:%f Y:%f", self.view.center.x, self.view.center.y);
+    }
 }
 
 - (IBAction)takePicture:(id)sender
@@ -169,13 +179,12 @@
 
 - (IBAction)deleteAnimal:(id)sender
 {
- 
-    
     [[AnimalStorage sharedStorage] removeItem:animal];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)keyboardDidShow:(NSNotification *)note
+
 {
     NSDictionary *info  = note.userInfo;
     NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
@@ -188,11 +197,19 @@
     CGFloat keyboardHeight = keyboardFrame.size.height;
     
     self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
+    
+    // Disable navigation controls while keyboard is displayed
+    self.navigationItem.rightBarButtonItem.enabled = FALSE;
+    self.navigationItem.leftBarButtonItem.enabled = FALSE;
+    
 }
 
 - (void)keyboardDidHide:(NSNotification *)note
 {
     self.view.center = self.originalCenter;
+    
+    // Enable navigation controls when keyboard is dismissed
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -210,14 +227,9 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [actualNameEdit resignFirstResponder];
 }
-*/
 
 @end

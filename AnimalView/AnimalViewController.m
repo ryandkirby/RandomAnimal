@@ -70,6 +70,18 @@
                                                                     } forState:UIControlStateNormal];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Set the image if it was set on the edit screen
+    UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[animal imageKey]];
+    if (img)
+    {
+        [animalImage setImage:img];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

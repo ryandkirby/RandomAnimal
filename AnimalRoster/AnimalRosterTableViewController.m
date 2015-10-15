@@ -173,7 +173,7 @@
                                          } forState:UIControlStateNormal];
     
     self.navigationItem.backBarButtonItem = backbutton;
-        
+    
     // Push the view controller.
     [self.navigationController pushViewController:animalViewController animated:YES];
 }
