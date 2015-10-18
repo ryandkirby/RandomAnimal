@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -22,6 +22,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-Qi-YBW">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="57" id="hNi-VL-Adl"/>
                     </constraints>
@@ -41,6 +42,7 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="ODA-uM-yuL"/>
@@ -61,20 +63,24 @@
                 </imageView>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUz-st-YLX">
                     <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                    <animations/>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-uB-47p">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <animations/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-1d-L9M">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <animations/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Rab-1d-L9M" firstAttribute="baseline" secondItem="Mac-Qi-YBW" secondAttribute="baseline" id="2wY-Eh-dsk"/>
@@ -104,10 +110,7 @@
                     <exclude reference="Rab-1d-L9M"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="C6a-9f-AQv"/>
-                    <exclude reference="KdW-ah-BOo"/>
-                    <exclude reference="YgK-eP-JSg"/>
-                    <exclude reference="jsK-f0-8ck"/>
+                    <exclude reference="y3j-1p-JVA"/>
                     <exclude reference="XrP-Bu-Qzd"/>
                     <exclude reference="2wY-Eh-dsk"/>
                     <exclude reference="AB9-Oa-Jbs"/>
@@ -115,12 +118,15 @@
                     <exclude reference="OWk-4Q-AN2"/>
                     <exclude reference="qaB-EH-gWH"/>
                     <exclude reference="tp3-5E-cdZ"/>
-                    <exclude reference="y3j-1p-JVA"/>
                     <exclude reference="anh-ha-lw1"/>
                     <exclude reference="nWw-kV-qcY"/>
                     <exclude reference="r0d-pt-SdB"/>
                     <exclude reference="s7J-bU-h0w"/>
                     <exclude reference="xtp-Le-uPB"/>
+                    <exclude reference="C6a-9f-AQv"/>
+                    <exclude reference="KdW-ah-BOo"/>
+                    <exclude reference="YgK-eP-JSg"/>
+                    <exclude reference="jsK-f0-8ck"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -132,10 +138,7 @@
                     <include reference="Rab-1d-L9M"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="C6a-9f-AQv"/>
-                    <exclude reference="KdW-ah-BOo"/>
-                    <include reference="YgK-eP-JSg"/>
-                    <include reference="jsK-f0-8ck"/>
+                    <include reference="y3j-1p-JVA"/>
                     <include reference="XrP-Bu-Qzd"/>
                     <include reference="2wY-Eh-dsk"/>
                     <include reference="AB9-Oa-Jbs"/>
@@ -143,12 +146,15 @@
                     <include reference="OWk-4Q-AN2"/>
                     <include reference="qaB-EH-gWH"/>
                     <exclude reference="tp3-5E-cdZ"/>
-                    <include reference="y3j-1p-JVA"/>
                     <include reference="anh-ha-lw1"/>
                     <include reference="nWw-kV-qcY"/>
                     <include reference="r0d-pt-SdB"/>
                     <include reference="s7J-bU-h0w"/>
                     <include reference="xtp-Le-uPB"/>
+                    <include reference="C6a-9f-AQv"/>
+                    <exclude reference="KdW-ah-BOo"/>
+                    <include reference="YgK-eP-JSg"/>
+                    <include reference="jsK-f0-8ck"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="74" y="130"/>

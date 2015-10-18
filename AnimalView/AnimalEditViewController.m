@@ -14,7 +14,7 @@
 
 @implementation AnimalEditViewController
 
-@synthesize animal, actualNameEdit, animalName, animalImage,animalAvailableSwitch;
+@synthesize animal, actualNameEdit, animalName, animalImage;
 
 - (void)viewDidLoad
 {

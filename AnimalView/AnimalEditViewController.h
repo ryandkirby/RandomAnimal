@@ -22,7 +22,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *actualNameEdit;
 @property (nonatomic, weak) IBOutlet UILabel *actualNameReadOnly;
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
-@property (nonatomic, weak) IBOutlet UISwitch *animalAvailableSwitch;
 @property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
 @property (nonatomic, weak)  Animal *animal;
