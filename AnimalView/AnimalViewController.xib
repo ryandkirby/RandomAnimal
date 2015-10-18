@@ -84,13 +84,21 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Rab-1d-L9M" firstAttribute="baseline" secondItem="Mac-Qi-YBW" secondAttribute="baseline" id="2wY-Eh-dsk"/>
+                <constraint firstItem="V5s-Cp-3wr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="46" id="62l-no-Uc7">
+                    <variation key="widthClass=compact" constant="49"/>
+                </constraint>
                 <constraint firstItem="Rab-1d-L9M" firstAttribute="top" secondItem="V5s-Cp-3wr" secondAttribute="bottom" constant="31" id="AB9-Oa-Jbs"/>
-                <constraint firstItem="V5s-Cp-3wr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="46" id="C6a-9f-AQv"/>
-                <constraint firstItem="Rab-1d-L9M" firstAttribute="trailing" secondItem="V5s-Cp-3wr" secondAttribute="trailing" id="GHz-5g-YMu"/>
+                <constraint firstItem="Rab-1d-L9M" firstAttribute="trailing" secondItem="V5s-Cp-3wr" secondAttribute="trailing" id="GHz-5g-YMu">
+                    <variation key="widthClass=compact" constant="-3"/>
+                </constraint>
                 <constraint firstItem="V5s-Cp-3wr" firstAttribute="top" secondItem="Rab-1d-L9M" secondAttribute="top" id="KdW-ah-BOo"/>
                 <constraint firstItem="Rab-1d-L9M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="79" id="OWk-4Q-AN2"/>
+                <constraint firstAttribute="trailing" secondItem="V5s-Cp-3wr" secondAttribute="trailing" constant="54" id="Se4-Ii-Kjn">
+                    <variation key="widthClass=compact" constant="51"/>
+                </constraint>
                 <constraint firstItem="Mac-Qi-YBW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="XrP-Bu-Qzd"/>
                 <constraint firstAttribute="trailing" secondItem="V5s-Cp-3wr" secondAttribute="trailing" constant="54" id="YgK-eP-JSg"/>
+                <constraint firstItem="V5s-Cp-3wr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="abX-4K-Ys9"/>
                 <constraint firstItem="NUz-st-YLX" firstAttribute="top" secondItem="Rab-1d-L9M" secondAttribute="bottom" constant="25" id="anh-ha-lw1"/>
                 <constraint firstItem="V5s-Cp-3wr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="110" id="jsK-f0-8ck"/>
                 <constraint firstItem="NUz-st-YLX" firstAttribute="centerY" secondItem="LgH-uB-47p" secondAttribute="centerY" id="nWw-kV-qcY"/>
@@ -110,7 +118,12 @@
                     <exclude reference="Rab-1d-L9M"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="y3j-1p-JVA"/>
+                    <exclude reference="62l-no-Uc7"/>
+                    <exclude reference="KdW-ah-BOo"/>
+                    <exclude reference="Se4-Ii-Kjn"/>
+                    <exclude reference="YgK-eP-JSg"/>
+                    <exclude reference="abX-4K-Ys9"/>
+                    <exclude reference="jsK-f0-8ck"/>
                     <exclude reference="XrP-Bu-Qzd"/>
                     <exclude reference="2wY-Eh-dsk"/>
                     <exclude reference="AB9-Oa-Jbs"/>
@@ -118,15 +131,12 @@
                     <exclude reference="OWk-4Q-AN2"/>
                     <exclude reference="qaB-EH-gWH"/>
                     <exclude reference="tp3-5E-cdZ"/>
+                    <exclude reference="y3j-1p-JVA"/>
                     <exclude reference="anh-ha-lw1"/>
                     <exclude reference="nWw-kV-qcY"/>
                     <exclude reference="r0d-pt-SdB"/>
                     <exclude reference="s7J-bU-h0w"/>
                     <exclude reference="xtp-Le-uPB"/>
-                    <exclude reference="C6a-9f-AQv"/>
-                    <exclude reference="KdW-ah-BOo"/>
-                    <exclude reference="YgK-eP-JSg"/>
-                    <exclude reference="jsK-f0-8ck"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -138,7 +148,12 @@
                     <include reference="Rab-1d-L9M"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="y3j-1p-JVA"/>
+                    <include reference="62l-no-Uc7"/>
+                    <exclude reference="KdW-ah-BOo"/>
+                    <include reference="Se4-Ii-Kjn"/>
+                    <exclude reference="YgK-eP-JSg"/>
+                    <exclude reference="abX-4K-Ys9"/>
+                    <include reference="jsK-f0-8ck"/>
                     <include reference="XrP-Bu-Qzd"/>
                     <include reference="2wY-Eh-dsk"/>
                     <include reference="AB9-Oa-Jbs"/>
@@ -146,15 +161,12 @@
                     <include reference="OWk-4Q-AN2"/>
                     <include reference="qaB-EH-gWH"/>
                     <exclude reference="tp3-5E-cdZ"/>
+                    <include reference="y3j-1p-JVA"/>
                     <include reference="anh-ha-lw1"/>
                     <include reference="nWw-kV-qcY"/>
                     <include reference="r0d-pt-SdB"/>
                     <include reference="s7J-bU-h0w"/>
                     <include reference="xtp-Le-uPB"/>
-                    <include reference="C6a-9f-AQv"/>
-                    <exclude reference="KdW-ah-BOo"/>
-                    <include reference="YgK-eP-JSg"/>
-                    <include reference="jsK-f0-8ck"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="74" y="130"/>
