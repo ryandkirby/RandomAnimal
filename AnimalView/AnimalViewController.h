@@ -22,8 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *availablityText;
 @property (nonatomic, weak) IBOutlet UILabel *actualNameReadOnly;
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
-@property (nonatomic, weak) IBOutlet UISwitch *animalAvailableSwitch;
-@property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
+@property (nonatomic, retain) IBOutlet UISwitch *animalAvailableSwitch;
 @property (nonatomic, weak)  Animal *animal;
 @property CGPoint originalCenter;
 

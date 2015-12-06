@@ -15,7 +15,7 @@
 
 @implementation AnimalViewController
 
-@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameReadOnly, takePhotoButton, originalCenter;
+@synthesize animalImage, animalName, animal, animalAvailableSwitch, availablityText, actualNameReadOnly;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,8 +51,6 @@
         {
             animalAvailableSwitch.on = false;
         }
-        
-        [animalAvailableSwitch addTarget:self action:@selector(setSwitchState:) forControlEvents:UIControlEventValueChanged];
     }
     
     // Set the title bar font and color
@@ -88,7 +86,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setSwitchState:(id)sender
+- (IBAction)animalAvailableSwitch:(id)sender
 {
     BOOL state = [sender isOn];
     animal.AnimalStatusInt = state;

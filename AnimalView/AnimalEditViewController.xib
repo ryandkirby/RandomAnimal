@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimalEditViewController">
@@ -25,7 +25,7 @@
                         <constraint firstAttribute="width" constant="57" id="fiy-P4-XdN"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -155,9 +155,17 @@
                     <exclude reference="E4n-1N-h23"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="meT-zp-O7B"/>
+                    <exclude reference="AuT-ke-GQK"/>
+                    <exclude reference="PXa-gd-s3C"/>
+                    <exclude reference="aLL-IV-9h8"/>
                     <exclude reference="44y-0k-Gvp"/>
                     <exclude reference="CD2-dq-BTi"/>
                     <exclude reference="bVW-AC-km4"/>
+                    <exclude reference="9Sg-5H-j6a"/>
+                    <exclude reference="B9b-Kb-8ij"/>
+                    <exclude reference="DkL-ao-uRh"/>
+                    <exclude reference="tHr-VN-olE"/>
                     <exclude reference="0gO-Wh-3tY"/>
                     <exclude reference="4dn-it-lUz"/>
                     <exclude reference="7K8-C7-4st"/>
@@ -167,14 +175,6 @@
                     <exclude reference="a4x-fJ-IdA"/>
                     <exclude reference="a6f-GY-Zmw"/>
                     <exclude reference="fUP-mc-clu"/>
-                    <exclude reference="meT-zp-O7B"/>
-                    <exclude reference="AuT-ke-GQK"/>
-                    <exclude reference="PXa-gd-s3C"/>
-                    <exclude reference="aLL-IV-9h8"/>
-                    <exclude reference="9Sg-5H-j6a"/>
-                    <exclude reference="B9b-Kb-8ij"/>
-                    <exclude reference="DkL-ao-uRh"/>
-                    <exclude reference="tHr-VN-olE"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -186,9 +186,17 @@
                     <include reference="E4n-1N-h23"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="meT-zp-O7B"/>
+                    <include reference="AuT-ke-GQK"/>
+                    <include reference="PXa-gd-s3C"/>
+                    <include reference="aLL-IV-9h8"/>
                     <include reference="44y-0k-Gvp"/>
                     <exclude reference="CD2-dq-BTi"/>
                     <include reference="bVW-AC-km4"/>
+                    <include reference="9Sg-5H-j6a"/>
+                    <include reference="B9b-Kb-8ij"/>
+                    <include reference="DkL-ao-uRh"/>
+                    <include reference="tHr-VN-olE"/>
                     <include reference="0gO-Wh-3tY"/>
                     <include reference="4dn-it-lUz"/>
                     <exclude reference="7K8-C7-4st"/>
@@ -198,14 +206,6 @@
                     <exclude reference="a4x-fJ-IdA"/>
                     <include reference="a6f-GY-Zmw"/>
                     <exclude reference="fUP-mc-clu"/>
-                    <include reference="meT-zp-O7B"/>
-                    <include reference="AuT-ke-GQK"/>
-                    <include reference="PXa-gd-s3C"/>
-                    <include reference="aLL-IV-9h8"/>
-                    <include reference="9Sg-5H-j6a"/>
-                    <include reference="B9b-Kb-8ij"/>
-                    <include reference="DkL-ao-uRh"/>
-                    <include reference="tHr-VN-olE"/>
                 </mask>
             </variation>
         </view>
