@@ -14,7 +14,7 @@
 
 @implementation AnimalEditViewController
 
-@synthesize animal, actualNameEdit, animalName, animalImage;
+@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton;
 
 - (void)viewDidLoad
 {
@@ -24,17 +24,22 @@
     {
         self.title = animal.AnimalNameStr;
         actualNameEdit.delegate = self;
+        actualNameEdit.text = animal.AnimalNameStr;
     }
     
     // Set up the left and right buttons on the view
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:DONE_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
-
+    cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
+    doneButton = [[UIBarButtonItem alloc] initWithTitle:DONE_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
+    backButton = [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
+    
     // Set button font and color
     [cancelButton setTitleTextAttributes:@
      { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
      } forState:UIControlStateNormal];
     [doneButton setTitleTextAttributes:@
+     { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
+     } forState:UIControlStateNormal];
+    [backButton setTitleTextAttributes:@
      { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
      } forState:UIControlStateNormal];
     
@@ -168,8 +173,12 @@
 
 -(IBAction)cancelAction:(id)sender
 {
-    //[[AnimalStorage sharedStorage] removeItem:animal];
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+-(IBAction)backAction:(id)sender
+{
+    [actualNameEdit resignFirstResponder];
 }
 
 -(IBAction)doneAction:(id)sender
@@ -196,11 +205,13 @@
     
     CGFloat keyboardHeight = keyboardFrame.size.height;
     
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight+ KEYBOARD_ADJUST_HEIGHT);
+    
+    // Adjust the cancel buttont to edit
+    self.navigationItem.leftBarButtonItem = backButton;
     
     // Disable navigation controls while keyboard is displayed
-    self.navigationItem.rightBarButtonItem.enabled = FALSE;
-    self.navigationItem.leftBarButtonItem.enabled = FALSE;
+    self.navigationItem.rightBarButtonItem = NULL;
     
 }
 
@@ -209,7 +220,8 @@
     self.view.center = self.originalCenter;
     
     // Enable navigation controls when keyboard is dismissed
-    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    self.navigationItem.rightBarButtonItem = doneButton;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

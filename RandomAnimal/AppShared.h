@@ -15,6 +15,7 @@ static NSString* const CANCEL_BUTTON_TEXT = @"Cancel";
 static NSString* const DONE_BUTTON_TEXT = @"Done";
 static NSString* const ANIMAL_APP_FONT = @"MarkerFelt-Thin";
 static NSString* const EDIT_BUTTON_TEXT = @"Edit";
+static NSInteger const KEYBOARD_ADJUST_HEIGHT = 90;
 
 @interface AppShared : NSObject
 
