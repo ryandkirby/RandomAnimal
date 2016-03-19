@@ -19,14 +19,14 @@
 		945F9C571B798E5800C8F7F2 /* RA_Icon-80x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C561B798E5800C8F7F2 /* RA_Icon-80x80@2x.png */; };
 		945F9C591B798E6600C8F7F2 /* RA_Icon-120x120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C581B798E6600C8F7F2 /* RA_Icon-120x120@2x.png */; };
 		94695ECA1B8FF790006E8269 /* RandomButtom.png in Resources */ = {isa = PBXBuildFile; fileRef = 94695EC91B8FF790006E8269 /* RandomButtom.png */; };
-		94B56F1C1BC0DBC50069E5D8 /* AnimalEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F1A1BC0DBC50069E5D8 /* AnimalEditViewController.m */; settings = {ASSET_TAGS = (); }; };
-		94B56F1D1BC0DBC50069E5D8 /* AnimalEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F1B1BC0DBC50069E5D8 /* AnimalEditViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		94B56F241BC0DC650069E5D8 /* AnimalRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F1F1BC0DC650069E5D8 /* AnimalRosterTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		94B56F251BC0DC650069E5D8 /* AnimalRosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F201BC0DC650069E5D8 /* AnimalRosterTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		94B56F261BC0DC650069E5D8 /* AnimalRosterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F221BC0DC650069E5D8 /* AnimalRosterTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		94B56F271BC0DC650069E5D8 /* AnimalRosterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F231BC0DC650069E5D8 /* AnimalRosterTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		94B56F2B1BC0DC7C0069E5D8 /* AnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F291BC0DC7C0069E5D8 /* AnimalViewController.m */; settings = {ASSET_TAGS = (); }; };
-		94B56F2C1BC0DC7C0069E5D8 /* AnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F2A1BC0DC7C0069E5D8 /* AnimalViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		94B56F1C1BC0DBC50069E5D8 /* AnimalEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F1A1BC0DBC50069E5D8 /* AnimalEditViewController.m */; };
+		94B56F1D1BC0DBC50069E5D8 /* AnimalEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F1B1BC0DBC50069E5D8 /* AnimalEditViewController.xib */; };
+		94B56F241BC0DC650069E5D8 /* AnimalRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F1F1BC0DC650069E5D8 /* AnimalRosterTableViewCell.m */; };
+		94B56F251BC0DC650069E5D8 /* AnimalRosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F201BC0DC650069E5D8 /* AnimalRosterTableViewCell.xib */; };
+		94B56F261BC0DC650069E5D8 /* AnimalRosterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F221BC0DC650069E5D8 /* AnimalRosterTableViewController.m */; };
+		94B56F271BC0DC650069E5D8 /* AnimalRosterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F231BC0DC650069E5D8 /* AnimalRosterTableViewController.xib */; };
+		94B56F2B1BC0DC7C0069E5D8 /* AnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F291BC0DC7C0069E5D8 /* AnimalViewController.m */; };
+		94B56F2C1BC0DC7C0069E5D8 /* AnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F2A1BC0DC7C0069E5D8 /* AnimalViewController.xib */; };
 		94F37B241B6D9FE00089A4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B231B6D9FE00089A4D5 /* main.m */; };
 		94F37B271B6D9FE00089A4D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B261B6D9FE00089A4D5 /* AppDelegate.m */; };
 		94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B291B6D9FE00089A4D5 /* ViewController.m */; };
@@ -160,12 +160,12 @@
 			isa = PBXGroup;
 			children = (
 				94B56F181BC0DB330069E5D8 /* AnimalView */,
-				945F9C491B75A5A400C8F7F2 /* Frameworks */,
 				945F9C351B6DC01F00C8F7F2 /* AnimalStorage */,
 				945F9C2E1B6DB97A00C8F7F2 /* RandomAnimalViewController */,
 				94F37B4C1B6DA6A90089A4D5 /* AnimalRoster */,
 				94F37B201B6D9FDF0089A4D5 /* RandomAnimal */,
 				94F37B3A1B6D9FE00089A4D5 /* RandomAnimalTests */,
+				945F9C491B75A5A400C8F7F2 /* Frameworks */,
 				94F37B1F1B6D9FDF0089A4D5 /* Products */,
 			);
 			sourceTree = "<group>";
