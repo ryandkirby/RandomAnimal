@@ -78,6 +78,11 @@
     {
         [animalImage setImage:img];
     }
+    
+    if ([self animal] == nil)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

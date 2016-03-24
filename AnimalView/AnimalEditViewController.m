@@ -36,15 +36,23 @@
     [cancelButton setTitleTextAttributes:@
      { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
      } forState:UIControlStateNormal];
+    
+    // Set Done button enable/disable
     [doneButton setTitleTextAttributes:@
      { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
      } forState:UIControlStateNormal];
+    [doneButton setTitleTextAttributes:@
+    { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor colorWithWhite:1.0 alpha:0.5]
+    } forState:UIControlStateDisabled];
+    
     [backButton setTitleTextAttributes:@
      { NSFontAttributeName: [UIFont fontWithName:ANIMAL_APP_FONT size:21.0], NSForegroundColorAttributeName: [UIColor whiteColor]
      } forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = doneButton;
     self.navigationItem.leftBarButtonItem = cancelButton;
+
+    [doneButton setEnabled:FALSE];
     
     // Register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -153,6 +161,8 @@
     NSString *key = (__bridge NSString *)newGUIDIDString;
     [animal setImageKey:key];
     
+    [doneButton setEnabled:TRUE];
+    
     [[AnimalStorageImage sharedStore] setImage:image forKey:[animal imageKey]];
     
     // Clear up the memory from the strings above!
@@ -173,6 +183,10 @@
 
 -(IBAction)cancelAction:(id)sender
 {
+    if (animal.AnimalNameStr == nil)
+    {
+        [[AnimalStorage sharedStorage] removeItem:animal];
+    }
     [self.navigationController popViewControllerAnimated:NO];
 }
 
@@ -189,7 +203,7 @@
 - (IBAction)deleteAnimal:(id)sender
 {
     [[AnimalStorage sharedStorage] removeItem:animal];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 - (void)keyboardDidShow:(NSNotification *)note
@@ -207,7 +221,7 @@
     
     self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight+ KEYBOARD_ADJUST_HEIGHT);
     
-    // Adjust the cancel buttont to edit
+    // Adjust the cancel button to edit
     self.navigationItem.leftBarButtonItem = backButton;
     
     // Disable navigation controls while keyboard is displayed
@@ -231,6 +245,7 @@
     
     if (newName.length > 0)
     {
+        [doneButton setEnabled:TRUE];
         animal.AnimalNameStr = newName;
         self.title = newName;
         self.navigationItem.rightBarButtonItem.enabled = TRUE;
@@ -242,6 +257,12 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [actualNameEdit resignFirstResponder];
+}
+
+- (void)setDoneButtonState:(bool)enable_button
+{
+    [doneButton setEnabled:enable_button];
+    
 }
 
 @end
