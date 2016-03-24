@@ -29,7 +29,7 @@
     
     // Set up the left and right buttons on the view
     cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
-    doneButton = [[UIBarButtonItem alloc] initWithTitle:DONE_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
+    doneButton = [[UIBarButtonItem alloc] initWithTitle:SAVE_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
     backButton = [[UIBarButtonItem alloc] initWithTitle:BACK_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
     
     // Set button font and color
