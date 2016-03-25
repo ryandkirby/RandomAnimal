@@ -105,6 +105,7 @@
 -(IBAction)addAnimal:(id)sender
 {
     Animal *newAnimal = [[AnimalStorage sharedStorage] createItem];
+    newAnimal.AnimalStatusInt = ANIMAL_AVAILABLE;
     AnimalEditViewController *animalEditViewController = [[AnimalEditViewController alloc] init];
     animalEditViewController.animal = newAnimal;
     

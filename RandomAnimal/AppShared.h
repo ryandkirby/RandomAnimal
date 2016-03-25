@@ -16,6 +16,8 @@ static NSString* const SAVE_BUTTON_TEXT = @"Save";
 static NSString* const ANIMAL_APP_FONT = @"MarkerFelt-Thin";
 static NSString* const EDIT_BUTTON_TEXT = @"Edit";
 static NSInteger const KEYBOARD_ADJUST_HEIGHT = 90;
+static NSInteger const ANIMAL_AVAILABLE = 1;
+static NSInteger const ANIMAL_NOT_AVAILABLE = 0;
 
 @interface AppShared : NSObject
 
