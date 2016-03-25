@@ -41,7 +41,6 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     
     self.navigationController.navigationBar.barTintColor = headerColor;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    //self.navigationController.navigationBar.translucent = YES;
     
     // Background Color
     UIColor *bgColor = [[UIColor alloc]initWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
