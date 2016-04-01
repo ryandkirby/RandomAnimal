@@ -14,18 +14,25 @@
 
 @implementation AnimalEditViewController
 
-@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton;
+@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton, deleteButton, isNewAnimal;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    if (animal != nil)
+    if (animal.AnimalNameStr == nil && animal.AnimalImageNameStr == nil)
+    {
+        isNewAnimal = true;
+        [deleteButton setHidden:YES];
+    }
+    
+    if (animal.AnimalNameStr != nil)
     {
         self.title = animal.AnimalNameStr;
-        actualNameEdit.delegate = self;
         actualNameEdit.text = animal.AnimalNameStr;
     }
+    
+    actualNameEdit.delegate = self;
     
     // Set up the left and right buttons on the view
     cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
@@ -183,7 +190,7 @@
 
 -(IBAction)cancelAction:(id)sender
 {
-    if (animal.AnimalNameStr == nil)
+    if (isNewAnimal)
     {
         [[AnimalStorage sharedStorage] removeItem:animal];
     }

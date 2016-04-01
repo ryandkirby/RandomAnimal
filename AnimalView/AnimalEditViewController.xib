@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="actualNameEdit" destination="qFU-8c-Yx5" id="dPf-vK-cFb"/>
                 <outlet property="animalImage" destination="fma-xb-hGI" id="ZJH-ap-K4f"/>
+                <outlet property="deleteButton" destination="hRU-A6-TnE" id="1UO-4D-DNn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

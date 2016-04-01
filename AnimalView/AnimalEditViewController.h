@@ -26,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
 @property (nonatomic, weak)  Animal *animal;
 @property CGPoint originalCenter;
+@property BOOL isNewAnimal;
 @property (nonatomic, retain) UIBarButtonItem *cancelButton;
 @property (nonatomic, retain) UIBarButtonItem *backButton;
 @property (nonatomic, retain) UIBarButtonItem *doneButton;
