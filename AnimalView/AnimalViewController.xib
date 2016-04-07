@@ -25,7 +25,7 @@
                     <rect key="frame" x="30" y="434" width="57" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="57" id="YRY-Of-aDe"/>
-                        <constraint firstAttribute="height" constant="22" id="hWv-Xs-xfZ"/>
+                        <constraint firstAttribute="height" constant="30" id="hWv-Xs-xfZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
