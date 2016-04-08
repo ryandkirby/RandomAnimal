@@ -226,7 +226,10 @@
     
     CGFloat keyboardHeight = keyboardFrame.size.height;
     
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight+ KEYBOARD_ADJUST_HEIGHT);
+    //NSLog(@"Center Y: %f View height: %f, Keyboard height %f", self.originalCenter.y, self.view.bounds.size.height, keyboardHeight);
+
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
+    
     
     // Adjust the cancel button to edit
     self.navigationItem.leftBarButtonItem = backButton;
