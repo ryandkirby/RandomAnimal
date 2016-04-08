@@ -28,14 +28,15 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     // Set the System Bar Color
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
-    // Set up the navigation bar setting icon
-    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
+    // Set the right gear settings icon
+    UIImage *settingsGearImage = [UIImage imageNamed:@"SettingsGear.png"];
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingsButton.bounds = CGRectMake( 0, 0, settingsGearImage.size.width, settingsGearImage.size.height );
+    [settingsButton setImage:settingsGearImage forState:UIControlStateNormal];
+    UIBarButtonItem *settingsGearBarBtn = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+    [settingsButton addTarget:self action:@selector(launchAnimalRoster:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = settingsGearBarBtn;
 
-    UIFont *customFont = [UIFont fontWithName:ANIMAL_APP_FONT size:30.0];
-    NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
-    [settingsButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = settingsButton;
-    
     // Set up the navigation bar color
     UIColor *headerColor = [[UIColor alloc] initWithRed:(22/255.0) green:(145/255.0) blue:(226/255.0) alpha:1];
     
