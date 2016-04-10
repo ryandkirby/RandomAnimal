@@ -31,7 +31,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     // Set the right gear settings icon
     UIImage *settingsGearImage = [UIImage imageNamed:@"SettingsGear.png"];
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    settingsButton.bounds = CGRectMake( 0, 0, settingsGearImage.size.width, settingsGearImage.size.height );
+    settingsButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
     [settingsButton setImage:settingsGearImage forState:UIControlStateNormal];
     UIBarButtonItem *settingsGearBarBtn = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
     [settingsButton addTarget:self action:@selector(launchAnimalRoster:) forControlEvents:UIControlEventTouchUpInside];
