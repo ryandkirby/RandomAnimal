@@ -107,6 +107,7 @@
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     [imagePicker allowsEditing];
+    [imagePicker setDelegate:self];
     
     // If our device supports a camera, use it
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
@@ -118,7 +119,7 @@
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     }
     
-    [imagePicker setDelegate:self];
+
     
     // Below the code will make a popup use this if the device is an iPad.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -222,7 +223,7 @@
     CGRect rawFrame      = [value CGRectValue];
     CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
     
-    NSLog(@"keyboardFrame: %@", NSStringFromCGRect(keyboardFrame));
+    //NSLog(@"keyboardFrame: %@", NSStringFromCGRect(keyboardFrame));
     
     CGFloat keyboardHeight = keyboardFrame.size.height;
     

@@ -29,7 +29,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     // Set the right gear settings icon
-    UIImage *settingsGearImage = [UIImage imageNamed:@"SettingsGear.png"];
+    UIImage *settingsGearImage = [UIImage imageNamed:APP_SETTINGS_GEAR];
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
     [settingsButton setImage:settingsGearImage forState:UIControlStateNormal];
@@ -120,8 +120,16 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         // Set up round button
         randomAnimalButton = [UIButton alloc];
         randomAnimalButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [randomAnimalButton setImage:[UIImage imageNamed:@"RandomButtom.png"] forState:UIControlStateNormal];
-        [randomAnimalButton setImage:[UIImage imageNamed:@"RandomButtom.png"] forState:UIControlStateHighlighted];
+        //randomAnimalButton.imageView.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+
+        //randomAnimalButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+        //UIImage *settingsGearImage = [UIImage imageNamed:RANDOM_BUTTON_PAW_IMAGE_NAME];
+        //UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        //settingsButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+        
+        [randomAnimalButton setImage:[UIImage imageNamed:RANDOM_BUTTON_PAW_IMAGE_NAME] forState:UIControlStateNormal];
+        [randomAnimalButton setImage:[UIImage imageNamed:RANDOM_BUTTON_PAW_IMAGE_NAME] forState:UIControlStateHighlighted];
+
     
         [randomAnimalButton addTarget:self action:@selector(findRandomAnimal:) forControlEvents:UIControlEventTouchUpInside];
     
