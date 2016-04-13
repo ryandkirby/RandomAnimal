@@ -79,6 +79,15 @@
         [animalImage setImage:img];
     }
     
+    // Reset the title of the screen
+    if (animal.AnimalNameStr != nil)
+    {
+        self.title = animal.AnimalNameStr;
+        animalName.text = animal.AnimalNameStr;
+        // Set the animal name if it's available
+        [actualNameReadOnly setText:animal.AnimalNameStr];
+    }
+    
     if ([self animal] == nil)
     {
         [self.navigationController popViewControllerAnimated:YES];
