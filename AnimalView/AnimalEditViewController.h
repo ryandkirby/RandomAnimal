@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
 @property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
+@property (nonatomic, weak) IBOutlet UIImage *tempAnimalImage;
 @property (nonatomic, weak)  Animal *animal;
 @property CGPoint originalCenter;
 @property BOOL isNewAnimal;

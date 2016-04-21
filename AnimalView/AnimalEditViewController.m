@@ -95,6 +95,39 @@
 
 - (IBAction)takePicture:(id)sender
 {
+    // Display the image selection Action Sheet
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Cancel Button
+    [actionSheet addAction:[UIAlertAction actionWithTitle:CANCEL_BUTTON_TEXT style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+
+    // Selection Photo Gallary Button
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        [actionSheet addAction:[UIAlertAction actionWithTitle:IMAGE_SELECTION_PHOTO_GALLARY style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self selectImage:sender source:TRUE];
+        }]];
+    }
+
+    // Selection Take Photo Button
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [actionSheet addAction:[UIAlertAction actionWithTitle:IMAGE_SELECTION_TAKE_PHOTO style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self selectImage:sender source:FALSE];
+        }]];
+    }
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)selectImage:(id)sender source:(BOOL)fromPhotoGallary
+{
     // If the popup is already displayed, close it.
     if ([imagePickerPopover isPopoverVisible])
     {
@@ -105,21 +138,17 @@
     }
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
     [imagePicker allowsEditing];
     [imagePicker setDelegate:self];
     
-    // If our device supports a camera, use it
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    }
-    else
+    if (fromPhotoGallary)
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     }
-    
-
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
     
     // Below the code will make a popup use this if the device is an iPad.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -132,14 +161,12 @@
         
         // Set the content
         [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
     }
     else
     {
         // This is the display for the iPhone.
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -154,6 +181,8 @@
     
     //Get the selected image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    //tempAnimalImage
     
     [animal setThumbnailDataFromImage:image];
     
