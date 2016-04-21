@@ -14,7 +14,7 @@
 
 @implementation AnimalEditViewController
 
-@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton, deleteButton, isNewAnimal;
+@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton, deleteButton, isNewAnimal, tempAnimalImage, tempAnimalName;
 
 - (void)viewDidLoad
 {
@@ -180,31 +180,12 @@
     }
     
     //Get the selected image
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    //tempAnimalImage
-    
-    [animal setThumbnailDataFromImage:image];
+    tempAnimalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     // Put that image into the screen
-    [animalImage setImage:image];
-    
-    //Store this image in our Animal by creating a GUID for it
-    CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
-    
-    CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
-    
-    //Now store the image and key into the dictionary
-    NSString *key = (__bridge NSString *)newGUIDIDString;
-    [animal setImageKey:key];
+    [animalImage setImage:tempAnimalImage];
     
     [doneButton setEnabled:TRUE];
-    
-    [[AnimalStorageImage sharedStore] setImage:image forKey:[animal imageKey]];
-    
-    // Clear up the memory from the strings above!
-    CFRelease(newGUID);
-    CFRelease(newGUIDIDString);
     
     // Take the imagepicker off the screen.  Control this behavior depending on the device type
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
@@ -234,6 +215,27 @@
 
 -(IBAction)doneAction:(id)sender
 {
+    // If the user select done, and not cancel or back, we save off the image.
+    [animal setThumbnailDataFromImage:tempAnimalImage];
+    
+    //Store this image in our Animal by creating a GUID for it
+    CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
+    
+    CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
+    
+    //Now store the image and key into the dictionary
+    NSString *key = (__bridge NSString *)newGUIDIDString;
+    [animal setImageKey:key];
+    
+    [[AnimalStorageImage sharedStore] setImage:tempAnimalImage forKey:[animal imageKey]];
+    
+    // Clear up the memory from the strings above!
+    CFRelease(newGUID);
+    CFRelease(newGUIDIDString);
+    
+    // Store the new Animal Name
+    animal.AnimalNameStr = tempAnimalName;
+    
     [self.navigationController popViewControllerAnimated:NO];
 }
 
@@ -286,7 +288,7 @@
     if (newName.length > 0)
     {
         [doneButton setEnabled:TRUE];
-        animal.AnimalNameStr = newName;
+        tempAnimalName = newName;
         self.title = newName;
         self.navigationItem.rightBarButtonItem.enabled = TRUE;
     }
