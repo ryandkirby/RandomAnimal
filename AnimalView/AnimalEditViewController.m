@@ -215,26 +215,31 @@
 
 -(IBAction)doneAction:(id)sender
 {
-    // If the user select done, and not cancel or back, we save off the image.
-    [animal setThumbnailDataFromImage:tempAnimalImage];
+    if (tempAnimalImage != nil)
+    {
+        // If the user select done, and not cancel or back, we save off the image.
+        [animal setThumbnailDataFromImage:tempAnimalImage];
     
-    //Store this image in our Animal by creating a GUID for it
-    CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
+        //Store this image in our Animal by creating a GUID for it
+        CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
     
-    CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
+        CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
     
-    //Now store the image and key into the dictionary
-    NSString *key = (__bridge NSString *)newGUIDIDString;
-    [animal setImageKey:key];
+        //Now store the image and key into the dictionary
+        NSString *key = (__bridge NSString *)newGUIDIDString;
+        [animal setImageKey:key];
     
-    [[AnimalStorageImage sharedStore] setImage:tempAnimalImage forKey:[animal imageKey]];
+        [[AnimalStorageImage sharedStore] setImage:tempAnimalImage forKey:[animal imageKey]];
     
-    // Clear up the memory from the strings above!
-    CFRelease(newGUID);
-    CFRelease(newGUIDIDString);
-    
+        // Clear up the memory from the strings above!
+        CFRelease(newGUID);
+        CFRelease(newGUIDIDString);
+    }
     // Store the new Animal Name
-    animal.AnimalNameStr = tempAnimalName;
+    if (tempAnimalName != nil)
+    {
+        animal.AnimalNameStr = tempAnimalName;
+    }
     
     [self.navigationController popViewControllerAnimated:NO];
 }
