@@ -13,6 +13,7 @@
 		942256A51CB5FCCD0030B678 /* RA_Icon-80x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256A01CB5FCCD0030B678 /* RA_Icon-80x80@2x.png */; };
 		942256AA1CB5FE110030B678 /* SettingsGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256A91CB5FE110030B678 /* SettingsGear.png */; };
 		942256AC1CBAD3BC0030B678 /* RandomButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256AB1CBAD3BC0030B678 /* RandomButton.png */; };
+		942256B71CCF0BB20030B678 /* OffsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 942256B61CCF0BB20030B678 /* OffsetLabel.m */; };
 		945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */; };
 		945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */; };
 		945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C301B6DBF1600C8F7F2 /* AppShared.m */; };
@@ -58,6 +59,8 @@
 		942256A01CB5FCCD0030B678 /* RA_Icon-80x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-80x80@2x.png"; path = "Images.xcassets/AppIcon.appiconset/RA_Icon-80x80@2x.png"; sourceTree = "<group>"; };
 		942256A91CB5FE110030B678 /* SettingsGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsGear.png; path = Images.xcassets/SettingsGear.png; sourceTree = "<group>"; };
 		942256AB1CBAD3BC0030B678 /* RandomButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RandomButton.png; path = Images.xcassets/RandomButton.png; sourceTree = "<group>"; };
+		942256B51CCF0BB20030B678 /* OffsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffsetLabel.h; sourceTree = "<group>"; };
+		942256B61CCF0BB20030B678 /* OffsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffsetLabel.m; sourceTree = "<group>"; };
 		945F9C291B6DB97200C8F7F2 /* RandomAnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomAnimalViewController.h; path = RandomAnimalViewController/RandomAnimalViewController.h; sourceTree = "<group>"; };
 		945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomAnimalViewController.m; path = RandomAnimalViewController/RandomAnimalViewController.m; sourceTree = "<group>"; };
 		945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RandomAnimalViewController.xib; path = RandomAnimalViewController/RandomAnimalViewController.xib; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 		94F37B201B6D9FDF0089A4D5 /* RandomAnimal */ = {
 			isa = PBXGroup;
 			children = (
+				942256B51CCF0BB20030B678 /* OffsetLabel.h */,
+				942256B61CCF0BB20030B678 /* OffsetLabel.m */,
 				945F9C2F1B6DBF1600C8F7F2 /* AppShared.h */,
 				945F9C301B6DBF1600C8F7F2 /* AppShared.m */,
 				94F37B251B6D9FE00089A4D5 /* AppDelegate.h */,
@@ -372,6 +377,7 @@
 				945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */,
 				945F9C381B6DC11500C8F7F2 /* AnimalStorage.m in Sources */,
 				94B56F1C1BC0DBC50069E5D8 /* AnimalEditViewController.m in Sources */,
+				942256B71CCF0BB20030B678 /* OffsetLabel.m in Sources */,
 				945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */,
 				94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */,
 				94B56F241BC0DC650069E5D8 /* AnimalRosterTableViewCell.m in Sources */,
@@ -516,7 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Engby.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -531,7 +537,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Engby.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

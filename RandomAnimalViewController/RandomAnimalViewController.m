@@ -8,6 +8,7 @@
 
 #import "RandomAnimalViewController.h"
 #import "AnimalRosterTableViewController.h"
+#import "OffsetLabel.h"
 
 @interface RandomAnimalViewController ()
 
@@ -98,11 +99,14 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     {
         previousScreenSize = layerRect;
     
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (layerRect.size.width/2)-44, 44)];
+        OffsetLabel *label = [[OffsetLabel alloc] initWithFrame:CGRectMake(0, 0, layerRect.size.width, 44)];
+        
         label.font = [UIFont fontWithName:ANIMAL_APP_FONT size:21.0];
         label.shadowColor = [UIColor clearColor];
         label.textColor =[UIColor whiteColor];
         label.text = self.title;
+        label.textAlignment = NSTextAlignmentCenter;
+        [label setRightOffset:SETTING_BUTTON_SIZE];
         self.navigationItem.titleView = label;
     
         // Add Gradient to button
