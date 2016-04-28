@@ -122,18 +122,22 @@
         }]];
     }
     
+    actionSheet.popoverPresentationController.sourceView = self.view;
+    actionSheet.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0);
+        
     // Present action sheet.
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 -(void)selectImage:(id)sender source:(BOOL)fromPhotoGallary
 {
+    
     // If the popup is already displayed, close it.
-    if ([imagePickerPopover isPopoverVisible])
+    if (imagePopoverPresentationController != nil)
     {
         // Close the popup here
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        imagePopoverPresentationController = nil;
         return;
     }
     
@@ -154,13 +158,13 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
         // Create the popup controller
-        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        imagePopoverPresentationController = [[UIPopoverPresentationController alloc] initWithPresentedViewController:imagePicker presentingViewController:self];
         
         // Set the delgate of the popover to be this class
-        [imagePickerPopover setDelegate:self];
+        [imagePopoverPresentationController setDelegate:self];
         
-        // Set the content
-        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        imagePopoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+        [self presentViewController:imagePicker animated:YES completion:nil];
     }
     else
     {
@@ -194,8 +198,8 @@
     }
     else
     {
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        imagePopoverPresentationController = nil;
     }
 }
 

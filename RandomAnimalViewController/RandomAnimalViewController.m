@@ -59,7 +59,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     self.navigationItem.backBarButtonItem = backbutton;
         
     // Setting the status bar to White
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+   [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     // Set up default screensize
     previousScreenSize = self.view.bounds;

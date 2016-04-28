@@ -11,9 +11,9 @@
 #import "AnimalStorageImage.h"
 #import "AppShared.h"
 
-@interface AnimalEditViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
+@interface AnimalEditViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate>
 {
-    UIPopoverController *imagePickerPopover;
+    UIPopoverPresentationController *imagePopoverPresentationController;
 }
 
 //@property (nonatomic, strong) Animal *item;
