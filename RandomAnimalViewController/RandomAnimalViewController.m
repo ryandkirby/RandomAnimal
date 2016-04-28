@@ -210,6 +210,24 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
             }
         } while (activeAnimalFound == FALSE);
     }
+    else
+    {
+        NSLog(@"No items available to randomize.");
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:NO_ANIMALS_BUTTON_TEXT preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        // Cancel Button
+        [actionSheet addAction:[UIAlertAction actionWithTitle:GOT_IT_BUTTON_TEXT style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            // Cancel button tappped.
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        }]];
+        
+        actionSheet.popoverPresentationController.sourceView = self.view;
+        //actionSheet.popoverPresentationController.sourceView = takePhotoButton;
+        //actionSheet.popoverPresentationController.sourceRect = takePhotoButton.bounds;
+        [self presentViewController:actionSheet animated:YES completion:nil];
+    }
 }
 
 - (void)ImageDropShadowEnabled:(BOOL)enable
