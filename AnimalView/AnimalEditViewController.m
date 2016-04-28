@@ -122,9 +122,14 @@
         }]];
     }
     
-    actionSheet.popoverPresentationController.sourceView = self.view;
-    actionSheet.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0);
-        
+    UIButton* takePhotoButton = (UIButton*)sender;
+    if (takePhotoButton != nil)
+    {
+        actionSheet.popoverPresentationController.sourceView = self.view;
+        actionSheet.popoverPresentationController.sourceView = takePhotoButton;
+        actionSheet.popoverPresentationController.sourceRect = takePhotoButton.bounds;
+    }
+    
     // Present action sheet.
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
