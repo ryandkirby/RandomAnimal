@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		942256A21CB5FCCD0030B678 /* RA_Icon-58x58@2x-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422569D1CB5FCCD0030B678 /* RA_Icon-58x58@2x-2.png */; };
-		942256A31CB5FCCD0030B678 /* RA_Icon-58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422569E1CB5FCCD0030B678 /* RA_Icon-58x58@2x.png */; };
-		942256A41CB5FCCD0030B678 /* RA_Icon-60x60@2x-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422569F1CB5FCCD0030B678 /* RA_Icon-60x60@2x-5.png */; };
-		942256A51CB5FCCD0030B678 /* RA_Icon-80x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256A01CB5FCCD0030B678 /* RA_Icon-80x80@2x.png */; };
 		942256AA1CB5FE110030B678 /* SettingsGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256A91CB5FE110030B678 /* SettingsGear.png */; };
 		942256AC1CBAD3BC0030B678 /* RandomButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256AB1CBAD3BC0030B678 /* RandomButton.png */; };
 		942256B71CCF0BB20030B678 /* OffsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 942256B61CCF0BB20030B678 /* OffsetLabel.m */; };
+		942256C61CD6B1990030B678 /* RA_Icon_40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C41CD6B1990030B678 /* RA_Icon_40x40@2x.png */; };
+		942256C71CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C51CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png */; };
+		942256CA1CD6B6190030B678 /* RA_Icon-76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C81CD6B6190030B678 /* RA_Icon-76x76.png */; };
+		942256CB1CD6B6190030B678 /* RA_Icon-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C91CD6B6190030B678 /* RA_Icon-76x76@2x.png */; };
+		942256CE1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */; };
+		942256CF1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256CD1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png */; };
 		945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */; };
 		945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */; };
 		945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C301B6DBF1600C8F7F2 /* AppShared.m */; };
@@ -22,9 +24,6 @@
 		945F9C461B75A4DF00C8F7F2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945F9C451B75A4DF00C8F7F2 /* CoreData.framework */; };
 		945F9C481B75A52B00C8F7F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945F9C471B75A52B00C8F7F2 /* UIKit.framework */; };
 		945F9C4D1B75A70800C8F7F2 /* AnimalStorageImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C4C1B75A70800C8F7F2 /* AnimalStorageImage.m */; };
-		945F9C531B798E0E00C8F7F2 /* RA_Icon-58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C521B798E0E00C8F7F2 /* RA_Icon-58x58@2x.png */; };
-		945F9C571B798E5800C8F7F2 /* RA_Icon-80x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C561B798E5800C8F7F2 /* RA_Icon-80x80@2x.png */; };
-		945F9C591B798E6600C8F7F2 /* RA_Icon-120x120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C581B798E6600C8F7F2 /* RA_Icon-120x120@2x.png */; };
 		94B56F1C1BC0DBC50069E5D8 /* AnimalEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F1A1BC0DBC50069E5D8 /* AnimalEditViewController.m */; };
 		94B56F1D1BC0DBC50069E5D8 /* AnimalEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F1B1BC0DBC50069E5D8 /* AnimalEditViewController.xib */; };
 		94B56F241BC0DC650069E5D8 /* AnimalRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F1F1BC0DC650069E5D8 /* AnimalRosterTableViewCell.m */; };
@@ -53,14 +52,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9422569D1CB5FCCD0030B678 /* RA_Icon-58x58@2x-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-58x58@2x-2.png"; path = "Images.xcassets/AppIcon.appiconset/RA_Icon-58x58@2x-2.png"; sourceTree = "<group>"; };
-		9422569E1CB5FCCD0030B678 /* RA_Icon-58x58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-58x58@2x.png"; path = "Images.xcassets/AppIcon.appiconset/RA_Icon-58x58@2x.png"; sourceTree = "<group>"; };
-		9422569F1CB5FCCD0030B678 /* RA_Icon-60x60@2x-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-60x60@2x-5.png"; path = "Images.xcassets/AppIcon.appiconset/RA_Icon-60x60@2x-5.png"; sourceTree = "<group>"; };
-		942256A01CB5FCCD0030B678 /* RA_Icon-80x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-80x80@2x.png"; path = "Images.xcassets/AppIcon.appiconset/RA_Icon-80x80@2x.png"; sourceTree = "<group>"; };
 		942256A91CB5FE110030B678 /* SettingsGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsGear.png; path = Images.xcassets/SettingsGear.png; sourceTree = "<group>"; };
 		942256AB1CBAD3BC0030B678 /* RandomButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RandomButton.png; path = Images.xcassets/RandomButton.png; sourceTree = "<group>"; };
 		942256B51CCF0BB20030B678 /* OffsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffsetLabel.h; sourceTree = "<group>"; };
 		942256B61CCF0BB20030B678 /* OffsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffsetLabel.m; sourceTree = "<group>"; };
+		942256C41CD6B1990030B678 /* RA_Icon_40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon_40x40@2x.png"; path = "Images.xcassets/RA_Icon_40x40@2x.png"; sourceTree = "<group>"; };
+		942256C51CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-83.5x83.5@2x.png"; path = "Images.xcassets/RA_Icon-83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		942256C81CD6B6190030B678 /* RA_Icon-76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-76x76.png"; path = "Images.xcassets/RA_Icon-76x76.png"; sourceTree = "<group>"; };
+		942256C91CD6B6190030B678 /* RA_Icon-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-76x76@2x.png"; path = "Images.xcassets/RA_Icon-76x76@2x.png"; sourceTree = "<group>"; };
+		942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon_60x60@2x.png"; path = "Images.xcassets/RA_Icon_60x60@2x.png"; sourceTree = "<group>"; };
+		942256CD1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon_60x60@3x.png"; path = "Images.xcassets/RA_Icon_60x60@3x.png"; sourceTree = "<group>"; };
 		945F9C291B6DB97200C8F7F2 /* RandomAnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomAnimalViewController.h; path = RandomAnimalViewController/RandomAnimalViewController.h; sourceTree = "<group>"; };
 		945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomAnimalViewController.m; path = RandomAnimalViewController/RandomAnimalViewController.m; sourceTree = "<group>"; };
 		945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RandomAnimalViewController.xib; path = RandomAnimalViewController/RandomAnimalViewController.xib; sourceTree = "<group>"; };
@@ -74,9 +75,6 @@
 		945F9C471B75A52B00C8F7F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		945F9C4B1B75A70800C8F7F2 /* AnimalStorageImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimalStorageImage.h; path = Animal/AnimalStorageImage.h; sourceTree = "<group>"; };
 		945F9C4C1B75A70800C8F7F2 /* AnimalStorageImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimalStorageImage.m; path = Animal/AnimalStorageImage.m; sourceTree = "<group>"; };
-		945F9C521B798E0E00C8F7F2 /* RA_Icon-58x58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-58x58@2x.png"; path = "Images.xcassets/RA_Icon-58x58@2x.png"; sourceTree = "<group>"; };
-		945F9C561B798E5800C8F7F2 /* RA_Icon-80x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-80x80@2x.png"; path = "Images.xcassets/RA_Icon-80x80@2x.png"; sourceTree = "<group>"; };
-		945F9C581B798E6600C8F7F2 /* RA_Icon-120x120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-120x120@2x.png"; path = "Images.xcassets/RA_Icon-120x120@2x.png"; sourceTree = "<group>"; };
 		94B56F191BC0DBC50069E5D8 /* AnimalEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimalEditViewController.h; path = AnimalView/AnimalEditViewController.h; sourceTree = "<group>"; };
 		94B56F1A1BC0DBC50069E5D8 /* AnimalEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimalEditViewController.m; path = AnimalView/AnimalEditViewController.m; sourceTree = "<group>"; };
 		94B56F1B1BC0DBC50069E5D8 /* AnimalEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnimalEditViewController.xib; path = AnimalView/AnimalEditViewController.xib; sourceTree = "<group>"; };
@@ -214,15 +212,14 @@
 		94F37B211B6D9FDF0089A4D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */,
+				942256CD1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png */,
+				942256C81CD6B6190030B678 /* RA_Icon-76x76.png */,
+				942256C91CD6B6190030B678 /* RA_Icon-76x76@2x.png */,
+				942256C41CD6B1990030B678 /* RA_Icon_40x40@2x.png */,
+				942256C51CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png */,
 				942256AB1CBAD3BC0030B678 /* RandomButton.png */,
 				942256A91CB5FE110030B678 /* SettingsGear.png */,
-				9422569D1CB5FCCD0030B678 /* RA_Icon-58x58@2x-2.png */,
-				9422569E1CB5FCCD0030B678 /* RA_Icon-58x58@2x.png */,
-				9422569F1CB5FCCD0030B678 /* RA_Icon-60x60@2x-5.png */,
-				942256A01CB5FCCD0030B678 /* RA_Icon-80x80@2x.png */,
-				945F9C581B798E6600C8F7F2 /* RA_Icon-120x120@2x.png */,
-				945F9C561B798E5800C8F7F2 /* RA_Icon-80x80@2x.png */,
-				945F9C521B798E0E00C8F7F2 /* RA_Icon-58x58@2x.png */,
 				94F37B221B6D9FE00089A4D5 /* Info.plist */,
 				94F37B231B6D9FE00089A4D5 /* main.m */,
 			);
@@ -340,23 +337,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942256CF1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png in Resources */,
+				942256C61CD6B1990030B678 /* RA_Icon_40x40@2x.png in Resources */,
 				94B56F271BC0DC650069E5D8 /* AnimalRosterTableViewController.xib in Resources */,
-				942256A51CB5FCCD0030B678 /* RA_Icon-80x80@2x.png in Resources */,
-				945F9C591B798E6600C8F7F2 /* RA_Icon-120x120@2x.png in Resources */,
 				942256AC1CBAD3BC0030B678 /* RandomButton.png in Resources */,
-				942256A21CB5FCCD0030B678 /* RA_Icon-58x58@2x-2.png in Resources */,
 				945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */,
 				94B56F1D1BC0DBC50069E5D8 /* AnimalEditViewController.xib in Resources */,
+				942256C71CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png in Resources */,
 				94B56F251BC0DC650069E5D8 /* AnimalRosterTableViewCell.xib in Resources */,
+				942256CA1CD6B6190030B678 /* RA_Icon-76x76.png in Resources */,
 				94F37B2D1B6D9FE00089A4D5 /* Main.storyboard in Resources */,
-				942256A31CB5FCCD0030B678 /* RA_Icon-58x58@2x.png in Resources */,
-				942256A41CB5FCCD0030B678 /* RA_Icon-60x60@2x-5.png in Resources */,
-				945F9C531B798E0E00C8F7F2 /* RA_Icon-58x58@2x.png in Resources */,
 				94F37B321B6D9FE00089A4D5 /* LaunchScreen.xib in Resources */,
+				942256CE1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png in Resources */,
 				94F37B2F1B6D9FE00089A4D5 /* Images.xcassets in Resources */,
 				94B56F2C1BC0DC7C0069E5D8 /* AnimalViewController.xib in Resources */,
-				945F9C571B798E5800C8F7F2 /* RA_Icon-80x80@2x.png in Resources */,
 				942256AA1CB5FE110030B678 /* SettingsGear.png in Resources */,
+				942256CB1CD6B6190030B678 /* RA_Icon-76x76@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
