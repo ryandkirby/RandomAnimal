@@ -21,12 +21,7 @@
     [super viewDidLoad];
     
     if (animal != nil)
-    {
-        if (animal != nil)
-        {
-            self.title = animal.AnimalNameStr;
-        }
-        
+    {        
         // Set the title of the screen
         if (animal.AnimalNameStr != nil)
         {
@@ -79,10 +74,9 @@
         [animalImage setImage:img];
     }
     
-    // Reset the title of the screen
+    // Reset the name if it's valid
     if (animal.AnimalNameStr != nil)
     {
-        self.title = animal.AnimalNameStr;
         animalName.text = animal.AnimalNameStr;
         // Set the animal name if it's available
         [actualNameReadOnly setText:animal.AnimalNameStr];

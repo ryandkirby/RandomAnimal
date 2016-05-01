@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -21,28 +20,48 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-Qi-YBW">
-                    <rect key="frame" x="30" y="434" width="57" height="22"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
+                    <rect key="frame" x="49" y="110" width="220" height="300"/>
+                    <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="57" id="YRY-Of-aDe"/>
-                        <constraint firstAttribute="height" constant="30" id="hWv-Xs-xfZ"/>
+                        <constraint firstAttribute="width" secondItem="V5s-Cp-3wr" secondAttribute="height" multiplier="3:4" id="a38-74-fiX"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="YRY-Of-aDe"/>
-                            <exclude reference="hWv-Xs-xfZ"/>
+                            <exclude reference="a38-74-fiX"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
-                            <include reference="YRY-Of-aDe"/>
-                            <include reference="hWv-Xs-xfZ"/>
+                            <include reference="a38-74-fiX"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-1d-L9M">
+                    <rect key="frame" x="82" y="434" width="187" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="0le-Y5-vsO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0le-Y5-vsO"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="0le-Y5-vsO"/>
                         </mask>
                     </variation>
                 </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-OF-G0f">
+                    <rect key="frame" x="220" y="471" width="51" height="31"/>
+                    <connections>
+                        <action selector="animalAvailableSwitch:" destination="-1" eventType="valueChanged" id="tnB-Bv-L14"/>
+                    </connections>
+                </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-uB-47p">
                     <rect key="frame" x="30" y="477" width="100" height="19"/>
                     <constraints>
@@ -62,86 +81,49 @@
                         </mask>
                     </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-1d-L9M">
-                    <rect key="frame" x="82" y="434" width="187" height="22"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-OF-G0f">
-                    <rect key="frame" x="220" y="471" width="51" height="31"/>
-                    <connections>
-                        <action selector="animalAvailableSwitch:" destination="-1" eventType="valueChanged" id="tnB-Bv-L14"/>
-                    </connections>
-                </switch>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
-                    <rect key="frame" x="49" y="110" width="220" height="300"/>
-                    <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="V5s-Cp-3wr" secondAttribute="height" multiplier="3:4" id="a38-74-fiX"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="a38-74-fiX"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="a38-74-fiX"/>
-                        </mask>
-                    </variation>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Rab-1d-L9M" firstAttribute="top" secondItem="V5s-Cp-3wr" secondAttribute="bottom" constant="18" id="4ID-ic-cBH"/>
                 <constraint firstAttribute="trailing" secondItem="hLL-OF-G0f" secondAttribute="trailing" constant="31" id="4LY-s0-DuG"/>
-                <constraint firstItem="Rab-1d-L9M" firstAttribute="baseline" secondItem="Mac-Qi-YBW" secondAttribute="baseline" id="5sD-0c-7Zv"/>
-                <constraint firstAttribute="trailing" secondItem="Rab-1d-L9M" secondAttribute="trailing" constant="22" id="Aj7-4J-q2k"/>
-                <constraint firstItem="hLL-OF-G0f" firstAttribute="top" secondItem="Rab-1d-L9M" secondAttribute="bottom" constant="4" id="Efk-Qu-cEX"/>
-                <constraint firstItem="Rab-1d-L9M" firstAttribute="firstBaseline" secondItem="Mac-Qi-YBW" secondAttribute="firstBaseline" id="RNw-sD-itz"/>
+                <constraint firstItem="LgH-uB-47p" firstAttribute="top" secondItem="V5s-Cp-3wr" secondAttribute="bottom" constant="26" id="CDt-PK-Lki"/>
+                <constraint firstItem="Rab-1d-L9M" firstAttribute="width" secondItem="V5s-Cp-3wr" secondAttribute="width" id="E0R-hF-aCE"/>
+                <constraint firstItem="Rab-1d-L9M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="KSo-Qg-hgT"/>
+                <constraint firstItem="Rab-1d-L9M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="RG1-fO-QGe"/>
                 <constraint firstItem="LgH-uB-47p" firstAttribute="centerY" secondItem="hLL-OF-G0f" secondAttribute="centerY" id="Y4v-BK-7oe"/>
-                <constraint firstItem="Mac-Qi-YBW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="YUQ-Kz-dHK"/>
                 <constraint firstItem="V5s-Cp-3wr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="a8P-6u-sGs"/>
-                <constraint firstItem="Rab-1d-L9M" firstAttribute="leading" secondItem="Mac-Qi-YBW" secondAttribute="trailing" id="eC8-Pk-otG"/>
-                <constraint firstItem="LgH-uB-47p" firstAttribute="leading" secondItem="Mac-Qi-YBW" secondAttribute="leading" id="oJV-hA-k3R"/>
+                <constraint firstItem="hLL-OF-G0f" firstAttribute="top" secondItem="V5s-Cp-3wr" secondAttribute="bottom" constant="20" id="lae-dp-yfF"/>
+                <constraint firstItem="LgH-uB-47p" firstAttribute="leading" secondItem="V5s-Cp-3wr" secondAttribute="leading" id="oiK-r1-EeL"/>
                 <constraint firstItem="V5s-Cp-3wr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ovX-tX-BN4"/>
-                <constraint firstItem="V5s-Cp-3wr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="109" id="sFg-Kz-h17">
-                    <variation key="heightClass=regular-widthClass=compact" constant="107"/>
-                </constraint>
+                <constraint firstItem="V5s-Cp-3wr" firstAttribute="top" secondItem="Rab-1d-L9M" secondAttribute="bottom" constant="16" id="uaD-wi-fwI"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="E0R-hF-aCE"/>
+                    <exclude reference="KSo-Qg-hgT"/>
+                    <exclude reference="RG1-fO-QGe"/>
                     <exclude reference="a8P-6u-sGs"/>
                     <exclude reference="ovX-tX-BN4"/>
-                    <exclude reference="sFg-Kz-h17"/>
-                    <exclude reference="YUQ-Kz-dHK"/>
-                    <exclude reference="4ID-ic-cBH"/>
-                    <exclude reference="5sD-0c-7Zv"/>
-                    <exclude reference="Aj7-4J-q2k"/>
-                    <exclude reference="RNw-sD-itz"/>
-                    <exclude reference="eC8-Pk-otG"/>
+                    <exclude reference="uaD-wi-fwI"/>
+                    <exclude reference="CDt-PK-Lki"/>
                     <exclude reference="Y4v-BK-7oe"/>
-                    <exclude reference="oJV-hA-k3R"/>
+                    <exclude reference="oiK-r1-EeL"/>
                     <exclude reference="4LY-s0-DuG"/>
-                    <exclude reference="Efk-Qu-cEX"/>
+                    <exclude reference="lae-dp-yfF"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
+                    <include reference="E0R-hF-aCE"/>
+                    <include reference="KSo-Qg-hgT"/>
+                    <include reference="RG1-fO-QGe"/>
                     <include reference="a8P-6u-sGs"/>
                     <include reference="ovX-tX-BN4"/>
-                    <include reference="sFg-Kz-h17"/>
-                    <include reference="YUQ-Kz-dHK"/>
-                    <include reference="4ID-ic-cBH"/>
-                    <include reference="5sD-0c-7Zv"/>
-                    <include reference="Aj7-4J-q2k"/>
-                    <include reference="RNw-sD-itz"/>
-                    <include reference="eC8-Pk-otG"/>
+                    <include reference="uaD-wi-fwI"/>
+                    <include reference="CDt-PK-Lki"/>
                     <include reference="Y4v-BK-7oe"/>
-                    <include reference="oJV-hA-k3R"/>
+                    <include reference="oiK-r1-EeL"/>
                     <include reference="4LY-s0-DuG"/>
-                    <include reference="Efk-Qu-cEX"/>
+                    <include reference="lae-dp-yfF"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="74" y="130"/>
