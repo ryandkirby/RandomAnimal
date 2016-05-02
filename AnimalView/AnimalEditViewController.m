@@ -28,7 +28,7 @@
     
     if (animal.AnimalNameStr != nil)
     {
-        self.title = animal.AnimalNameStr;
+        self.title = EDIT_BUTTON_TEXT;
         actualNameEdit.text = animal.AnimalNameStr;
     }
     
@@ -303,7 +303,6 @@
     {
         [doneButton setEnabled:TRUE];
         tempAnimalName = newName;
-        self.title = newName;
         self.navigationItem.rightBarButtonItem.enabled = TRUE;
     }
     
