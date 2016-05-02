@@ -16,6 +16,8 @@
 		942256CB1CD6B6190030B678 /* RA_Icon-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C91CD6B6190030B678 /* RA_Icon-76x76@2x.png */; };
 		942256CE1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */; };
 		942256CF1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256CD1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png */; };
+		942256D21CD6C9B80030B678 /* RA_Icon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256D01CD6C9B80030B678 /* RA_Icon_58x58.png */; };
+		942256D31CD6C9B80030B678 /* RA_Icon_58x58@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 942256D11CD6C9B80030B678 /* RA_Icon_58x58@2x.jpg */; };
 		945F9C2C1B6DB97200C8F7F2 /* RandomAnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */; };
 		945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */; };
 		945F9C311B6DBF1600C8F7F2 /* AppShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 945F9C301B6DBF1600C8F7F2 /* AppShared.m */; };
@@ -62,6 +64,8 @@
 		942256C91CD6B6190030B678 /* RA_Icon-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon-76x76@2x.png"; path = "Images.xcassets/RA_Icon-76x76@2x.png"; sourceTree = "<group>"; };
 		942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon_60x60@2x.png"; path = "Images.xcassets/RA_Icon_60x60@2x.png"; sourceTree = "<group>"; };
 		942256CD1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon_60x60@3x.png"; path = "Images.xcassets/RA_Icon_60x60@3x.png"; sourceTree = "<group>"; };
+		942256D01CD6C9B80030B678 /* RA_Icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RA_Icon_58x58.png; path = Images.xcassets/RA_Icon_58x58.png; sourceTree = "<group>"; };
+		942256D11CD6C9B80030B678 /* RA_Icon_58x58@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "RA_Icon_58x58@2x.jpg"; path = "Images.xcassets/RA_Icon_58x58@2x.jpg"; sourceTree = "<group>"; };
 		945F9C291B6DB97200C8F7F2 /* RandomAnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomAnimalViewController.h; path = RandomAnimalViewController/RandomAnimalViewController.h; sourceTree = "<group>"; };
 		945F9C2A1B6DB97200C8F7F2 /* RandomAnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RandomAnimalViewController.m; path = RandomAnimalViewController/RandomAnimalViewController.m; sourceTree = "<group>"; };
 		945F9C2B1B6DB97200C8F7F2 /* RandomAnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RandomAnimalViewController.xib; path = RandomAnimalViewController/RandomAnimalViewController.xib; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		94F37B211B6D9FDF0089A4D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				942256D01CD6C9B80030B678 /* RA_Icon_58x58.png */,
+				942256D11CD6C9B80030B678 /* RA_Icon_58x58@2x.jpg */,
 				942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */,
 				942256CD1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png */,
 				942256C81CD6B6190030B678 /* RA_Icon-76x76.png */,
@@ -352,7 +358,9 @@
 				94F37B2F1B6D9FE00089A4D5 /* Images.xcassets in Resources */,
 				94B56F2C1BC0DC7C0069E5D8 /* AnimalViewController.xib in Resources */,
 				942256AA1CB5FE110030B678 /* SettingsGear.png in Resources */,
+				942256D31CD6C9B80030B678 /* RA_Icon_58x58@2x.jpg in Resources */,
 				942256CB1CD6B6190030B678 /* RA_Icon-76x76@2x.png in Resources */,
+				942256D21CD6C9B80030B678 /* RA_Icon_58x58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
