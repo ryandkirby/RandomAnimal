@@ -14,7 +14,7 @@
 
 @implementation AnimalEditViewController
 
-@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton, deleteButton, isNewAnimal, tempAnimalImage, tempAnimalName;
+@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton, deleteButton, isNewAnimal, tempAnimalImage, tempAnimalName, takePhotoButton;
 
 - (void)viewDidLoad
 {
@@ -24,6 +24,7 @@
     {
         isNewAnimal = true;
         [deleteButton setHidden:YES];
+        takePhotoButton.titleLabel.text = ADD_PHOTO_TEXT;
     }
     
     if (animal.AnimalNameStr != nil)
@@ -73,6 +74,7 @@
     if (img)
     {
         [animalImage setImage:img];
+        takePhotoButton.titleLabel.text = EDIT_PHOTO_TEXT;
     }
 }
 
@@ -80,17 +82,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void) viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    // Record the original center for the keyboard popup
-    if (self.originalCenter.x == 0 && self.originalCenter.y == 0)
-    {
-        self.originalCenter = self.view.center;
-        NSLog(@"Center X:%f Y:%f", self.view.center.x, self.view.center.y);
-    }
 }
 
 - (IBAction)takePicture:(id)sender
@@ -122,12 +113,12 @@
         }]];
     }
     
-    UIButton* takePhotoButton = (UIButton*)sender;
-    if (takePhotoButton != nil)
+    UIButton* takePhotoButtonInst = (UIButton*)sender;
+    if (takePhotoButtonInst != nil)
     {
         actionSheet.popoverPresentationController.sourceView = self.view;
-        actionSheet.popoverPresentationController.sourceView = takePhotoButton;
-        actionSheet.popoverPresentationController.sourceRect = takePhotoButton.bounds;
+        actionSheet.popoverPresentationController.sourceView = takePhotoButtonInst;
+        actionSheet.popoverPresentationController.sourceRect = takePhotoButtonInst.bounds;
     }
     
     // Present action sheet.
@@ -255,40 +246,52 @@
 
 - (IBAction)deleteAnimal:(id)sender
 {
-    [[AnimalStorage sharedStorage] removeItem:animal];
-    [self.navigationController popViewControllerAnimated:NO];
+    // Display the image selection Action Sheet
+    UIAlertController *deleteAnimalActionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Selection Photo Gallary Button
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        [deleteAnimalActionSheet addAction:[UIAlertAction actionWithTitle:DELETE_BUTTON_TEXT style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            
+            [[AnimalStorage sharedStorage] removeItem:animal];
+            [self.navigationController popViewControllerAnimated:NO];
+        }]];
+    }
+
+    // Cancel Button
+    [deleteAnimalActionSheet addAction:[UIAlertAction actionWithTitle:CANCEL_BUTTON_TEXT style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+
+    UIButton* deleteButtonItem = (UIButton*)sender;
+    if (deleteButtonItem != nil)
+    {
+        deleteAnimalActionSheet.popoverPresentationController.sourceView = self.view;
+        deleteAnimalActionSheet.popoverPresentationController.sourceView = deleteButtonItem;
+        deleteAnimalActionSheet.popoverPresentationController.sourceRect = deleteButtonItem.bounds;
+    }
+    
+    // Present action sheet.
+    [self presentViewController:deleteAnimalActionSheet animated:YES completion:nil];
+    
 }
 
 - (void)keyboardDidShow:(NSNotification *)note
 
 {
-    NSDictionary *info  = note.userInfo;
-    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
-    
-    CGRect rawFrame      = [value CGRectValue];
-    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
-    
-    //NSLog(@"keyboardFrame: %@", NSStringFromCGRect(keyboardFrame));
-    
-    CGFloat keyboardHeight = keyboardFrame.size.height;
-    
-    //NSLog(@"Center Y: %f View height: %f, Keyboard height %f", self.originalCenter.y, self.view.bounds.size.height, keyboardHeight);
-
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
-    
-    
     // Adjust the cancel button to edit
     self.navigationItem.leftBarButtonItem = backButton;
     
     // Disable navigation controls while keyboard is displayed
     self.navigationItem.rightBarButtonItem = NULL;
-    
 }
 
 - (void)keyboardDidHide:(NSNotification *)note
 {
-    self.view.center = self.originalCenter;
-    
     // Enable navigation controls when keyboard is dismissed
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;

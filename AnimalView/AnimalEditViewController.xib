@@ -11,6 +11,7 @@
                 <outlet property="actualNameEdit" destination="qFU-8c-Yx5" id="dPf-vK-cFb"/>
                 <outlet property="animalImage" destination="fma-xb-hGI" id="ZJH-ap-K4f"/>
                 <outlet property="deleteButton" destination="hRU-A6-TnE" id="1UO-4D-DNn"/>
+                <outlet property="takePhotoButton" destination="E4n-1N-h23" id="E08-u2-4NE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,28 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKO-Yp-dHb">
-                    <rect key="frame" x="30" y="409" width="57" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="BpW-hq-tB1"/>
-                        <constraint firstAttribute="width" constant="57" id="Bwu-gj-Vpl"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="BpW-hq-tB1"/>
-                            <exclude reference="Bwu-gj-Vpl"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="BpW-hq-tB1"/>
-                            <include reference="Bwu-gj-Vpl"/>
-                        </mask>
-                    </variation>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-A6-TnE">
                     <rect key="frame" x="36" y="496" width="263" height="33"/>
                     <constraints>
@@ -96,7 +75,7 @@
                         </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <state key="normal" title="Set Photo">
+                    <state key="normal" title="Edit Photo">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.75393318965517242" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -114,7 +93,7 @@
                         <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="bo0-9s-U7J"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-8c-Yx5">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" background="a" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-8c-Yx5">
                     <rect key="frame" x="79" y="405" width="212" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -122,12 +101,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="uKO-Yp-dHb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="5A1-CG-UqG"/>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="top" secondItem="qFU-8c-Yx5" secondAttribute="bottom" constant="8" id="5b4-Sr-CSf"/>
+                <constraint firstItem="qFU-8c-Yx5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="15h-6b-yG7"/>
+                <constraint firstItem="fma-xb-hGI" firstAttribute="top" secondItem="qFU-8c-Yx5" secondAttribute="bottom" constant="12" id="5b4-Sr-CSf"/>
                 <constraint firstItem="hRU-A6-TnE" firstAttribute="top" secondItem="E4n-1N-h23" secondAttribute="bottom" constant="17" id="5kI-sI-5Kj"/>
                 <constraint firstItem="fma-xb-hGI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DSl-gX-RaO"/>
-                <constraint firstItem="uKO-Yp-dHb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="DmO-Uf-xtj"/>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="top" secondItem="uKO-Yp-dHb" secondAttribute="bottom" constant="6" id="IXn-2z-Pjy"/>
                 <constraint firstItem="qFU-8c-Yx5" firstAttribute="width" secondItem="fma-xb-hGI" secondAttribute="width" id="UgR-rB-SMU"/>
                 <constraint firstItem="E4n-1N-h23" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kmh-oQ-0Kr">
                     <variation key="heightClass=regular-widthClass=compact" constant="6"/>
@@ -138,14 +115,14 @@
                 </constraint>
                 <constraint firstItem="fma-xb-hGI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="vD5-1N-t25"/>
                 <constraint firstItem="qFU-8c-Yx5" firstAttribute="trailing" secondItem="fma-xb-hGI" secondAttribute="trailing" id="vXC-yM-aiR"/>
+                <constraint firstItem="qFU-8c-Yx5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="76" id="wCQ-kw-stq"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="5A1-CG-UqG"/>
-                    <exclude reference="DmO-Uf-xtj"/>
-                    <exclude reference="IXn-2z-Pjy"/>
+                    <exclude reference="15h-6b-yG7"/>
                     <exclude reference="UgR-rB-SMU"/>
                     <exclude reference="vXC-yM-aiR"/>
+                    <exclude reference="wCQ-kw-stq"/>
                     <exclude reference="5b4-Sr-CSf"/>
                     <exclude reference="DSl-gX-RaO"/>
                     <exclude reference="vD5-1N-t25"/>
@@ -156,11 +133,10 @@
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
-                    <include reference="5A1-CG-UqG"/>
-                    <include reference="DmO-Uf-xtj"/>
-                    <include reference="IXn-2z-Pjy"/>
+                    <include reference="15h-6b-yG7"/>
                     <include reference="UgR-rB-SMU"/>
                     <include reference="vXC-yM-aiR"/>
+                    <include reference="wCQ-kw-stq"/>
                     <include reference="5b4-Sr-CSf"/>
                     <include reference="DSl-gX-RaO"/>
                     <include reference="vD5-1N-t25"/>
@@ -172,4 +148,7 @@
             <point key="canvasLocation" x="251" y="258"/>
         </view>
     </objects>
+    <resources>
+        <image name="a" width="16" height="16"/>
+    </resources>
 </document>
