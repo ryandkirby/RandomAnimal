@@ -223,9 +223,12 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
             }];
         }]];
         
+        // Set the position of the popup warning
         actionSheet.popoverPresentationController.sourceView = self.view;
-        //actionSheet.popoverPresentationController.sourceView = takePhotoButton;
-        //actionSheet.popoverPresentationController.sourceRect = takePhotoButton.bounds;
+        CGRect settingModalPosition = CGRectMake(self.navigationController.navigationBar.bounds.origin.x, self.navigationController.navigationBar.bounds.origin.y, self.navigationController.navigationBar.bounds.size.width, self.navigationController.navigationBar.bounds.size.height);
+        settingModalPosition.origin.x = self.view.bounds.size.width;
+        settingModalPosition.origin.y = settingModalPosition.size.height *2.5;
+        actionSheet.popoverPresentationController.sourceRect = settingModalPosition;
         [self presentViewController:actionSheet animated:YES completion:nil];
     }
 }
@@ -253,15 +256,5 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         [animalImage.layer setBorderWidth: 1.0];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
