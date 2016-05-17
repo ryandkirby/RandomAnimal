@@ -30,6 +30,7 @@ static NSString* const EDIT_PHOTO_TEXT = @"Edit Photo";
 static NSInteger const ANIMAL_AVAILABLE = 1;
 static NSInteger const ANIMAL_NOT_AVAILABLE = 0;
 static NSInteger const SETTING_BUTTON_SIZE = 32;
+static CFTimeInterval const EDIT_TRANSITION_TIME = 0.3;
 
 @interface AppShared : NSObject
 

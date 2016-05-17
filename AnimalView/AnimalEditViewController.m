@@ -210,7 +210,7 @@
     {
         [[AnimalStorage sharedStorage] removeItem:animal];
     }
-    [self.navigationController popViewControllerAnimated:NO];
+    [self closeViewWithFading];
 }
 
 -(IBAction)backAction:(id)sender
@@ -246,7 +246,7 @@
         animal.AnimalNameStr = tempAnimalName;
     }
     
-    [self.navigationController popViewControllerAnimated:NO];
+    [self closeViewWithFading];
 }
 
 - (IBAction)deleteAnimal:(id)sender
@@ -260,7 +260,8 @@
         [deleteAnimalActionSheet addAction:[UIAlertAction actionWithTitle:DELETE_BUTTON_TEXT style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
             
             [[AnimalStorage sharedStorage] removeItem:animal];
-            [self.navigationController popViewControllerAnimated:NO];
+
+            [self closeViewWithFading];
         }]];
     }
 
@@ -326,6 +327,19 @@
 {
     [doneButton setEnabled:enable_button];
     
+}
+
+-(void)closeViewWithFading
+{
+    // Push the view controller with fading transition.
+    CATransition* transition = [CATransition animation];
+    transition.duration = EDIT_TRANSITION_TIME;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    //[self.navigationController pushViewController:animalEditViewController animated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

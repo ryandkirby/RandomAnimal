@@ -112,7 +112,13 @@
      target:nil
      action:nil];
     
-    // Push the view controller.
+    // Push the view controller with fading transition.
+    CATransition* transition = [CATransition animation];
+    transition.duration = EDIT_TRANSITION_TIME;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
     [self.navigationController pushViewController:animalEditViewController animated:NO];
 }
 
