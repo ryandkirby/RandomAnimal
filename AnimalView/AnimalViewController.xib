@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -20,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Cp-3wr">
                     <rect key="frame" x="49" y="110" width="220" height="300"/>
                     <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -37,7 +36,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-1d-L9M">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-1d-L9M">
                     <rect key="frame" x="82" y="434" width="187" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="0le-Y5-vsO"/>
@@ -56,13 +55,13 @@
                         </mask>
                     </variation>
                 </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-OF-G0f">
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-OF-G0f">
                     <rect key="frame" x="220" y="471" width="51" height="31"/>
                     <connections>
                         <action selector="animalAvailableSwitch:" destination="-1" eventType="valueChanged" id="tnB-Bv-L14"/>
                     </connections>
                 </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-uB-47p">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-uB-47p">
                     <rect key="frame" x="30" y="477" width="100" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="YQm-RM-L7j"/>
@@ -98,12 +97,12 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="E0R-hF-aCE"/>
-                    <exclude reference="KSo-Qg-hgT"/>
-                    <exclude reference="RG1-fO-QGe"/>
                     <exclude reference="a8P-6u-sGs"/>
                     <exclude reference="ovX-tX-BN4"/>
                     <exclude reference="uaD-wi-fwI"/>
+                    <exclude reference="E0R-hF-aCE"/>
+                    <exclude reference="KSo-Qg-hgT"/>
+                    <exclude reference="RG1-fO-QGe"/>
                     <exclude reference="CDt-PK-Lki"/>
                     <exclude reference="Y4v-BK-7oe"/>
                     <exclude reference="oiK-r1-EeL"/>
@@ -113,12 +112,12 @@
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
-                    <include reference="E0R-hF-aCE"/>
-                    <include reference="KSo-Qg-hgT"/>
-                    <include reference="RG1-fO-QGe"/>
                     <include reference="a8P-6u-sGs"/>
                     <include reference="ovX-tX-BN4"/>
                     <include reference="uaD-wi-fwI"/>
+                    <include reference="E0R-hF-aCE"/>
+                    <include reference="KSo-Qg-hgT"/>
+                    <include reference="RG1-fO-QGe"/>
                     <include reference="CDt-PK-Lki"/>
                     <include reference="Y4v-BK-7oe"/>
                     <include reference="oiK-r1-EeL"/>
