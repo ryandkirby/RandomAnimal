@@ -170,7 +170,31 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
 {
     animalName.text = @"";
     AnimalRosterTableViewController *animalRosterTableVC = [[AnimalRosterTableViewController alloc] init];
-    [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        /*
+        // Create the split view
+        UISplitViewController *animalRosterSVC = [[UISplitViewController alloc] init];
+     
+        // Create the detailed view
+        AnimalEditViewController *animalEditViewController = [[AnimalEditViewController alloc] init];
+
+        // Create the list of items based on the animal list
+        NSArray *vcs = [NSArray arrayWithObjects:animalRosterTableVC, animalEditViewController, nil];
+        
+        [animalRosterSVC setDelegate:animalRosterTableVC];
+        [animalRosterSVC setViewControllers:vcs];
+        
+        [[self navigationController] pushViewController:animalRosterSVC animated:YES];
+        */
+        [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
+        
+    }
+    else
+    {
+        [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
+    }
 }
 
 -(IBAction)findRandomAnimal:(id)sender
