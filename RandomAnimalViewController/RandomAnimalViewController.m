@@ -170,26 +170,30 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
 {
     animalName.text = @"";
     AnimalRosterTableViewController *animalRosterTableVC = [[AnimalRosterTableViewController alloc] init];
+    //AnimalViewController *animalVC = [[AnimalViewController alloc] init];
+    
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
         /*
+        // Create a view controller for the detail view
+        UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:animalVC];
+        
+        // Create an array of the Animal items
+        NSArray *animalRosterItems = [NSArray  arrayWithObjects:animalRosterTableVC, detailNav, nil];
+        
         // Create the split view
         UISplitViewController *animalRosterSVC = [[UISplitViewController alloc] init];
      
-        // Create the detailed view
-        AnimalEditViewController *animalEditViewController = [[AnimalEditViewController alloc] init];
-
-        // Create the list of items based on the animal list
-        NSArray *vcs = [NSArray arrayWithObjects:animalRosterTableVC, animalEditViewController, nil];
+        // Set the deliate of the split view controller to be the detail VC.
+        [animalRosterSVC setDelegate:animalVC];
+        [animalRosterSVC setViewControllers:animalRosterItems];
         
-        [animalRosterSVC setDelegate:animalRosterTableVC];
-        [animalRosterSVC setViewControllers:vcs];
-        
-        [[self navigationController] pushViewController:animalRosterSVC animated:YES];
+        AppDelegate *wibAppDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        wibAppDelegate.window.rootViewController = animalRosterSVC;
         */
-        [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
         
+        [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
     }
     else
     {
