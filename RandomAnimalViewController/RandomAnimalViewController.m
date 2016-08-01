@@ -71,21 +71,10 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     [super viewWillAppear:animated];
     
     animalName.text = @"";
+    
     [animalImage setImage:nil];
     [self ImageDropShadowEnabled:FALSE];
 }
-
-/*
--(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        [self viewDidLayoutSubviews];
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        //Do any cleanup, if necessary
-    }];
-}
-*/
 
 - (void)viewDidLayoutSubviews
 {
@@ -222,14 +211,42 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
             {
                 activeAnimalFound= TRUE;
                 animalName.text = randomA.AnimalNameStr;
-        
+
                 // Load the image if it exists
                 UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[randomA imageKey]];
-        
+                
+                int actualHeight = img.size.height;
+                int actualWidth = img.size.width;
+                
                 if (img != nil)
                 {
-                    [self ImageDropShadowEnabled:TRUE];                    
-                    [animalImage setImage:img];
+                    [self ImageDropShadowEnabled:FALSE];
+                    
+                    // Set up a default background image that can be used as a transition layer
+                    UIColor *defaultBGImageColor = [[UIColor alloc]initWithRed:180.0/255.0 green:180.0/255.0 blue:180.0/255.0 alpha:1.0];
+                    
+                    UIImage *defaultBGimage = [self squareImageWithColor:defaultBGImageColor dimensionWidth:actualWidth dimensionHeight:actualHeight];
+                    
+                    // Create a transition for showing the image
+                    [UIView transitionWithView:self.animalImage
+                                      duration:0.0f
+                                       options:UIViewAnimationOptionTransitionCrossDissolve
+                                    animations:^{
+                                        animalImage.image = defaultBGimage;
+                                    }
+                                    completion:^(BOOL finished)
+                    {
+                                        if (finished)
+                                        {
+                                            [self ImageDropShadowEnabled:TRUE];
+                                            [UIView transitionWithView:self.animalImage
+                                                              duration:SELECTION_ANIMATION_SPEED
+                                                               options:UIViewAnimationOptionTransitionCrossDissolve
+                                                            animations:^{
+                                                                animalImage.image = img;
+                                                            } completion:nil];
+                                        }
+                                    }];
                 }
                 else
                 {
@@ -259,6 +276,26 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         actionSheet.popoverPresentationController.sourceRect = settingModalPosition;
         [self presentViewController:actionSheet animated:YES completion:nil];
     }
+}
+
+-(void)generateRandomAnimal
+{
+    
+}
+
+- (UIImage *)squareImageWithColor:(UIColor *)color dimensionWidth:(int)dimWidth dimensionHeight:(int)dimHeight
+{
+    CGRect rect = CGRectMake(0, 0, dimWidth, dimHeight);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void)ImageDropShadowEnabled:(BOOL)enable

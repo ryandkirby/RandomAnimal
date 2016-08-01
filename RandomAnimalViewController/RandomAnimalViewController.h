@@ -26,6 +26,8 @@
 
 - (IBAction)launchAnimalRoster:(id)sender;
 - (IBAction)findRandomAnimal:(id)sender;
+- (UIImage *)squareImageWithColor:(UIColor *)color dimensionWidth:(int)dimWidth dimensionHeight:(int)dimHeight;
+- (void)generateRandomAnimal;
 @property CGRect previousScreenSize;
 
 @end
