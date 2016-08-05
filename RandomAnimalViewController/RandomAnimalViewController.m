@@ -257,8 +257,18 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     }
     else
     {
+        NSString *noAnimalText = nil;
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            noAnimalText = NO_ANIMALS_BUTTON_TEXT;
+        }
+        else
+        {
+            noAnimalText = NO_ANIMALS_BUTTON_TEXT_IPHONE;
+        }
+        
         NSLog(@"No items available to randomize.");
-        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:NO_ANIMALS_BUTTON_TEXT preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:noAnimalText preferredStyle:UIAlertControllerStyleActionSheet];
         
         // Cancel Button
         [actionSheet addAction:[UIAlertAction actionWithTitle:GOT_IT_BUTTON_TEXT style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

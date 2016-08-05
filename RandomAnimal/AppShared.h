@@ -15,6 +15,7 @@ static NSString* const BACK_BUTTON_TEXT = @"Back";
 static NSString* const CANCEL_BUTTON_TEXT = @"Cancel";
 static NSString* const GOT_IT_BUTTON_TEXT = @"Got it!";
 static NSString* const NO_ANIMALS_BUTTON_TEXT = @"No Animals available to select.  Add some by using this button";
+static NSString* const NO_ANIMALS_BUTTON_TEXT_IPHONE = @"No Animals available to select.  Add some by using the icon in the top-right.";
 static NSString* const SAVE_BUTTON_TEXT = @"Save";
 static NSString* const DELETE_BUTTON_TEXT = @"Delete";
 static NSString* const ANIMAL_APP_FONT = @"MarkerFelt-Thin";
