@@ -251,6 +251,7 @@
         CFRelease(newGUID);
         CFRelease(newGUIDIDString);
     }
+    
     // Store the new Animal Name
     if (tempAnimalName != nil)
     {
@@ -333,7 +334,7 @@
     if (newName.length > 0)
     {
         [doneButton setEnabled:TRUE];
-        tempAnimalName = newName;
+        self.tempAnimalName = newName;
         self.navigationItem.rightBarButtonItem.enabled = TRUE;
     }
     
