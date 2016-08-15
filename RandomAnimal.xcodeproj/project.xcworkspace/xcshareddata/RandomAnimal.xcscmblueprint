@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B0F25232CDF29C95EBF86D5DC1E3567746319E75",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B0F25232CDF29C95EBF86D5DC1E3567746319E75" : 0,
+    "006D93CFF4B40A588F98C069A5B32812695A22B3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "77007069-E7AC-4B4B-8ED2-8DCD4B3CDF3A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B0F25232CDF29C95EBF86D5DC1E3567746319E75" : "RandomAnimal\/",
+    "006D93CFF4B40A588F98C069A5B32812695A22B3" : "react-native-image-picker\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RandomAnimal",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RandomAnimal.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/marcshilling\/react-native-image-picker.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "006D93CFF4B40A588F98C069A5B32812695A22B3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ryandkirby\/RandomAnimal.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0F25232CDF29C95EBF86D5DC1E3567746319E75"
+    }
+  ]
+}

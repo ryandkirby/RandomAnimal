@@ -12,9 +12,9 @@
 #import "AnimalRosterTableViewController.h"
 #import "AnimalEditViewController.h"
 
-@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
+@interface AnimalViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
 {
-    UIPopoverController *imagePickerPopover;
+
 }
 
 //@property (nonatomic, strong) Animal *item;

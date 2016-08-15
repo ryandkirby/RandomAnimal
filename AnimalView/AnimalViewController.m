@@ -21,12 +21,7 @@
     [super viewDidLoad];
     
     if (animal != nil)
-    {
-        if (animal != nil)
-        {
-            self.title = animal.AnimalNameStr;
-        }
-        
+    {        
         // Set the title of the screen
         if (animal.AnimalNameStr != nil)
         {
@@ -79,6 +74,14 @@
         [animalImage setImage:img];
     }
     
+    // Reset the name if it's valid
+    if (animal.AnimalNameStr != nil)
+    {
+        animalName.text = animal.AnimalNameStr;
+        // Set the animal name if it's available
+        [actualNameReadOnly setText:animal.AnimalNameStr];
+    }
+    
     if ([self animal] == nil)
     {
         [self.navigationController popViewControllerAnimated:YES];
@@ -109,7 +112,13 @@
      target:nil
      action:nil];
     
-    // Push the view controller.
+    // Push the view controller with fading transition.
+    CATransition* transition = [CATransition animation];
+    transition.duration = EDIT_TRANSITION_TIME;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
     [self.navigationController pushViewController:animalEditViewController animated:NO];
 }
 

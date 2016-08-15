@@ -14,18 +14,25 @@
 
 @implementation AnimalEditViewController
 
-@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton;
+@synthesize animal, actualNameEdit, animalName, animalImage, backButton, doneButton, cancelButton, deleteButton, isNewAnimal, tempAnimalImage, tempAnimalName, takePhotoButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    if (animal != nil)
+    if (animal.AnimalNameStr == nil && animal.AnimalImageNameStr == nil)
     {
-        self.title = animal.AnimalNameStr;
-        actualNameEdit.delegate = self;
+        isNewAnimal = true;
+        [deleteButton setHidden:YES];
+        takePhotoButton.titleLabel.text = ADD_PHOTO_TEXT;
+    }
+    
+    if (animal.AnimalNameStr != nil)
+    {
         actualNameEdit.text = animal.AnimalNameStr;
     }
+    
+    actualNameEdit.delegate = self;
     
     // Set up the left and right buttons on the view
     cancelButton = [[UIBarButtonItem alloc] initWithTitle:CANCEL_BUTTON_TEXT style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
@@ -66,6 +73,13 @@
     if (img)
     {
         [animalImage setImage:img];
+        takePhotoButton.titleLabel.text = EDIT_PHOTO_TEXT;
+    }
+    
+    if (isNewAnimal)
+    {
+        self.title = EDIT_BUTTON_TEXT;
+        [actualNameEdit becomeFirstResponder];
     }
 }
 
@@ -88,50 +102,87 @@
 
 - (IBAction)takePicture:(id)sender
 {
+    // Display the image selection Action Sheet
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Cancel Button
+    [actionSheet addAction:[UIAlertAction actionWithTitle:CANCEL_BUTTON_TEXT style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+
+    // Selection Photo Gallary Button
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        [actionSheet addAction:[UIAlertAction actionWithTitle:IMAGE_SELECTION_PHOTO_GALLARY style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self selectImage:sender source:TRUE];
+        }]];
+    }
+
+    // Selection Take Photo Button
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [actionSheet addAction:[UIAlertAction actionWithTitle:IMAGE_SELECTION_TAKE_PHOTO style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self selectImage:sender source:FALSE];
+        }]];
+    }
+    
+    UIButton* takePhotoButtonInst = (UIButton*)sender;
+    if (takePhotoButtonInst != nil)
+    {
+        actionSheet.popoverPresentationController.sourceView = self.view;
+        actionSheet.popoverPresentationController.sourceView = takePhotoButtonInst;
+        actionSheet.popoverPresentationController.sourceRect = takePhotoButtonInst.bounds;
+    }
+    
+    // Present action sheet.
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+-(void)selectImage:(id)sender source:(BOOL)fromPhotoGallary
+{
+    
     // If the popup is already displayed, close it.
-    if ([imagePickerPopover isPopoverVisible])
+    if (imagePopoverPresentationController != nil)
     {
         // Close the popup here
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        imagePopoverPresentationController = nil;
         return;
     }
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
     [imagePicker allowsEditing];
+    [imagePicker setDelegate:self];
     
-    // If our device supports a camera, use it
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    }
-    else
+    if (fromPhotoGallary)
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     }
-    
-    [imagePicker setDelegate:self];
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
     
     // Below the code will make a popup use this if the device is an iPad.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
         // Create the popup controller
-        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        imagePopoverPresentationController = [[UIPopoverPresentationController alloc] initWithPresentedViewController:imagePicker presentingViewController:self];
         
         // Set the delgate of the popover to be this class
-        [imagePickerPopover setDelegate:self];
+        [imagePopoverPresentationController setDelegate:self];
         
-        // Set the content
-        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
+        imagePopoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+        [self presentViewController:imagePicker animated:YES completion:nil];
     }
     else
     {
         // This is the display for the iPhone.
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -145,29 +196,12 @@
     }
     
     //Get the selected image
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    [animal setThumbnailDataFromImage:image];
+    tempAnimalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     // Put that image into the screen
-    [animalImage setImage:image];
-    
-    //Store this image in our Animal by creating a GUID for it
-    CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
-    
-    CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
-    
-    //Now store the image and key into the dictionary
-    NSString *key = (__bridge NSString *)newGUIDIDString;
-    [animal setImageKey:key];
+    [animalImage setImage:tempAnimalImage];
     
     [doneButton setEnabled:TRUE];
-    
-    [[AnimalStorageImage sharedStore] setImage:image forKey:[animal imageKey]];
-    
-    // Clear up the memory from the strings above!
-    CFRelease(newGUID);
-    CFRelease(newGUIDIDString);
     
     // Take the imagepicker off the screen.  Control this behavior depending on the device type
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
@@ -176,18 +210,18 @@
     }
     else
     {
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        imagePopoverPresentationController = nil;
     }
 }
 
 -(IBAction)cancelAction:(id)sender
 {
-    if (animal.AnimalNameStr == nil)
+    if (isNewAnimal)
     {
         [[AnimalStorage sharedStorage] removeItem:animal];
     }
-    [self.navigationController popViewControllerAnimated:NO];
+    [self closeViewWithFading];
 }
 
 -(IBAction)backAction:(id)sender
@@ -197,17 +231,74 @@
 
 -(IBAction)doneAction:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:NO];
+    if (tempAnimalImage != nil)
+    {
+        // If the user select done, and not cancel or back, we save off the image.
+        [animal setThumbnailDataFromImage:tempAnimalImage];
+    
+        //Store this image in our Animal by creating a GUID for it
+        CFUUIDRef newGUID = CFUUIDCreate(kCFAllocatorDefault);
+    
+        CFStringRef newGUIDIDString = CFUUIDCreateString(kCFAllocatorDefault, newGUID);
+    
+        //Now store the image and key into the dictionary
+        NSString *key = (__bridge NSString *)newGUIDIDString;
+        [animal setImageKey:key];
+    
+        [[AnimalStorageImage sharedStore] setImage:tempAnimalImage forKey:[animal imageKey]];
+    
+        // Clear up the memory from the strings above!
+        CFRelease(newGUID);
+        CFRelease(newGUIDIDString);
+    }
+    
+    // Store the new Animal Name
+    if (tempAnimalName != nil)
+    {
+        animal.AnimalNameStr = tempAnimalName;
+    }
+    
+    [self closeViewWithFading];
 }
 
 - (IBAction)deleteAnimal:(id)sender
 {
-    [[AnimalStorage sharedStorage] removeItem:animal];
-    [self.navigationController popViewControllerAnimated:NO];
+    // Display the image selection Action Sheet
+    UIAlertController *deleteAnimalActionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // Selection Photo Gallary Button
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        [deleteAnimalActionSheet addAction:[UIAlertAction actionWithTitle:DELETE_BUTTON_TEXT style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            
+            [[AnimalStorage sharedStorage] removeItem:animal];
+
+            [self closeViewWithFading];
+        }]];
+    }
+
+    // Cancel Button
+    [deleteAnimalActionSheet addAction:[UIAlertAction actionWithTitle:CANCEL_BUTTON_TEXT style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        // Cancel button tappped.
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    }]];
+
+    UIButton* deleteButtonItem = (UIButton*)sender;
+    if (deleteButtonItem != nil)
+    {
+        deleteAnimalActionSheet.popoverPresentationController.sourceView = self.view;
+        deleteAnimalActionSheet.popoverPresentationController.sourceView = deleteButtonItem;
+        deleteAnimalActionSheet.popoverPresentationController.sourceRect = deleteButtonItem.bounds;
+    }
+    
+    // Present action sheet.
+    [self presentViewController:deleteAnimalActionSheet animated:YES completion:nil];
+    
 }
 
 - (void)keyboardDidShow:(NSNotification *)note
-
 {
     NSDictionary *info  = note.userInfo;
     NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
@@ -215,22 +306,19 @@
     CGRect rawFrame      = [value CGRectValue];
     CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
     
-    NSLog(@"keyboardFrame: %@", NSStringFromCGRect(keyboardFrame));
-    
     CGFloat keyboardHeight = keyboardFrame.size.height;
-    
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight+ KEYBOARD_ADJUST_HEIGHT);
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
     
     // Adjust the cancel button to edit
     self.navigationItem.leftBarButtonItem = backButton;
     
     // Disable navigation controls while keyboard is displayed
     self.navigationItem.rightBarButtonItem = NULL;
-    
 }
 
 - (void)keyboardDidHide:(NSNotification *)note
 {
+    // Set the screen position to the original orientation
     self.view.center = self.originalCenter;
     
     // Enable navigation controls when keyboard is dismissed
@@ -246,8 +334,7 @@
     if (newName.length > 0)
     {
         [doneButton setEnabled:TRUE];
-        animal.AnimalNameStr = newName;
-        self.title = newName;
+        self.tempAnimalName = newName;
         self.navigationItem.rightBarButtonItem.enabled = TRUE;
     }
     
@@ -263,6 +350,19 @@
 {
     [doneButton setEnabled:enable_button];
     
+}
+
+-(void)closeViewWithFading
+{
+    // Push the view controller with fading transition.
+    CATransition* transition = [CATransition animation];
+    transition.duration = EDIT_TRANSITION_TIME;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    //[self.navigationController pushViewController:animalEditViewController animated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

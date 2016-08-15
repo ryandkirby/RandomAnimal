@@ -8,6 +8,7 @@
 
 #import "RandomAnimalViewController.h"
 #import "AnimalRosterTableViewController.h"
+#import "OffsetLabel.h"
 
 @interface RandomAnimalViewController ()
 
@@ -28,14 +29,15 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     // Set the System Bar Color
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
-    // Set up the navigation bar setting icon
-    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self  action:@selector(launchAnimalRoster:)];
+    // Set the right gear settings icon
+    UIImage *settingsGearImage = [UIImage imageNamed:APP_SETTINGS_GEAR];
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingsButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+    [settingsButton setImage:settingsGearImage forState:UIControlStateNormal];
+    UIBarButtonItem *settingsGearBarBtn = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+    [settingsButton addTarget:self action:@selector(launchAnimalRoster:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = settingsGearBarBtn;
 
-    UIFont *customFont = [UIFont fontWithName:ANIMAL_APP_FONT size:30.0];
-    NSDictionary *fontDictionary = @{NSFontAttributeName : customFont};
-    [settingsButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = settingsButton;
-    
     // Set up the navigation bar color
     UIColor *headerColor = [[UIColor alloc] initWithRed:(22/255.0) green:(145/255.0) blue:(226/255.0) alpha:1];
     
@@ -57,7 +59,7 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     self.navigationItem.backBarButtonItem = backbutton;
         
     // Setting the status bar to White
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+   [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     // Set up default screensize
     previousScreenSize = self.view.bounds;
@@ -69,21 +71,10 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     [super viewWillAppear:animated];
     
     animalName.text = @"";
+    
     [animalImage setImage:nil];
     [self ImageDropShadowEnabled:FALSE];
 }
-
-/*
--(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        [self viewDidLayoutSubviews];
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        //Do any cleanup, if necessary
-    }];
-}
-*/
 
 - (void)viewDidLayoutSubviews
 {
@@ -97,11 +88,14 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
     {
         previousScreenSize = layerRect;
     
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (layerRect.size.width/2)-44, 44)];
+        OffsetLabel *label = [[OffsetLabel alloc] initWithFrame:CGRectMake(0, 0, layerRect.size.width, 44)];
+        
         label.font = [UIFont fontWithName:ANIMAL_APP_FONT size:21.0];
         label.shadowColor = [UIColor clearColor];
         label.textColor =[UIColor whiteColor];
         label.text = self.title;
+        label.textAlignment = NSTextAlignmentCenter;
+        [label setRightOffset:SETTING_BUTTON_SIZE];
         self.navigationItem.titleView = label;
     
         // Add Gradient to button
@@ -119,8 +113,16 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         // Set up round button
         randomAnimalButton = [UIButton alloc];
         randomAnimalButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [randomAnimalButton setImage:[UIImage imageNamed:@"RandomButtom.png"] forState:UIControlStateNormal];
-        [randomAnimalButton setImage:[UIImage imageNamed:@"RandomButtom.png"] forState:UIControlStateHighlighted];
+        //randomAnimalButton.imageView.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+
+        //randomAnimalButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+        //UIImage *settingsGearImage = [UIImage imageNamed:RANDOM_BUTTON_PAW_IMAGE_NAME];
+        //UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        //settingsButton.bounds = CGRectMake( 0, 0, SETTING_BUTTON_SIZE, SETTING_BUTTON_SIZE);
+        
+        [randomAnimalButton setImage:[UIImage imageNamed:RANDOM_BUTTON_PAW_IMAGE_NAME] forState:UIControlStateNormal];
+        [randomAnimalButton setImage:[UIImage imageNamed:RANDOM_BUTTON_PAW_IMAGE_NAME] forState:UIControlStateHighlighted];
+
     
         [randomAnimalButton addTarget:self action:@selector(findRandomAnimal:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -157,7 +159,35 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
 {
     animalName.text = @"";
     AnimalRosterTableViewController *animalRosterTableVC = [[AnimalRosterTableViewController alloc] init];
-    [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
+    //AnimalViewController *animalVC = [[AnimalViewController alloc] init];
+    
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        /*
+        // Create a view controller for the detail view
+        UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:animalVC];
+        
+        // Create an array of the Animal items
+        NSArray *animalRosterItems = [NSArray  arrayWithObjects:animalRosterTableVC, detailNav, nil];
+        
+        // Create the split view
+        UISplitViewController *animalRosterSVC = [[UISplitViewController alloc] init];
+     
+        // Set the deliate of the split view controller to be the detail VC.
+        [animalRosterSVC setDelegate:animalVC];
+        [animalRosterSVC setViewControllers:animalRosterItems];
+        
+        AppDelegate *wibAppDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        wibAppDelegate.window.rootViewController = animalRosterSVC;
+        */
+        
+        [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
+    }
+    else
+    {
+        [[self navigationController] pushViewController:animalRosterTableVC animated:YES];
+    }
 }
 
 -(IBAction)findRandomAnimal:(id)sender
@@ -181,14 +211,42 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
             {
                 activeAnimalFound= TRUE;
                 animalName.text = randomA.AnimalNameStr;
-        
+
                 // Load the image if it exists
                 UIImage *img = [[AnimalStorageImage sharedStore] imageForKey:[randomA imageKey]];
-        
+                
+                int actualHeight = img.size.height;
+                int actualWidth = img.size.width;
+                
                 if (img != nil)
                 {
-                    [self ImageDropShadowEnabled:TRUE];                    
-                    [animalImage setImage:img];
+                    [self ImageDropShadowEnabled:FALSE];
+                    
+                    // Set up a default background image that can be used as a transition layer
+                    UIColor *defaultBGImageColor = [[UIColor alloc]initWithRed:180.0/255.0 green:180.0/255.0 blue:180.0/255.0 alpha:1.0];
+                    
+                    UIImage *defaultBGimage = [self squareImageWithColor:defaultBGImageColor dimensionWidth:actualWidth dimensionHeight:actualHeight];
+                    
+                    // Create a transition for showing the image
+                    [UIView transitionWithView:self.animalImage
+                                      duration:0.0f
+                                       options:UIViewAnimationOptionTransitionCrossDissolve
+                                    animations:^{
+                                        animalImage.image = defaultBGimage;
+                                    }
+                                    completion:^(BOOL finished)
+                    {
+                                        if (finished)
+                                        {
+                                            [self ImageDropShadowEnabled:TRUE];
+                                            [UIView transitionWithView:self.animalImage
+                                                              duration:SELECTION_ANIMATION_SPEED
+                                                               options:UIViewAnimationOptionTransitionCrossDissolve
+                                                            animations:^{
+                                                                animalImage.image = img;
+                                                            } completion:nil];
+                                        }
+                                    }];
                 }
                 else
                 {
@@ -197,6 +255,57 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
             }
         } while (activeAnimalFound == FALSE);
     }
+    else
+    {
+        NSString *noAnimalText = nil;
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            noAnimalText = NO_ANIMALS_BUTTON_TEXT;
+        }
+        else
+        {
+            noAnimalText = NO_ANIMALS_BUTTON_TEXT_IPHONE;
+        }
+        
+        NSLog(@"No items available to randomize.");
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:noAnimalText preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        // Cancel Button
+        [actionSheet addAction:[UIAlertAction actionWithTitle:GOT_IT_BUTTON_TEXT style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            // Cancel button tappped.
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        }]];
+        
+        // Set the position of the popup warning
+        actionSheet.popoverPresentationController.sourceView = self.view;
+        CGRect settingModalPosition = CGRectMake(self.navigationController.navigationBar.bounds.origin.x, self.navigationController.navigationBar.bounds.origin.y, self.navigationController.navigationBar.bounds.size.width, self.navigationController.navigationBar.bounds.size.height);
+        settingModalPosition.origin.x = self.view.bounds.size.width;
+        settingModalPosition.origin.y = settingModalPosition.size.height *2.5;
+        actionSheet.popoverPresentationController.sourceRect = settingModalPosition;
+        [self presentViewController:actionSheet animated:YES completion:nil];
+    }
+}
+
+-(void)generateRandomAnimal
+{
+    
+}
+
+- (UIImage *)squareImageWithColor:(UIColor *)color dimensionWidth:(int)dimWidth dimensionHeight:(int)dimHeight
+{
+    CGRect rect = CGRectMake(0, 0, dimWidth, dimHeight);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void)ImageDropShadowEnabled:(BOOL)enable
@@ -222,15 +331,5 @@ const float RANDOM_BUTTON_RADIUS = 60.0;
         [animalImage.layer setBorderWidth: 1.0];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

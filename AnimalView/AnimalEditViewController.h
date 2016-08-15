@@ -11,9 +11,9 @@
 #import "AnimalStorageImage.h"
 #import "AppShared.h"
 
-@interface AnimalEditViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
+@interface AnimalEditViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate>
 {
-    UIPopoverController *imagePickerPopover;
+    UIPopoverPresentationController *imagePopoverPresentationController;
 }
 
 //@property (nonatomic, strong) Animal *item;
@@ -24,8 +24,11 @@
 @property (nonatomic, weak) IBOutlet UIImageView *animalImage;
 @property (nonatomic, weak) IBOutlet UIButton *takePhotoButton;
 @property (nonatomic, weak) IBOutlet UIButton *deleteButton;
+@property (nonatomic, weak) IBOutlet UIImage *tempAnimalImage;
+@property NSString *tempAnimalName;
 @property (nonatomic, weak)  Animal *animal;
 @property CGPoint originalCenter;
+@property BOOL isNewAnimal;
 @property (nonatomic, retain) UIBarButtonItem *cancelButton;
 @property (nonatomic, retain) UIBarButtonItem *backButton;
 @property (nonatomic, retain) UIBarButtonItem *doneButton;
