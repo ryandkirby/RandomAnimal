@@ -89,17 +89,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    // Record the original center for the keyboard popup
-    if (self.originalCenter.x == 0 && self.originalCenter.y == 0)
-    {
-        self.originalCenter = self.view.center;
-        NSLog(@"Center X:%f Y:%f", self.view.center.x, self.view.center.y);
-    }
-}
-
 - (IBAction)takePicture:(id)sender
 {
     // Display the image selection Action Sheet
@@ -300,16 +289,7 @@
 
 - (void)keyboardDidShow:(NSNotification *)note
 {
-    NSDictionary *info  = note.userInfo;
-    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
-    
-    CGRect rawFrame      = [value CGRectValue];
-    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
-    
-    CGFloat keyboardHeight = keyboardFrame.size.height;
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
-    
-    // Adjust the cancel button to edit
+        // Adjust the cancel button to edit
     self.navigationItem.leftBarButtonItem = backButton;
     
     // Disable navigation controls while keyboard is displayed
@@ -318,9 +298,6 @@
 
 - (void)keyboardDidHide:(NSNotification *)note
 {
-    // Set the screen position to the original orientation
-    self.view.center = self.originalCenter;
-    
     // Enable navigation controls when keyboard is dismissed
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;

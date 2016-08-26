@@ -27,7 +27,6 @@
 @property (nonatomic, weak) IBOutlet UIImage *tempAnimalImage;
 @property NSString *tempAnimalName;
 @property (nonatomic, weak)  Animal *animal;
-@property CGPoint originalCenter;
 @property BOOL isNewAnimal;
 @property (nonatomic, retain) UIBarButtonItem *cancelButton;
 @property (nonatomic, retain) UIBarButtonItem *backButton;
