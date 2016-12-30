@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		942256AA1CB5FE110030B678 /* SettingsGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256A91CB5FE110030B678 /* SettingsGear.png */; };
-		942256AC1CBAD3BC0030B678 /* RandomButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256AB1CBAD3BC0030B678 /* RandomButton.png */; };
 		942256B71CCF0BB20030B678 /* OffsetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 942256B61CCF0BB20030B678 /* OffsetLabel.m */; };
 		942256C61CD6B1990030B678 /* RA_Icon_40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C41CD6B1990030B678 /* RA_Icon_40x40@2x.png */; };
 		942256C71CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 942256C51CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png */; };
@@ -34,6 +33,8 @@
 		94B56F271BC0DC650069E5D8 /* AnimalRosterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F231BC0DC650069E5D8 /* AnimalRosterTableViewController.xib */; };
 		94B56F2B1BC0DC7C0069E5D8 /* AnimalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B56F291BC0DC7C0069E5D8 /* AnimalViewController.m */; };
 		94B56F2C1BC0DC7C0069E5D8 /* AnimalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B56F2A1BC0DC7C0069E5D8 /* AnimalViewController.xib */; };
+		94B73B251D8F1689004A3D23 /* RandomButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 94B73B241D8F1689004A3D23 /* RandomButton.png */; };
+		94B73B271D8F17A9004A3D23 /* RandomButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94B73B261D8F17A9004A3D23 /* RandomButton@2x.png */; };
 		94F37B241B6D9FE00089A4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B231B6D9FE00089A4D5 /* main.m */; };
 		94F37B271B6D9FE00089A4D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B261B6D9FE00089A4D5 /* AppDelegate.m */; };
 		94F37B2A1B6D9FE00089A4D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F37B291B6D9FE00089A4D5 /* ViewController.m */; };
@@ -55,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		942256A91CB5FE110030B678 /* SettingsGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsGear.png; path = Images.xcassets/SettingsGear.png; sourceTree = "<group>"; };
-		942256AB1CBAD3BC0030B678 /* RandomButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RandomButton.png; path = Images.xcassets/RandomButton.png; sourceTree = "<group>"; };
 		942256B51CCF0BB20030B678 /* OffsetLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffsetLabel.h; sourceTree = "<group>"; };
 		942256B61CCF0BB20030B678 /* OffsetLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffsetLabel.m; sourceTree = "<group>"; };
 		942256C41CD6B1990030B678 /* RA_Icon_40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RA_Icon_40x40@2x.png"; path = "Images.xcassets/RA_Icon_40x40@2x.png"; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		94B56F281BC0DC7C0069E5D8 /* AnimalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimalViewController.h; path = AnimalView/AnimalViewController.h; sourceTree = "<group>"; };
 		94B56F291BC0DC7C0069E5D8 /* AnimalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimalViewController.m; path = AnimalView/AnimalViewController.m; sourceTree = "<group>"; };
 		94B56F2A1BC0DC7C0069E5D8 /* AnimalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnimalViewController.xib; path = AnimalView/AnimalViewController.xib; sourceTree = "<group>"; };
+		94B73B241D8F1689004A3D23 /* RandomButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RandomButton.png; path = Images.xcassets/RandomButton.png; sourceTree = "<group>"; };
+		94B73B261D8F17A9004A3D23 /* RandomButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RandomButton@2x.png"; path = "Images.xcassets/RandomButton@2x.png"; sourceTree = "<group>"; };
 		94F37B1E1B6D9FDF0089A4D5 /* RandomAnimal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomAnimal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F37B221B6D9FE00089A4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94F37B231B6D9FE00089A4D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -216,6 +218,8 @@
 		94F37B211B6D9FDF0089A4D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				94B73B261D8F17A9004A3D23 /* RandomButton@2x.png */,
+				94B73B241D8F1689004A3D23 /* RandomButton.png */,
 				942256D01CD6C9B80030B678 /* RA_Icon_58x58.png */,
 				942256D11CD6C9B80030B678 /* RA_Icon_58x58@2x.jpg */,
 				942256CC1CD6BA9C0030B678 /* RA_Icon_60x60@2x.png */,
@@ -224,7 +228,6 @@
 				942256C91CD6B6190030B678 /* RA_Icon-76x76@2x.png */,
 				942256C41CD6B1990030B678 /* RA_Icon_40x40@2x.png */,
 				942256C51CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png */,
-				942256AB1CBAD3BC0030B678 /* RandomButton.png */,
 				942256A91CB5FE110030B678 /* SettingsGear.png */,
 				94F37B221B6D9FE00089A4D5 /* Info.plist */,
 				94F37B231B6D9FE00089A4D5 /* main.m */,
@@ -306,7 +309,7 @@
 		94F37B161B6D9FDF0089A4D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Engby LLC";
 				TargetAttributes = {
 					94F37B1D1B6D9FDF0089A4D5 = {
@@ -343,10 +346,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B73B251D8F1689004A3D23 /* RandomButton.png in Resources */,
 				942256CF1CD6BA9C0030B678 /* RA_Icon_60x60@3x.png in Resources */,
+				94B73B271D8F17A9004A3D23 /* RandomButton@2x.png in Resources */,
 				942256C61CD6B1990030B678 /* RA_Icon_40x40@2x.png in Resources */,
 				94B56F271BC0DC650069E5D8 /* AnimalRosterTableViewController.xib in Resources */,
-				942256AC1CBAD3BC0030B678 /* RandomButton.png in Resources */,
 				945F9C2D1B6DB97200C8F7F2 /* RandomAnimalViewController.xib in Resources */,
 				94B56F1D1BC0DBC50069E5D8 /* AnimalEditViewController.xib in Resources */,
 				942256C71CD6B1990030B678 /* RA_Icon-83.5x83.5@2x.png in Resources */,
@@ -445,8 +449,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -490,8 +496,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

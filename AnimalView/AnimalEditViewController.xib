@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimalEditViewController">
@@ -16,28 +17,86 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fma-xb-hGI">
-                    <rect key="frame" x="49" y="110" width="220" height="268"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-A6-TnE">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="263" id="ArQ-Jh-Yrc">
+                            <variation key="heightClass=regular-widthClass=compact" constant="274"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="20" id="In1-u5-LOS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                    <state key="normal" title="Delete">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ArQ-Jh-Yrc"/>
+                            <exclude reference="In1-u5-LOS"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="ArQ-Jh-Yrc"/>
+                            <include reference="In1-u5-LOS"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="deleteAnimal:" destination="-1" eventType="touchUpInside" id="1AP-5k-PWX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4n-1N-h23">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="eNg-ZN-YGi">
+                            <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
+                    <state key="normal" title="Edit Photo">
+                        <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="eNg-ZN-YGi"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="eNg-ZN-YGi"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="bo0-9s-U7J"/>
+                    </connections>
+                </button>
+                <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fma-xb-hGI">
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="fma-xb-hGI" secondAttribute="height" multiplier="3:4" id="nZT-36-Rkp"/>
                     </constraints>
-                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="98" y="125" width="204" height="272"/>
+                    <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
                             <include reference="nZT-36-Rkp"/>
                         </mask>
                     </variation>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" background="a" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-8c-Yx5">
-                    <rect key="frame" x="79" y="405" width="212" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phM-ot-qkM">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="xB0-NF-3XT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" background="a" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-8c-Yx5">
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="eOD-TN-r4K"/>
                     </constraints>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <variation key="default">
@@ -51,168 +110,36 @@
                         </mask>
                     </variation>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-A6-TnE">
-                    <rect key="frame" x="36" y="496" width="263" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="263" id="ArQ-Jh-Yrc">
-                            <variation key="heightClass=regular-widthClass=compact" constant="274"/>
-                        </constraint>
-                        <constraint firstAttribute="height" constant="33" id="In1-u5-LOS"/>
-                        <constraint firstAttribute="width" constant="263" id="Ipe-Sj-hOV"/>
-                        <constraint firstAttribute="height" constant="33" id="KLq-Y9-U03"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <state key="normal" title="Delete">
-                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="ArQ-Jh-Yrc"/>
-                            <exclude reference="In1-u5-LOS"/>
-                            <exclude reference="Ipe-Sj-hOV"/>
-                            <exclude reference="KLq-Y9-U03"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular">
-                        <mask key="constraints">
-                            <include reference="Ipe-Sj-hOV"/>
-                            <include reference="KLq-Y9-U03"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="69" y="453" width="263" height="33"/>
-                        <mask key="constraints">
-                            <include reference="ArQ-Jh-Yrc"/>
-                            <include reference="In1-u5-LOS"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="deleteAnimal:" destination="-1" eventType="touchUpInside" id="1AP-5k-PWX"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4n-1N-h23">
-                    <rect key="frame" x="88" y="77" width="274" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="33" id="eNg-ZN-YGi">
-                            <variation key="heightClass=regular-widthClass=compact" constant="33"/>
-                        </constraint>
-                        <constraint firstAttribute="height" constant="33" id="tfk-su-ZTg"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                    <state key="normal" title="Edit Photo">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="eNg-ZN-YGi"/>
-                            <exclude reference="tfk-su-ZTg"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular">
-                        <mask key="constraints">
-                            <include reference="tfk-su-ZTg"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="63" y="405" width="274" height="33"/>
-                        <mask key="constraints">
-                            <include reference="eNg-ZN-YGi"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="bo0-9s-U7J"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="top" secondItem="qFU-8c-Yx5" secondAttribute="bottom" constant="14" id="6MP-04-Q6g"/>
-                <constraint firstItem="E4n-1N-h23" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="J3c-nQ-o0i"/>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JNh-gg-bgf"/>
-                <constraint firstItem="hRU-A6-TnE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KVO-Pw-YPP"/>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="bottom" secondItem="E4n-1N-h23" secondAttribute="top" constant="4" id="KZe-d6-lZj">
-                    <variation key="heightClass=regular" constant="-4"/>
-                </constraint>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LRW-s8-Kx8"/>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="bottom" secondItem="fma-xb-hGI" secondAttribute="top" constant="18" id="QK7-SH-YSq"/>
-                <constraint firstItem="hRU-A6-TnE" firstAttribute="top" secondItem="E4n-1N-h23" secondAttribute="bottom" constant="15" id="Sf3-VX-hnR"/>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="bottom" secondItem="E4n-1N-h23" secondAttribute="top" constant="14" id="SvA-lv-2Oe"/>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="width" secondItem="fma-xb-hGI" secondAttribute="width" id="Uxj-f6-ng6"/>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="VbC-Cl-oR6"/>
-                <constraint firstItem="hRU-A6-TnE" firstAttribute="top" secondItem="E4n-1N-h23" secondAttribute="bottom" constant="15" id="VwV-Ir-8GR"/>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="WI1-5f-cbP"/>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="bottom" secondItem="fma-xb-hGI" secondAttribute="top" constant="5" id="WsE-KB-4CC">
-                    <variation key="heightClass=regular" constant="-5"/>
-                </constraint>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="bottom" secondItem="E4n-1N-h23" secondAttribute="top" constant="-17" id="Xh1-sA-iFq">
-                    <variation key="heightClass=regular-widthClass=compact" constant="-7"/>
-                </constraint>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="bottom" secondItem="fma-xb-hGI" secondAttribute="top" constant="25" id="Zpx-gm-MeB">
-                    <variation key="heightClass=regular" constant="0.0"/>
-                </constraint>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="bottom" secondItem="E4n-1N-h23" secondAttribute="top" constant="14" id="gLV-HF-SJ9"/>
-                <constraint firstItem="fma-xb-hGI" firstAttribute="top" secondItem="qFU-8c-Yx5" secondAttribute="bottom" constant="14" id="k1L-gp-tAy"/>
-                <constraint firstItem="E4n-1N-h23" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kmh-oQ-0Kr">
-                    <variation key="heightClass=regular-widthClass=compact" constant="6"/>
-                </constraint>
-                <constraint firstItem="qFU-8c-Yx5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="pcJ-3S-2nX"/>
-                <constraint firstItem="hRU-A6-TnE" firstAttribute="top" secondItem="E4n-1N-h23" secondAttribute="bottom" constant="3" id="zfp-Yt-HGM"/>
+                <constraint firstItem="phM-ot-qkM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="9dk-5c-cxH"/>
+                <constraint firstItem="phM-ot-qkM" firstAttribute="width" secondItem="fma-xb-hGI" secondAttribute="width" id="BHO-d8-9FI"/>
+                <constraint firstItem="E4n-1N-h23" firstAttribute="centerX" secondItem="fma-xb-hGI" secondAttribute="centerX" id="Dq7-ms-RTD"/>
+                <constraint firstItem="fma-xb-hGI" firstAttribute="top" secondItem="qFU-8c-Yx5" secondAttribute="bottom" constant="8" id="HiG-id-Dxo"/>
+                <constraint firstItem="fma-xb-hGI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IPm-mU-504"/>
+                <constraint firstItem="E4n-1N-h23" firstAttribute="width" secondItem="fma-xb-hGI" secondAttribute="width" id="IhF-ss-F0p"/>
+                <constraint firstItem="qFU-8c-Yx5" firstAttribute="top" secondItem="phM-ot-qkM" secondAttribute="bottom" constant="2" id="XZQ-t7-6w6"/>
+                <constraint firstItem="hRU-A6-TnE" firstAttribute="width" secondItem="E4n-1N-h23" secondAttribute="width" id="aGl-5X-6N9"/>
+                <constraint firstItem="E4n-1N-h23" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c6e-3r-5vt"/>
+                <constraint firstItem="E4n-1N-h23" firstAttribute="top" secondItem="fma-xb-hGI" secondAttribute="bottom" constant="8" id="g9L-ph-fbb"/>
+                <constraint firstItem="phM-ot-qkM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kXg-Ug-Fuy"/>
+                <constraint firstItem="hRU-A6-TnE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mAY-6F-pZV"/>
+                <constraint firstItem="hRU-A6-TnE" firstAttribute="top" secondItem="E4n-1N-h23" secondAttribute="bottom" constant="8" id="qL9-hR-IWn"/>
+                <constraint firstItem="fma-xb-hGI" firstAttribute="width" secondItem="qFU-8c-Yx5" secondAttribute="width" id="qYs-sR-4nw"/>
+                <constraint firstItem="qFU-8c-Yx5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sJC-WV-B2N"/>
             </constraints>
             <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="JNh-gg-bgf"/>
-                    <exclude reference="QK7-SH-YSq"/>
-                    <exclude reference="Uxj-f6-ng6"/>
-                    <exclude reference="WsE-KB-4CC"/>
-                    <exclude reference="Zpx-gm-MeB"/>
-                    <exclude reference="pcJ-3S-2nX"/>
-                    <exclude reference="6MP-04-Q6g"/>
-                    <exclude reference="KZe-d6-lZj"/>
-                    <exclude reference="LRW-s8-Kx8"/>
-                    <exclude reference="SvA-lv-2Oe"/>
-                    <exclude reference="VbC-Cl-oR6"/>
-                    <exclude reference="WI1-5f-cbP"/>
-                    <exclude reference="Xh1-sA-iFq"/>
-                    <exclude reference="gLV-HF-SJ9"/>
-                    <exclude reference="k1L-gp-tAy"/>
-                    <exclude reference="J3c-nQ-o0i"/>
-                    <exclude reference="KVO-Pw-YPP"/>
-                    <exclude reference="Sf3-VX-hnR"/>
-                    <exclude reference="VwV-Ir-8GR"/>
-                    <exclude reference="zfp-Yt-HGM"/>
+                <mask key="subviews">
+                    <exclude reference="phM-ot-qkM"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular">
-                <mask key="constraints">
-                    <include reference="JNh-gg-bgf"/>
-                    <include reference="Uxj-f6-ng6"/>
-                    <exclude reference="WsE-KB-4CC"/>
-                    <exclude reference="Zpx-gm-MeB"/>
-                    <include reference="pcJ-3S-2nX"/>
-                    <include reference="6MP-04-Q6g"/>
-                    <exclude reference="KZe-d6-lZj"/>
-                    <include reference="LRW-s8-Kx8"/>
-                    <exclude reference="SvA-lv-2Oe"/>
-                    <include reference="WI1-5f-cbP"/>
-                    <include reference="Xh1-sA-iFq"/>
-                    <exclude reference="k1L-gp-tAy"/>
-                    <include reference="J3c-nQ-o0i"/>
-                    <include reference="KVO-Pw-YPP"/>
-                    <include reference="VwV-Ir-8GR"/>
-                    <exclude reference="zfp-Yt-HGM"/>
+                <mask key="subviews">
+                    <include reference="phM-ot-qkM"/>
                 </mask>
             </variation>
-            <variation key="heightClass=regular-widthClass=compact">
-                <mask key="constraints">
-                    <include reference="QK7-SH-YSq"/>
-                    <include reference="VbC-Cl-oR6"/>
-                    <include reference="gLV-HF-SJ9"/>
-                    <include reference="Sf3-VX-hnR"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="251" y="258"/>
+            <point key="canvasLocation" x="250.5" y="257.5"/>
         </view>
     </objects>
     <resources>

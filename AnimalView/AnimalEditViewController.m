@@ -89,17 +89,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    // Record the original center for the keyboard popup
-    if (self.originalCenter.x == 0 && self.originalCenter.y == 0)
-    {
-        self.originalCenter = self.view.center;
-        NSLog(@"Center X:%f Y:%f", self.view.center.x, self.view.center.y);
-    }
-}
-
 - (IBAction)takePicture:(id)sender
 {
     // Display the image selection Action Sheet
@@ -164,6 +153,21 @@
     else
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+/*
+        CGRect f = imagePicker.view.bounds;
+        f.size.height -= imagePicker.navigationBar.bounds.size.height;
+        CGFloat barHeight = (f.size.height - f.size.width) / 2;
+        UIGraphicsBeginImageContext(f.size);
+        [[UIColor colorWithWhite:0 alpha:.5] set];
+        UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
+        UIRectFillUsingBlendMode(CGRectMake(0, (f.size.height - barHeight)-30, f.size.width, barHeight-30), kCGBlendModeNormal);
+        UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        UIImageView *overlayIV = [[UIImageView alloc] initWithFrame:f];
+        overlayIV.image = overlayImage;
+        [imagePicker.cameraOverlayView addSubview:overlayIV];
+ */
     }
     
     // Below the code will make a popup use this if the device is an iPad.
@@ -197,6 +201,22 @@
     
     //Get the selected image
     tempAnimalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    /*
+    CGSize imageSize = tempAnimalImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    if (width != height) {
+        CGFloat newDimension = MIN(width, height);
+        CGFloat widthOffset = (width - newDimension) / 2;
+        CGFloat heightOffset = (height - newDimension) / 2;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
+        [tempAnimalImage drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+                 blendMode:kCGBlendModeCopy
+                     alpha:1.];
+        tempAnimalImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    */
     
     // Put that image into the screen
     [animalImage setImage:tempAnimalImage];
@@ -300,16 +320,7 @@
 
 - (void)keyboardDidShow:(NSNotification *)note
 {
-    NSDictionary *info  = note.userInfo;
-    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
-    
-    CGRect rawFrame      = [value CGRectValue];
-    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
-    
-    CGFloat keyboardHeight = keyboardFrame.size.height;
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y-keyboardHeight);
-    
-    // Adjust the cancel button to edit
+        // Adjust the cancel button to edit
     self.navigationItem.leftBarButtonItem = backButton;
     
     // Disable navigation controls while keyboard is displayed
@@ -318,9 +329,6 @@
 
 - (void)keyboardDidHide:(NSNotification *)note
 {
-    // Set the screen position to the original orientation
-    self.view.center = self.originalCenter;
-    
     // Enable navigation controls when keyboard is dismissed
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;
