@@ -153,6 +153,21 @@
     else
     {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+/*
+        CGRect f = imagePicker.view.bounds;
+        f.size.height -= imagePicker.navigationBar.bounds.size.height;
+        CGFloat barHeight = (f.size.height - f.size.width) / 2;
+        UIGraphicsBeginImageContext(f.size);
+        [[UIColor colorWithWhite:0 alpha:.5] set];
+        UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
+        UIRectFillUsingBlendMode(CGRectMake(0, (f.size.height - barHeight)-30, f.size.width, barHeight-30), kCGBlendModeNormal);
+        UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        UIImageView *overlayIV = [[UIImageView alloc] initWithFrame:f];
+        overlayIV.image = overlayImage;
+        [imagePicker.cameraOverlayView addSubview:overlayIV];
+ */
     }
     
     // Below the code will make a popup use this if the device is an iPad.
@@ -186,6 +201,22 @@
     
     //Get the selected image
     tempAnimalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    /*
+    CGSize imageSize = tempAnimalImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    if (width != height) {
+        CGFloat newDimension = MIN(width, height);
+        CGFloat widthOffset = (width - newDimension) / 2;
+        CGFloat heightOffset = (height - newDimension) / 2;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
+        [tempAnimalImage drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+                 blendMode:kCGBlendModeCopy
+                     alpha:1.];
+        tempAnimalImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    */
     
     // Put that image into the screen
     [animalImage setImage:tempAnimalImage];
